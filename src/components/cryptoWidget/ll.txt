@@ -1,0 +1,12 @@
+symbol: 'CRYPTOCAP:BTC',
+width: '100%',
+height: '100%',
+locale: 'en',
+dateRange: '1D',
+colorTheme: 'light',
+trendLineColor: 'rgba(41, 98, 255, 1)',
+underLineColor: 'rgba(41, 98, 255, 0.3)',
+underLineBottomColor: 'rgba(41, 98, 255, 0)',
+isTransparent: true,
+autosize: true,
+largeChartUrl: ''

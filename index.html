@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<!-- ===============================================-->
+		<!--    Document Title-->
+		<!-- ===============================================-->
+		<title>Koltrum</title>
+
+		<!-- ===============================================-->
+		<!--    Favicons-->
+		<!-- ===============================================-->
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/assets/img/favicons/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="/assets/img/favicons/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="/assets/img/favicons/favicon-16x16.png"
+		/>
+		<link
+			rel="shortcut icon"
+			type="image/x-icon"
+			href="/assets/img/favicons/favicon.ico"
+		/>
+		<link rel="manifest" href="/assets/img/favicons/manifest.json" />
+		<meta
+			name="msapplication-TileImage"
+			content="/assets/img/favicons/mstile-150x150.png"
+		/>
+		<meta name="theme-color" content="#ffffff" />
+		<script src="/assets/vendors/imagesloaded/imagesloaded.pkgd.min.js"></script>
+		<script src="/assets/vendors/simplebar/simplebar.min.js"></script>
+		<script src="/assets/js/config.js"></script>
+
+		<!-- ===============================================-->
+		<!--    Stylesheets-->
+		<!-- ===============================================-->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+			integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<link rel="preconnect" href="/assets/fonts.googleapis.com/index.html" />
+		<link
+			rel="preconnect"
+			href="/assets/fonts.gstatic.com/index.html"
+			crossorigin=""
+		/>
+		<link
+			href="/assets/fonts.googleapis.com/css275fb.css?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="/assets/vendors/simplebar/simplebar.min.css"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="/assets/unicons.iconscout.com/release/v4.0.0/css/line.css"
+		/>
+		<link
+			href="/assets/css/theme-rtl.min.css"
+			type="text/css"
+			rel="stylesheet"
+			id="style-rtl"
+		/>
+		<link
+			href="/assets/css/theme.min.css"
+			type="text/css"
+			rel="stylesheet"
+			id="style-default"
+		/>
+		<link
+			href="/assets/css/user-rtl.min.css"
+			type="text/css"
+			rel="stylesheet"
+			id="user-style-rtl"
+		/>
+		<link
+			href="/assets/css/user.min.css"
+			type="text/css"
+			rel="stylesheet"
+			id="user-style-default"
+		/>
+		<script>
+			var phoenixIsRTL = JSON.parse(localStorage.getItem("phoenixIsRTL"));
+			if (phoenixIsRTL) {
+				var linkDefault = document.getElementById("style-default");
+				var userLinkDefault =
+					document.getElementById("user-style-default");
+				linkDefault.setAttribute("disabled", true);
+				userLinkDefault.setAttribute("disabled", true);
+				document.querySelector("html").setAttribute("dir", "rtl");
+			} else {
+				var linkRTL = document.getElementById("style-rtl");
+				var userLinkRTL = document.getElementById("user-style-rtl");
+				linkRTL.setAttribute("disabled", true);
+				userLinkRTL.setAttribute("disabled", true);
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="app"></div>
+		<script type="module" src="/src/main.js"></script>
+
+		
+
+		<!-- ===============================================-->
+		<!--    JavaScripts-->
+		<!-- ===============================================-->
+		<script src="/assets/vendors/popper/popper.min.js"></script>
+		<script src="/assets/vendors/bootstrap/bootstrap.min.js"></script>
+		<script src="/assets/vendors/anchorjs/anchor.min.js"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/is_js/0.9.0/is.min.js"
+			integrity="sha512-DvhVUdQWYI9UoF5HGHhl00nbUFcr+j6dGlg/FSrolqR3EridE8CF82nCNAZsE4iAPkw/ws0O7IrZ1jOUuJQXxg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/all.min.js"
+			integrity="sha512-2bMhOkE/ACz21dJT8zBOMgMecNxx0d37NND803ExktKiKdSzdwn+L7i9fdccw/3V06gM/DBWKbYmQvKMdAA9Nw=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+		<script src="/assets/vendors/lodash/lodash.min.js"></script>
+		<script src="/assets/polyfill.io/v3/polyfill.min58be.js?features=window.scroll"></script>
+		<script src="/assets/vendors/list.js/list.min.js"></script>
+		<script src="/assets/vendors/feather-icons/feather.min.js"></script>
+		<script src="/assets/vendors/dayjs/dayjs.min.js"></script>
+		<script src="/assets/vendors/isotope-layout/isotope.pkgd.min.js"></script>
+		<script src="/assets/vendors/isotope-packery/packery-mode.pkgd.min.js"></script>
+		<script src="/assets/vendors/bigpicture/BigPicture.js"></script>
+		<script src="/assets/vendors/countup/countUp.umd.js"></script>
+
+		<script src="/assets/smtpjs.com/v3/smtp.js"></script>
+
+		<script src="/assets/js/phoenix.js"></script>
+	</body>
+</html>
