@@ -5,7 +5,7 @@
 				<div class="d-flex align-items-center">
 					K
 					<img
-						src="assets/img/icons/logo.png"
+						src="/assets/img/icons/logo.png"
 						alt="phoenix"
 						width="50"
 						class="mx-0"

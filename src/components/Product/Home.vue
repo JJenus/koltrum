@@ -11,7 +11,7 @@
 					<div
 						class="bg-holder"
 						style="
-							background-image: url(assets/img/bg/bg-23.png);
+							background-image: url(/assets/img/bg/bg-23.png);
 							background-size: contain;
 						"
 					></div>
@@ -37,7 +37,7 @@
 						>
 							<img
 								class="pt-7 pt-md-0 w-100"
-								src="assets/img/bg/bg-1-2.png"
+								src="/assets/img/bg/bg-1-2.png"
 								alt="hero-header"
 							/>
 						</div>

@@ -39,7 +39,7 @@
 							<div class="border-start-lg border-dashed ps-4">
 								<img
 									class="mb-4"
-									src="assets/img/icons/illustrations/bolt.png"
+									src="/assets/img/icons/illustrations/bolt.png"
 									width="48"
 									height="48"
 									alt=""
@@ -63,7 +63,7 @@
 							<div class="border-start-lg border-dashed ps-4">
 								<img
 									class="mb-4"
-									src="assets/img/icons/illustrations/pie.png"
+									src="/assets/img/icons/illustrations/pie.png"
 									width="48"
 									height="48"
 									alt=""

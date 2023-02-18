@@ -53,7 +53,7 @@
 			<div
 				class="bg-holder z-index-2 d-none d-md-block"
 				style="
-					background-image: url(assets/img/bg/13.png);
+					background-image: url(/assets/img/bg/13.png);
 					background-size: auto;
 					background-position: right;
 				"
@@ -62,7 +62,7 @@
 			<div
 				class="bg-holder z-index-2 d-none d-md-block d-lg-none d-xl-block"
 				style="
-					background-image: url(assets/img/bg/bg-12.png);
+					background-image: url(/assets/img/bg/bg-12.png);
 					background-size: auto;
 					background-position: left;
 				"
@@ -122,14 +122,14 @@
 													<div
 														class="bg-holder"
 														style="
-															background-image: url(assets/img/bg/bg-2.png);
+															background-image: url(/assets/img/bg/bg-2.png);
 															background-size: contain;
 														"
 													></div>
 													<!--/.bg-holder-->
 													<img
 														class="rounded-3 mb-lg-0 opacity-100 position-relative"
-														src="assets/img/team/61.png"
+														src="/assets/img/team/61.png"
 														width="153"
 														height="153"
 														alt=""
@@ -184,14 +184,14 @@
 													<div
 														class="bg-holder"
 														style="
-															background-image: url(assets/img/bg/bg-2.png);
+															background-image: url(/assets/img/bg/bg-2.png);
 															background-size: contain;
 														"
 													></div>
 													<!--/.bg-holder-->
 													<img
 														class="rounded-3 mb-lg-0 opacity-100 position-relative"
-														src="assets/img/team/8.png"
+														src="/assets/img/team/8.png"
 														width="154"
 														alt=""
 													/>
@@ -245,14 +245,14 @@
 													<div
 														class="bg-holder"
 														style="
-															background-image: url(assets/img/bg/bg-2.png);
+															background-image: url(/assets/img/bg/bg-2.png);
 															background-size: contain;
 														"
 													></div>
 													<!--/.bg-holder-->
 													<img
 														class="rounded-3 mb-lg-0 opacity-100 position-relative"
-														src="assets/img/team/35.png"
+														src="/assets/img/team/35.png"
 														width="154"
 														alt=""
 													/>
@@ -303,13 +303,13 @@
 		<div class="position-relative">
 			<div
 				class="bg-holder world-map-bg"
-				style="background-image: url(assets/img/bg/bg-13.png)"
+				style="background-image: url(/assets/img/bg/bg-13.png)"
 			></div>
 			<!--/.bg-holder-->
 			<div
 				class="bg-holder z-index-2 opacity-25"
 				style="
-					background-image: url(assets/img/bg/bg-right-21.png);
+					background-image: url(/assets/img/bg/bg-right-21.png);
 					background-size: auto;
 					background-position: right;
 				"
@@ -318,7 +318,7 @@
 			<div
 				class="bg-holder z-index-2 mt-9 opacity-25"
 				style="
-					background-image: url(assets/img/bg/bg-left-21.png);
+					background-image: url(/assets/img/bg/bg-left-21.png);
 					background-size: auto;
 					background-position: left;
 				"
@@ -411,7 +411,7 @@
 							<div class="col-xl-4 text-center text-md-start">
 								<img
 									class="img-fluid"
-									src="assets/img/generic/capterra.png"
+									src="/assets/img/generic/capterra.png"
 									alt=""
 								/>
 							</div>
@@ -435,7 +435,7 @@
 			<div
 				class="bg-holder d-dark-none"
 				style="
-					background-image: url(assets/img/bg/bg-5.png);
+					background-image: url(/assets/img/bg/bg-5.png);
 					background-size: auto;
 				"
 			></div>
@@ -443,7 +443,7 @@
 			<div
 				class="bg-holder d-light-none"
 				style="
-					background-image: url(assets/img/bg/bg-dark-5.png);
+					background-image: url(/assets/img/bg/bg-dark-5.png);
 					background-size: auto;
 				"
 			></div>
@@ -451,7 +451,7 @@
 			<div
 				class="bg-holder"
 				style="
-					background-image: url(assets/img/bg/bg-left-5.png);
+					background-image: url(/assets/img/bg/bg-left-5.png);
 					background-position: left;
 					background-size: auto;
 				"
@@ -460,7 +460,7 @@
 			<div
 				class="bg-holder"
 				style="
-					background-image: url(assets/img/bg/bg-right-6.png);
+					background-image: url(/assets/img/bg/bg-right-6.png);
 					background-position: right;
 					background-size: auto;
 				"
@@ -569,7 +569,7 @@
 							<div
 								class="bg-holder"
 								style="
-									background-image: url(assets/img/bg/bg-18.png);
+									background-image: url(/assets/img/bg/bg-18.png);
 									background-position: right;
 									background-size: auto;
 								"
@@ -578,12 +578,12 @@
 							<div class="card-body position-relative">
 								<img
 									class="img-fluid mb-5 d-dark-none"
-									src="assets/img/spot-illustrations/27.png"
+									src="/assets/img/spot-illustrations/27.png"
 									width="210"
 									alt="..."
 								/><img
 									class="img-fluid mb-5 d-light-none"
-									src="assets/img/spot-illustrations/dark_27.png"
+									src="/assets/img/spot-illustrations/dark_27.png"
 									width="210"
 									alt="..."
 								/>
@@ -632,7 +632,7 @@
 			<div
 				class="bg-holder footer-bg"
 				style="
-					background-image: url(assets/img/bg/bg-19.png);
+					background-image: url(/assets/img/bg/bg-19.png);
 					background-size: auto;
 				"
 			></div>
@@ -640,7 +640,7 @@
 			<div
 				class="bg-holder"
 				style="
-					background-image: url(assets/img/bg/bg-right-20.png);
+					background-image: url(/assets/img/bg/bg-right-20.png);
 					background-position: right;
 					background-size: auto;
 				"
@@ -649,7 +649,7 @@
 			<div
 				class="bg-holder"
 				style="
-					background-image: url(assets/img/bg/bg-left-20.png);
+					background-image: url(/assets/img/bg/bg-left-20.png);
 					background-position: left;
 					background-size: auto;
 				"
@@ -680,7 +680,7 @@
 								<a href="#"
 									><img
 										class="mb-3"
-										src="assets/img/icons/logo.png"
+										src="/assets/img/icons/logo.png"
 										height="48"
 										alt=""
 								/></a>
