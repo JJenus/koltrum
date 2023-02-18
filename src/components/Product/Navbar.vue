@@ -1,7 +1,7 @@
 <template>
 	<nav class="navbar bg-white navbar-expand-lg sticky-top">
 		<div class="container-small px-0 px-sm-3">
-			<a class="navbar-brand flex-1 flex-lg-grow-0" href="index.html">
+			<a class="navbar-brand flex-1 flex-lg-grow-0" href="/">
 				<div class="d-flex align-items-center">
 					K
 					<img

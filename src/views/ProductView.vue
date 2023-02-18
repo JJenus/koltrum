@@ -281,7 +281,7 @@
 												<h3
 													class="fs-1 fs-xl-2 mb-5 lh-sm me-md-7 me-lg-0"
 												>
-													“Phoenix is all you can ask
+													“{{ AppName }} is all you can ask
 													for. This is perfect fit for
 													everything you might want to
 													work on!”
@@ -354,7 +354,7 @@
 								<p class="text-white">
 									You can get all the reports, data analysis,
 									and growth maps you need with the help of
-									Phoenix's power, and you may review and
+									{{ AppName }}'s power, and you may review and
 									modify them whenever you want. These
 									features make this dashboard outstanding.
 								</p>
