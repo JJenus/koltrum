@@ -75,6 +75,8 @@
 					class="btn btn-lg btn-outline-secondary rounded-pill me-3"
 					href="#!"
 					role="button"
+					data-bs-toggle="modal"
+					data-bs-target="#auth-modal"
 					>Sign up</a
 				>
 			</div>

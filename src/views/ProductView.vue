@@ -7,6 +7,7 @@
 	import BTCTechAnsis from "../components/cryptoWidget/BTCTechAnsis.vue";
 	import AboutVue from "../components/Product/About.vue";
 	import Home from "../components/Product/Home.vue";
+	import AuthModal from "../components/Product/AuthModal.vue";
 
 	const env = import.meta.env;
 	const AppName = env.VITE_APP_NAME;
@@ -16,6 +17,7 @@
 	<!-- ===============================================-->
 	<!--    Main Content-->
 	<!-- ===============================================-->
+	<AuthModal />
 	<main style="--phoenix-scroll-margin-top: 1.2rem">
 		<Navbar></Navbar>
 

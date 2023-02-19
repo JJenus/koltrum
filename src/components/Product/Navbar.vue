@@ -115,15 +115,18 @@
 							</label>
 						</div>
 					</div>
-					<a
+					<button
 						class="btn btn-link text-900 order-1 order-lg-0 ps-3 me-2"
-						href="#"
+						data-bs-toggle="modal"
+						data-bs-target="#auth-modal"
 					>
 						Sign in
-					</a>
+					</button>
 					<a
 						class="btn btn-phoenix-primary order-0"
 						href="#"
+						data-bs-toggle="modal"
+						data-bs-target="#auth-modal"
 					>
 						<span class="fw-bold">Sign Up</span>
 					</a>

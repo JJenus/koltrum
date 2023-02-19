@@ -182,7 +182,6 @@
 			referrerpolicy="no-referrer"
 		></script>
 		<script src="/assets/vendors/lodash/lodash.min.js"></script>
-		<script src="/assets/polyfill.io/v3/polyfill.min58be.js?features=window.scroll"></script>
 		<script src="/assets/vendors/list.js/list.min.js"></script>
 		<script src="/assets/vendors/feather-icons/feather.min.js"></script>
 		<script src="/assets/vendors/dayjs/dayjs.min.js"></script>
@@ -194,5 +193,38 @@
 		<script src="/assets/smtpjs.com/v3/smtp.js"></script>
 
 		<script src="/assets/js/phoenix.js"></script>
+
+		<script>
+			!(function () {
+				window.onload = function () {
+					// const preloader = document.querySelector(".page-loading");
+					// preloader.classList.remove("active");
+					setTimeout(function () {
+						// preloader.remove();
+						// Fetch all the forms we want to apply custom Bootstrap validation styles to
+						var forms =
+							document.querySelectorAll(".needs-validation");
+
+						// Loop over them and prevent submission
+						Array.prototype.slice
+							.call(forms)
+							.forEach(function (form) {
+								form.addEventListener(
+									"submit",
+									function (event) {
+										if (!form.checkValidity()) {
+											event.preventDefault();
+											event.stopPropagation();
+										}
+
+										form.classList.add("was-validated");
+									},
+									false
+								);
+							});
+					}, 1000);
+				};
+			})();
+		</script>
 	</body>
 </html>
