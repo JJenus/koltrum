@@ -4897,7 +4897,7 @@ setTimeout(() => {
 							const t = n(m, "move-target"),
 								i = document.querySelector(t);
 							if (
-								(console.log(i),
+								(i,
 								(e.innerHTML = ""),
 								i.insertAdjacentHTML(
 									"afterend",
