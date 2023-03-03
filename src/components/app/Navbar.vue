@@ -22,7 +22,7 @@
 					><span class="toggle-line"></span
 				></span>
 			</button>
-			<a class="navbar-brand me-n2 me-sm-3">
+			<a class="navbar-brand me-n2 me-sm-3" href="/">
 				<div class="d-flex align-items-center">
 					<div class="d-flex align-items-center">
 						<img

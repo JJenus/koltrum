@@ -63,15 +63,7 @@
 								>Dashboard</a
 							>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link px-3" href="#!">
-								<span
-									class="me-2 text-900"
-									data-feather="lock"
-								></span
-								>Posts &amp; Activity</a
-							>
-						</li>
+						
 						<li class="nav-item">
 							<a class="nav-link px-3" href="#!">
 								<span
@@ -81,15 +73,7 @@
 								>Settings &amp; Privacy
 							</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link px-3" href="#!">
-								<span
-									class="me-2 text-900"
-									data-feather="help-circle"
-								></span
-								>Help Center</a
-							>
-						</li>
+						
 						<li class="nav-item">
 							<a class="nav-link px-3" href="#!">
 								<span
@@ -102,17 +86,7 @@
 					</ul>
 				</div>
 				<div class="card-footer p-0 border-top">
-					<ul class="nav d-flex flex-column my-3">
-						<li class="nav-item">
-							<a class="nav-link px-3" href="#!">
-								<span
-									class="me-2 text-900"
-									data-feather="user-plus"
-								></span
-								>Add another account</a
-							>
-						</li>
-					</ul>
+					
 					<hr />
 					<div class="px-3">
 						<a

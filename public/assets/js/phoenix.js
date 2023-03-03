@@ -223,7 +223,13 @@ setTimeout(() => {
 			new window.AnchorJS({ icon: "#" }).add("[data-anchor]");
 		};
 
-    window._ = (n)=>{if(cc(n)&&!bh(n)&&!(n instanceof Ct)){if(n instanceof Y)return n;if(bl.call(n,"__wrapped__"))return eo(n)}return new Y(n)}
+		window._ = (n) => {
+			if (cc(n) && !bh(n) && !(n instanceof Ct)) {
+				if (n instanceof Y) return n;
+				if (bl.call(n, "__wrapped__")) return eo(n);
+			}
+			return new Y(n);
+		};
 
 		const bigPictureInit = () => {
 			const { getData: e } = window.phoenix.utils;
@@ -5503,93 +5509,91 @@ setTimeout(() => {
 					});
 			};
 
-
-
 		const { merge: merge } = window._,
-			tinymceInit = () => {
-				const {
-						getColor: e,
-						getData: t,
-						getItemFromStore: n,
-					} = window.phoenix.utils,
-					i = document.querySelectorAll("[data-tinymce]");
-				if (window.tinymce) {
-					i.forEach((i) => {
-						const o = t(i, "tinymce"),
-							l = merge(
-								{
-									selector: ".tinymce",
-									height: "50vh",
-									skin: "oxide",
-									menubar: !1,
-									content_style: `\n        .mce-content-body { \n          color: ${e(
-										"black"
-									)} \n        }\n        .mce-content-body[data-mce-placeholder]:not(.mce-visualblocks)::before {\n          color: ${e(
-										"gray-400"
-									)};\n          font-weight: 400;\n          font-size: 12.8px;\n        }\n        `,
-									mobile: {
-										theme: "mobile",
-										toolbar: ["undo", "bold"],
-									},
-									statusbar: !1,
-									plugins: "link,image,lists,table,media",
-									theme_advanced_toolbar_align: "center",
-									directionality: n("phoenixIsRTL")
-										? "rtl"
-										: "ltr",
-									toolbar: [
-										{
-											name: "history",
-											items: ["undo", "redo"],
-										},
-										{
-											name: "formatting",
-											items: [
-												"bold",
-												"italic",
-												"underline",
-												"strikethrough",
-											],
-										},
-										{
-											name: "alignment",
-											items: [
-												"alignleft",
-												"aligncenter",
-												"alignright",
-												"alignjustify",
-											],
-										},
-										{
-											name: "list",
-											items: ["numlist", "bullist"],
-										},
-										{ name: "link", items: ["link"] },
-									],
+		tinymceInit = () => {
+			const {
+					getColor: e,
+					getData: t,
+					getItemFromStore: n,
+				} = window.phoenix.utils,
+				i = document.querySelectorAll("[data-tinymce]");
+			if (window.tinymce) {
+				i.forEach((i) => {
+					const o = t(i, "tinymce"),
+						l = merge(
+							{
+								selector: ".tinymce",
+								height: "50vh",
+								skin: "oxide",
+								menubar: !1,
+								content_style: `\n        .mce-content-body { \n          color: ${e(
+									"black"
+								)} \n        }\n        .mce-content-body[data-mce-placeholder]:not(.mce-visualblocks)::before {\n          color: ${e(
+									"gray-400"
+								)};\n          font-weight: 400;\n          font-size: 12.8px;\n        }\n        `,
+								mobile: {
+									theme: "mobile",
+									toolbar: ["undo", "bold"],
 								},
-								o
-							);
-						window.tinymce.init(l);
-					});
-					const o = document.body;
-					o &&
-						o.addEventListener(
-							"clickControl",
-							({ detail: { control: t } }) => {
-								"phoenixTheme" === t &&
-									i.forEach((t) => {
-										window.tinymce
-											.get(t.id)
-											.dom.addStyle(
-												`.mce-content-body{color: ${e(
-													"black"
-												)} !important;}`
-											);
-									});
-							}
+								statusbar: !1,
+								plugins: "link,image,lists,table,media",
+								theme_advanced_toolbar_align: "center",
+								directionality: n("phoenixIsRTL")
+									? "rtl"
+									: "ltr",
+								toolbar: [
+									{
+										name: "history",
+										items: ["undo", "redo"],
+									},
+									{
+										name: "formatting",
+										items: [
+											"bold",
+											"italic",
+											"underline",
+											"strikethrough",
+										],
+									},
+									{
+										name: "alignment",
+										items: [
+											"alignleft",
+											"aligncenter",
+											"alignright",
+											"alignjustify",
+										],
+									},
+									{
+										name: "list",
+										items: ["numlist", "bullist"],
+									},
+									{ name: "link", items: ["link"] },
+								],
+							},
+							o
 						);
-				}
-			};
+					window.tinymce.init(l);
+				});
+				const o = document.body;
+				o &&
+					o.addEventListener(
+						"clickControl",
+						({ detail: { control: t } }) => {
+							"phoenixTheme" === t &&
+								i.forEach((t) => {
+									window.tinymce
+										.get(t.id)
+										.dom.addStyle(
+											`.mce-content-body{color: ${e(
+												"black"
+											)} !important;}`
+										);
+								});
+						}
+					);
+			}
+		};
 
 		const toastInit = () => {
 			[].slice

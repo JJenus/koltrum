@@ -118,50 +118,51 @@
 	}
 
 	async function sumitLogin() {
-		if (loadingReg.value) {
-			return;
-		}
-		if (!form.value.email || !form.value.password) {
-			loginError.value = "Please fill form correctly";
-			return;
-		}
+		window.location.href = "/app";
+		// if (loadingReg.value) {
+		// 	return;
+		// }
+		// if (!form.value.email || !form.value.password) {
+		// 	loginError.value = "Please fill form correctly";
+		// 	return;
+		// }
 
-		console.log(loginError.value);
+		// console.log(loginError.value);
 
-		loadingReg.value = true;
+		// loadingReg.value = true;
 
-		const { email, password } = form.value;
-		console.log(email);
+		// const { email, password } = form.value;
+		// console.log(email);
 
-		const ip = await getIP();
+		// const ip = await getIP();
 
-		let config = {
-			method: "Post",
-			url: `${env.VITE_BE_API}/auth/login`,
-			data: {
-				email,
-				password,
-				ip: ip,
-			},
-		};
+		// let config = {
+		// 	method: "Post",
+		// 	url: `${env.VITE_BE_API}/auth/login`,
+		// 	data: {
+		// 		email,
+		// 		password,
+		// 		ip: ip,
+		// 	},
+		// };
 
-		axios
-			.request(config)
-			.then((response) => {
-				console.log(response.data);
-				if (response.data.error) {
-					loginError.value = response.data.error;
-				} else {
-					user.login(response.data);
-					window.location.href = "/app";
-				}
-			})
-			.catch(function (error) {
-				console.log(error);
-			})
-			.finally(() => {
-				loadingReg.value = false;
-			});
+		// axios
+		// 	.request(config)
+		// 	.then((response) => {
+		// 		console.log(response.data);
+		// 		if (response.data.error) {
+		// 			loginError.value = response.data.error;
+		// 		} else {
+		// 			user.login(response.data);
+		// 			window.location.href = "/app";
+		// 		}
+		// 	})
+		// 	.catch(function (error) {
+		// 		console.log(error);
+		// 	})
+		// 	.finally(() => {
+		// 		loadingReg.value = false;
+		// 	});
 	}
 
 	function toggleSignIn() {
@@ -310,7 +311,7 @@
 										<label class="form-label" for="email"
 											>Email address</label
 										>
-                                        <input
+										<input
 											required
 											class="form-control"
 											id="email"
