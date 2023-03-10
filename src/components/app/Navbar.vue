@@ -1,7 +1,7 @@
 <script setup>
 	import UserNav from "./UserNav.vue";
 	import ProjectsNav from "./ProjectsNav.vue";
-	import NotificationNav from "./NotificationNav.vue"
+	import NotificationNav from "./NotificationNav.vue";
 
 	const AppName = import.meta.env.VITE_APP_NAME;
 </script>
@@ -18,9 +18,9 @@
 				aria-expanded="false"
 				aria-label="Toggle Navigation"
 			>
-				<span class="navbar-toggle-icon"
-					><span class="toggle-line"></span
-				></span>
+				<span class="navbar-toggle-icon">
+					<span class="toggle-line"></span>
+				</span>
 			</button>
 			<a class="navbar-brand me-n2 me-sm-3" href="/">
 				<div class="d-flex align-items-center">
@@ -53,7 +53,6 @@
 						class="nav-link lh-1"
 						href="/app/dashboard"
 						role="button"
-						id="dashboards"
 						>Dashboard</a
 					>
 				</li>
@@ -62,16 +61,33 @@
 						class="nav-link lh-1"
 						href="/app/projects"
 						role="button"
-						id="appss"
 						>Projects</a
 					>
+				</li>
+
+				<li class="nav-item dropdown">
+					<a
+						class="nav-link lh-1"
+						href="/app/wallets"
+						role="button"
+					>
+						Wallets
+					</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a
+						class="nav-link lh-1"
+						href="/app/profile"
+						role="button"
+					>
+						Profile
+					</a>
 				</li>
 				<li class="nav-item dropdown">
 					<a
 						class="nav-link lh-1"
 						href="/app/settings"
 						role="button"
-						id="documentations"
 						>Settings</a
 					>
 				</li>

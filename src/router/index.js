@@ -3,6 +3,9 @@ import ProductView from "../views/ProductView.vue";
 import AppView from "../views/AppView.vue";
 import Dashboard from "../views/app/Dashboard.vue";
 import Projects from "../views/app/Projects.vue";
+import Wallet from "../views/app/Wallet.vue";
+import Profile from "../views/app/Profile.vue";
+
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
@@ -37,9 +40,9 @@ const router = createRouter({
 					component: Projects,
 				},
 				{
-					path: "security",
-					name: "security",
-					// component: Security,
+					path: "wallets",
+					name: "wallets",
+					component: Wallet,
 				},
 				{
 					path: "settings",
@@ -47,9 +50,9 @@ const router = createRouter({
 					// component: CardsVue,
 				},
 				{
-					path: "transactions",
-					name: "payments",
-					// component: PaymentsVue,
+					path: "profile",
+					name: "profile",
+					component: Profile,
 				},
 			],
 		},

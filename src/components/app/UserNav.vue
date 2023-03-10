@@ -46,7 +46,7 @@
 				<div class="overflow-auto scrollbar" style="height: 10rem">
 					<ul class="nav d-flex flex-column mb-2 pb-1">
 						<li class="nav-item">
-							<a class="nav-link px-3" href="#!">
+							<a class="nav-link px-3" href="/app/profile">
 								<span
 									class="me-2 text-900"
 									data-feather="user"
@@ -55,7 +55,7 @@
 							>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link px-3" href="#!"
+							<a class="nav-link px-3" href="/app/dashboard"
 								><span
 									class="me-2 text-900"
 									data-feather="pie-chart"
@@ -97,7 +97,7 @@
 							>Sign out</a
 						>
 					</div>
-					<div class="my-2 text-center fw-bold fs--2 text-600">
+					<div class="my-2 text-center d-none fw-bold fs--2 text-600">
 						<a class="text-600 me-1" href="#!">Privacy policy</a
 						>&bull;<a class="text-600 mx-1" href="#!">Terms</a
 						>&bull;<a class="text-600 ms-1" href="#!">Cookies</a>
