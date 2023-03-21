@@ -1,3 +1,9 @@
+<script setup>
+	import { inject } from "vue";
+
+	const user = inject("user");
+</script>
+
 <template>
 	<li class="nav-item dropdown">
 		<a
@@ -10,12 +16,16 @@
 			aria-haspopup="true"
 			aria-expanded="false"
 		>
-			<div class="avatar avatar-l">
+			<div v-if="user.imgUrl" class="avatar avatar-l">
 				<img
+					
 					class="rounded-circle"
-					src="/assets/img/team/57.png"
+					:src="user.imgUrl"
 					alt=""
 				/>
+			</div>
+			<div v-else class="border rounded-circle p-3">
+				<i class="fas fa-user fs-1"></i>
 			</div>
 		</a>
 		<div
@@ -27,24 +37,23 @@
 					<div class="text-center pt-4 pb-3">
 						<div class="avatar avatar-xl">
 							<img
+								v-if="user.imgUrl"
 								class="rounded-circle"
-								src="/assets/img/team/57.png"
+								:src="user.imgUrl"
 								alt=""
 							/>
+							<div v-else class="border rounded-circle p-0 py-2">
+								<i class="fas fa-user m-0 p-0"></i>
+							</div>
 						</div>
-						<h6 class="mt-2 text-black">Jerry Seinfield</h6>
-					</div>
-					<div class="mb-3 mx-3">
-						<input
-							class="form-control form-control-sm"
-							id="statusUpdateInput"
-							type="text"
-							placeholder="Update your status"
-						/>
+						<h6 class="mt-2 text-black">{{ user.name }}</h6>
 					</div>
 				</div>
-				<div class="overflow-auto scrollbar" style="height: 10rem">
-					<ul class="nav d-flex flex-column mb-2 pb-1">
+				<div
+					class="overflow-auto scrollbar border-top"
+					style="height: 10rem"
+				>
+					<ul class="nav d-flex flex-column mb-2 py-3">
 						<li class="nav-item">
 							<a class="nav-link px-3" href="/app/profile">
 								<span
@@ -63,7 +72,7 @@
 								>Dashboard</a
 							>
 						</li>
-						
+
 						<li class="nav-item">
 							<a class="nav-link px-3" href="#!">
 								<span
@@ -73,7 +82,7 @@
 								>Settings &amp; Privacy
 							</a>
 						</li>
-						
+
 						<li class="nav-item">
 							<a class="nav-link px-3" href="#!">
 								<span
@@ -85,10 +94,8 @@
 						</li>
 					</ul>
 				</div>
-				<div class="card-footer p-0 border-top">
-					
-					<hr />
-					<div class="px-3">
+				<div class="card-footer p-0">
+					<div class="px-3 my-2">
 						<a
 							class="btn btn-phoenix-secondary d-flex flex-center w-100"
 							href="#!"

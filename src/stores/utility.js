@@ -1,5 +1,6 @@
 import { ref } from "vue";
 import swal from "sweetalert";
+import moment from "moment";
 
 function notify(icon, title, message = "") {
 	swal({
@@ -98,6 +99,19 @@ export const util = {
 		let uArr = uri.split(".com/");
 		return uArr.join(`.com/resize=width:${width}/`);
 	},
+
+	timeAgo(time){
+		const fromNow = moment(time).fromNow();
+		const timer = fromNow.split(" ")[1];
+
+		let check = ["minutes", "seconds", "hours"].find((e) => timer == e);
+
+		// if (!check) {
+		// 	return moment(time).format("LLL");
+		// }
+
+		return fromNow;
+	}
 };
 
 export const userIp = {

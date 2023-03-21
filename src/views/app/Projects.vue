@@ -1,12 +1,15 @@
 <script setup>
-	import { computed, onMounted, ref } from "vue";
+	import { computed, onMounted, ref, inject } from "vue";
 	import Project from "../../components/app/projects/project.vue";
 	import NewProjectModal from "../../components/app/projects/NewProjectModal.vue";
+	import axios from "axios";
 
 	const AppName = import.meta.env.VITE_APP_NAME;
+	const env = import.meta.env;
+
 	const filter = ref("all");
 
-	const projects = [
+	const projects = ref([
 		{
 			value: 60,
 			name: "BTC",
@@ -46,18 +49,20 @@
 				color: "#006097",
 			},
 		},
-	].sort(function (b, a) {
-		return a.value - b.value;
-	});
+	]);
+
+	const user = inject("user");
 
 	const showProjects = computed(() => {
 		return filter.value == "all"
-			? projects
-			: projects.filter((project) => project.status == filter.value);
+			? projects.value
+			: projects.value.filter(
+					(project) => project.status == filter.value
+			  );
 	});
 
 	function total(type = "all") {
-		return projects.reduce((p, c) => {
+		return projects.value.reduce((p, c) => {
 			let val = 0;
 			if (type == "all" || type == c.status) val = p + 1;
 			else val = p;
@@ -66,7 +71,26 @@
 		}, 0);
 	}
 
-	onMounted(() => {});
+	function loadProjects() {
+		let config = {
+			method: "GET",
+			url: `${env.VITE_BE_API}/users/${user.value.id}/projects`,
+		};
+
+		axios
+			.request(config)
+			.then((response) => {
+				console.log("user projects", response.data);
+				projects.value = response.data;
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+	}
+
+	onMounted(() => {
+		loadProjects();
+	});
 </script>
 
 <template>
@@ -155,6 +179,10 @@
 					</div>
 				</div>
 			</div>
+		</div>
+
+		<div class="text-center text-muted" v-if="projects.length == 0">
+			<span>No projects found.</span>
 		</div>
 		<div
 			class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xxl-4 g-3 mb-9"

@@ -1,57 +1,162 @@
 <script setup>
-	import { computed, onMounted, ref } from "vue";
+	import { computed, inject, onMounted, ref } from "vue";
+	import * as filestack from "filestack-js";
+	import axios from "axios";
+	import { alert, util } from "../../stores/utility";
 
 	const AppName = import.meta.env.VITE_APP_NAME;
+	const env = import.meta.env;
+	const user = inject("user");
 
-	const projects = [
-		{
-			value: 60,
-			name: "BTC",
-			status: "completed",
-			plan: {
-				name: "Premium",
-				amount: 3000,
-				returns: 10000,
-			},
-			itemStyle: {
-				color: "#f2a900",
-			},
-		},
-		{
-			value: 2538,
-			name: "ETH",
-			status: "cancelled",
-			plan: {
-				name: "Starter",
-				amount: 500,
-				returns: 3000,
-			},
-			itemStyle: {
-				color: "#c99d66",
-			},
-		},
-		{
-			value: 1562,
-			name: "XRP",
-			status: "ongoing",
-			plan: {
-				name: "Standard",
-				amount: 1000,
-				returns: 6000,
-			},
-			itemStyle: {
-				color: "#006097",
-			},
-		},
-	];
+	// const projects = [
+	// 	{
+	// 		value: 60,
+	// 		name: "BTC",
+	// 		status: "completed",
+	// 		plan: {
+	// 			name: "Premium",
+	// 			amount: 3000,
+	// 			returns: 10000,
+	// 		},
+	// 		itemStyle: {
+	// 			color: "#f2a900",
+	// 		},
+	// 	},
+	// 	{
+	// 		value: 2538,
+	// 		name: "ETH",
+	// 		status: "cancelled",
+	// 		plan: {
+	// 			name: "Starter",
+	// 			amount: 500,
+	// 			returns: 3000,
+	// 		},
+	// 		itemStyle: {
+	// 			color: "#c99d66",
+	// 		},
+	// 	},
+	// 	{
+	// 		value: 1562,
+	// 		name: "XRP",
+	// 		status: "ongoing",
+	// 		plan: {
+	// 			name: "Standard",
+	// 			amount: 1000,
+	// 			returns: 6000,
+	// 		},
+	// 		itemStyle: {
+	// 			color: "#006097",
+	// 		},
+	// 	},
+	// ];
 
 	const form = ref({
-		name: null,
-		email: null,
-		address: null,
-		phone: null,
-		country: null,
+		name: user.value.name,
+		email: user.value.email,
+		address: user.value.address,
+		phone: user.value.phone,
+		country: user.value.country,
+		imgUrl: null,
 	});
+
+	const tempImg = ref(
+		"https://icon-library.com/images/user-image-icon/user-image-icon-19.jpg"
+	);
+	const changed = ref(false);
+
+	const apikey = env.VITE_FSHARE_KEY;
+	const client = filestack.init(apikey);
+
+	const loading = ref(false);
+	const imgFile = ref(null);
+	const savedImg = ref(false);
+
+	const showImage = computed(() => {
+		if (changed.value || !user.value.imgUrl) {
+			return tempImg.value;
+		}
+		return user.value.imgUrl;
+	});
+
+	function saveImage() {
+		changed.value = false;
+		client
+			.upload(imgFile.value)
+			.then((res) => {
+				console.log("success: ", res);
+				form.value.imgUrl = res.url;
+				save();
+				savedImg.value = true;
+			})
+			.catch((err) => {
+				console.log(err);
+				alert.error("Failed", "Please check your connection.");
+			});
+	}
+
+	function revert() {
+		changed.value = false;
+		savedImg.value = false;
+		// user.value.imgUrl = user.getUser().imgUrl;
+	}
+
+	function selectImage() {
+		const input = document.querySelector("#select-profile-image");
+		input.click();
+	}
+
+	function newImage(evt) {
+		const input = evt.target;
+
+		if (input.files && input.files[0]) {
+			imgFile.value = input.files[0];
+			tempImg.value = URL.createObjectURL(input.files[0]);
+			changed.value = true;
+		}
+	}
+
+	function submit($evt) {
+		if (!$evt.target.checkValidity()) return;
+		loading.value = true;
+		if (changed.value) {
+			saveImage();
+		} else save();
+	}
+
+	function save() {
+		const saveData = user.value;
+
+		saveData.name = form.value.name;
+		saveData.email = form.value.email;
+		saveData.country = form.value.country;
+		saveData.phone = form.value.phone;
+		saveData.address = form.value.address;
+		if (form.value.imgUrl) saveData.imgUrl = form.value.imgUrl;
+
+		console.log("SAVE DATA: ", saveData);
+
+		let config = {
+			method: "PUT",
+			url: `${env.VITE_BE_API}/users`,
+			data: saveData,
+		};
+		axios
+			.request(config)
+			.then((res) => {
+				const data = res.data;
+				user.value = data;
+				console.log(data);
+
+				alert.success("Success");
+			})
+			.catch((err) => {
+				alert.error("Failed");
+				console.log(err);
+			})
+			.finally(() => {
+				loading.value = false;
+			});
+	}
 
 	function total(type = "all") {
 		return projects.reduce((p, c) => {
@@ -61,10 +166,6 @@
 
 			return val;
 		}, 0);
-	}
-
-	function save() {
-		console.log("Yes");
 	}
 
 	onMounted(() => {});
@@ -102,50 +203,50 @@
 						<div class="col-12 col-md-7 col-xxl-12 mb-xxl-3">
 							<div class="card h-100">
 								<div
-									class="card-body d-flex flex-column justify-content-between pb-3"
+									class="card-body d-flex flex-column justify-content-center align-items-center pb-3"
 								>
 									<div
 										class="row align-items-center g-5 mb-3 text-center text-sm-start"
 									>
-										<div class="col-12 col-sm-auto mb-sm-2">
+										<div
+											class="col-12 col-sm-auto mb-sm-2 position-relative"
+										>
 											<div class="avatar avatar-5xl">
 												<img
 													class="rounded-circle"
-													src="/assets/img/team/15.png"
-													alt=""
+													:src="showImage"
+													alt="DP"
 												/>
+												<div
+													class="w-100 h-100 position-absolute top-0 left-0 bg-transparent d-flex align-items-center justify-content-center"
+												>
+													<button
+														@click="selectImage()"
+														:class="user.imgUrl? '':'opacity-50' "
+														class="btn btn-outline-secondary rounded-circle px-3 py-3"
+													>
+														<i
+															class="fa fa-plus"
+														></i>
+													</button>
+													<input
+														type="file"
+														id="select-profile-image"
+														class="d-none"
+														accept="image/png, image/gif, image/jpeg"
+														@change="
+															newImage($event)
+														"
+													/>
+												</div>
 											</div>
 										</div>
 										<div class="col-12 col-sm-auto flex-1">
-											<h3>Ansolo Lazinatov</h3>
+											<h3>{{ user.name }}</h3>
 											<p class="text-800">
-												Joined 3 months ago
-											</p>
-										</div>
-									</div>
-									<div
-										class="d-flex flex-between-center border-top border-dashed border-300 pt-4"
-									>
-										<div>
-											<h6>Projects</h6>
-											<p class="fs-1 text-800 mb-0">
-												{{ total() }}
-											</p>
-										</div>
-										<div>
-											<h6>Completed</h6>
-											<p
-												class="fs-1 text-800 mb-0 text-success"
-											>
-												{{ total("completed") }}
-											</p>
-										</div>
-										<div>
-											<h6>Cancelled</h6>
-											<p
-												class="fs-1 text-800 mb-0 text-danger"
-											>
-												{{ total("cancelled") }}
+												{{
+													util.timeAgo(user.createdAt)
+												}}
 											</p>
 										</div>
 									</div>
@@ -165,19 +266,32 @@
 									</div>
 									<h5 class="text-800">Address</h5>
 									<p class="text-800">
-										Shatinon Mekalan<br />Vancouver, British
-										Columbia<br />Canada
+										{{ user.address }}
+										<span
+											v-if="!user.address"
+											class="muted small"
+											>(No address added)</span
+										>
+										<br />{{ user.country }}
 									</p>
 									<div class="mb-3">
 										<h5 class="text-800">Email</h5>
-										<a href="mailto:shatinon@jeemail.com"
-											>shatinon@jeemail.com</a
-										>
+										<a :href="'mailto:' + user.email">
+											{{ user.email }}
+										</a>
 									</div>
 									<h5 class="text-800">Phone</h5>
-									<a class="text-800" href="tel:+1234567890"
-										>+1234567890</a
+									<a
+										class="text-800"
+										:href="'tel:' + user.phone"
 									>
+										{{ user.phone }}
+										<span
+											v-if="!user.phone"
+											class="muted small"
+											>(No phone number added)</span
+										>
+									</a>
 								</div>
 							</div>
 						</div>
@@ -188,14 +302,14 @@
 
 									<!-- FORM -->
 
-									<form @submit.prevent="save()">
+									<form @submit.prevent="submit($event)">
 										<div class="form-floating mb-3">
 											<input
 												class="form-control"
 												id="name"
 												name="name"
 												type="text"
-												:value="form.name"
+												v-model="form.name"
 											/>
 											<label for="floatingInputValid"
 												>Name</label
@@ -207,7 +321,7 @@
 												name="email"
 												id="email"
 												type="email"
-												:value="form.email"
+												v-model="form.email"
 											/>
 											<label for="email">Email</label>
 										</div>
@@ -217,7 +331,7 @@
 												id="phone"
 												name="phone"
 												type="text"
-												:value="form.phone"
+												v-model="form.phone"
 											/>
 											<label for="phone">Phone</label>
 										</div>
@@ -227,7 +341,7 @@
 												id="country"
 												name="country"
 												type="text"
-												:value="form.country"
+												v-model="form.country"
 											/>
 											<label for="country">Country</label>
 										</div>
@@ -237,7 +351,7 @@
 												class="form-control"
 												id="address"
 												style="height: 100px"
-												:value="form.address"
+												v-model="form.address"
 											></textarea>
 											<label for="address">Address</label>
 										</div>
@@ -246,8 +360,21 @@
 											<button
 												type="submit"
 												class="btn btn-primary w-100"
+												:class="
+													loading ? 'disabled' : ''
+												"
 											>
-												Save
+												<span v-if="!loading">
+													Save changes
+												</span>
+												<span v-else>
+													<span
+														class="spinner-border spinner-border-sm me-1"
+														role="status"
+														aria-hidden="true"
+													></span>
+													Saving...
+												</span>
 											</button>
 										</div>
 									</form>

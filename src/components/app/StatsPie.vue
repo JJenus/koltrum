@@ -2,29 +2,13 @@
 	import { onMounted } from "vue";
 	import * as echarts from "echarts";
 
-	const crypto = [
-		{
-			value: 60,
-			name: "BTC",
-			itemStyle: {
-				color: "#f2a900",
-			},
+	const props = defineProps({
+		projects: {
+			required: true,
 		},
-		{
-			value: 38,
-			name: "ETH",
-			itemStyle: {
-				color: "#c99d66",
-			},
-		},
-		{
-			value: 52,
-			name: "XRP",
-			itemStyle: {
-				color: "#006097",
-			},
-		},
-	].sort(function (a, b) {
+	});
+
+	const crypto = props.projects.sort(function (a, b) {
 		return a.value - b.value;
 	});
 
@@ -109,7 +93,11 @@
 							</p>
 						</div>
 						<hr class="bg-200 mb-2 mt-2" />
+						<div v-if="crypto.length < 1" class="text-center">
+							No projects created
+						</div>
 						<div
+							v-else
 							v-for="coin in crypto"
 							class="d-flex align-items-center mb-1"
 						>
@@ -134,7 +122,14 @@
 						</button>
 					</div>
 					<div class="col-12 col-md-8">
-						<div class="position-relative umb-sm-4 mb-xl-0">
+						<div class="position-relative umb-sm-4 mb-xl-0 h-100">
+							<div
+								v-if="crypto.length < 1"
+								style="z-index: 1000;"
+								class="text-center bg-transparent w-100 position-absolute top-0 start-0 h-100 d-flex align-items-center justify-content-center"
+							>
+								Create projects to visualize
+							</div>
 							<div
 								class="position-relative m-0"
 								style="min-height: 390px; width: 100%"

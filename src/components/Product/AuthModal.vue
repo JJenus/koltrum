@@ -18,6 +18,7 @@
 		email: null,
 		password: null,
 		cPassword: null,
+		accept: null,
 	});
 
 	const regError = ref(null);
@@ -59,8 +60,13 @@
 
 	async function register() {
 		regError.value = null;
+		console.log("Registering...");
 
 		if (loadingReg.value) {
+			return;
+		}
+		if (!form.value.accept) {
+			regError.value = "Accept terms to continue";
 			return;
 		}
 		if (
@@ -69,7 +75,8 @@
 			!form.value.password ||
 			!form.value.cPassword
 		) {
-			regError.value = "Please fill form correctly";
+			regError.value =
+				"Please fill the form correctly. All fields are mandotory.";
 			return;
 		}
 
@@ -118,51 +125,51 @@
 	}
 
 	async function sumitLogin() {
-		window.location.href = "/app";
-		// if (loadingReg.value) {
-		// 	return;
-		// }
-		// if (!form.value.email || !form.value.password) {
-		// 	loginError.value = "Please fill form correctly";
-		// 	return;
-		// }
+		// window.location.href = "/app";
+		if (loadingReg.value) {
+			return;
+		}
+		if (!form.value.email || !form.value.password) {
+			loginError.value = "Please fill form correctly";
+			return;
+		}
 
-		// console.log(loginError.value);
+		console.log(loginError.value);
 
-		// loadingReg.value = true;
+		loadingReg.value = true;
 
-		// const { email, password } = form.value;
-		// console.log(email);
+		const { email, password } = form.value;
+		console.log(email);
 
-		// const ip = await getIP();
+		const ip = await getIP();
 
-		// let config = {
-		// 	method: "Post",
-		// 	url: `${env.VITE_BE_API}/auth/login`,
-		// 	data: {
-		// 		email,
-		// 		password,
-		// 		ip: ip,
-		// 	},
-		// };
+		let config = {
+			method: "Post",
+			url: `${env.VITE_BE_API}/auth/login`,
+			data: {
+				email,
+				password,
+				ip: ip,
+			},
+		};
 
-		// axios
-		// 	.request(config)
-		// 	.then((response) => {
-		// 		console.log(response.data);
-		// 		if (response.data.error) {
-		// 			loginError.value = response.data.error;
-		// 		} else {
-		// 			user.login(response.data);
-		// 			window.location.href = "/app";
-		// 		}
-		// 	})
-		// 	.catch(function (error) {
-		// 		console.log(error);
-		// 	})
-		// 	.finally(() => {
-		// 		loadingReg.value = false;
-		// 	});
+		axios
+			.request(config)
+			.then((response) => {
+				console.log(response.data);
+				if (response.data.error) {
+					loginError.value = response.data.error;
+				} else {
+					user.login(response.data);
+					window.location.href = "/app";
+				}
+			})
+			.catch(function (error) {
+				console.log(error);
+			})
+			.finally(() => {
+				loadingReg.value = false;
+			});
 	}
 
 	function toggleSignIn() {
@@ -222,6 +229,7 @@
 												id="email"
 												type="email"
 												placeholder="name@example.com"
+												v-model="form.email"
 											/><span
 												class="fas fa-user text-900 fs--1 form-icon"
 											></span>
@@ -238,12 +246,13 @@
 												id="password"
 												type="password"
 												placeholder="Password"
+												v-model="form.password"
 											/><span
 												class="fas fa-key text-900 fs--1 form-icon"
 											></span>
 										</div>
 									</div>
-									<div class="row flex-between-center mb-7">
+									<div class="row flex-between-center mb-5">
 										<div class="col-auto">
 											<div class="form-check mb-0">
 												<input
@@ -266,9 +275,31 @@
 												>Forgot Password?</a
 											>
 										</div>
+										<div class="col-auto mt-3">
+											<small
+												v-if="loginError"
+												class="text-danger"
+											>
+												{{ loginError }}
+										</small>
+										</div>
 									</div>
-									<button class="btn btn-primary w-100 mb-3">
-										Sign In
+
+									<button
+										class="btn btn-primary w-100 mb-3"
+										:class="loadingReg ? 'disabled' : ''"
+									>
+										<span v-if="!loadingReg">
+											Sign in
+										</span>
+										<span v-else>
+											<span
+												class="spinner-grow spinner-grow-sm"
+												role="status"
+												aria-hidden="true"
+											></span>
+											Loading...
+										</span>
 									</button>
 									<div class="text-center">
 										<a
@@ -305,6 +336,7 @@
 											id="name"
 											type="text"
 											placeholder="Name"
+											v-model="form.name"
 										/>
 									</div>
 									<div class="mb-3 text-start">
@@ -317,6 +349,7 @@
 											id="email"
 											type="email"
 											placeholder="name@example.com"
+											v-model="form.email"
 										/>
 									</div>
 									<div class="row g-3 mb-3">
@@ -332,6 +365,7 @@
 												id="password"
 												type="password"
 												placeholder="Password"
+												v-model="form.password"
 											/>
 										</div>
 										<div class="col-md-6">
@@ -345,6 +379,7 @@
 												id="confirmPassword"
 												type="password"
 												placeholder="Confirm Password"
+												v-model="form.cPassword"
 											/>
 										</div>
 									</div>
@@ -354,7 +389,9 @@
 											class="form-check-input"
 											id="termsService"
 											type="checkbox"
-										/><label
+											v-model="form.accept"
+										/>
+										<label
 											class="form-label fs--1 text-none"
 											for="termsService"
 											>I accept the
@@ -364,11 +401,28 @@
 											></label
 										>
 									</div>
+									<p
+										v-if="regError"
+										class="text-danger label fs-xs"
+									>
+										{{ regError }}
+									</p>
 									<button
 										type="submit"
 										class="btn btn-primary w-100 mb-3"
+										:class="loadingReg ? 'disabled' : ''"
 									>
-										Sign up
+										<span v-if="!loadingReg">
+											Sign up
+										</span>
+										<span v-else>
+											<span
+												class="spinner-grow spinner-grow-sm"
+												role="status"
+												aria-hidden="true"
+											></span>
+											Loading...
+										</span>
 									</button>
 									<div class="text-center">
 										<a

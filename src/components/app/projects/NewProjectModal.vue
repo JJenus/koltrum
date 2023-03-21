@@ -1,12 +1,16 @@
 <script setup>
-	import { ref } from "vue";
+	import { inject, onMounted, ref } from "vue";
 	import Plan from "./Plan.vue";
+	import axios from "axios";
+
+	const AppName = import.meta.env.VITE_APP_NAME;
+	const env = import.meta.env;
 
 	const crypto = ref([
 		{
 			symbol: "BTC",
 			name: "Bitcoin",
-			imageUrl:
+			logoUrl:
 				"https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1200px-Bitcoin.svg.png",
 			plans: [
 				{
@@ -50,7 +54,7 @@
 		{
 			symbol: "ETH",
 			name: "Ethereum",
-			imageUrl:
+			logoUrl:
 				"https://thegivingblock.com/wp-content/uploads/2021/07/Ethereum-ETH-Logo.png",
 			plans: [
 				{
@@ -94,7 +98,7 @@
 		{
 			symbol: "XRP",
 			name: "Ripple",
-			imageUrl:
+			logoUrl:
 				"https://www.pngkey.com/png/full/442-4424596_ripple-ripple-crypto-logo.png",
 			plans: [
 				{
@@ -136,11 +140,41 @@
 			],
 		},
 	]);
+
 	const showCoin = ref(null);
+	const makePay = ref(null);
+	const settings = inject("settings");
+	const loading = ref(null);
+	const transactionId = ref(null);
 
 	function selectCoin(coin) {
 		showCoin.value = coin;
 	}
+
+	function makePayAndSave($event) {
+		makePay.value.transactionId = transactionId.value;
+	}
+
+	function loadProjects() {
+		let config = {
+			method: "GET",
+			url: `${env.VITE_BE_API}/projects`,
+		};
+
+		axios
+			.request(config)
+			.then((response) => {
+				console.log("Available projects", response.data);
+				crypto.value = response.data;
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+	}
+
+	onMounted(() => {
+		loadProjects();
+	});
 </script>
 
 <template>
@@ -152,7 +186,7 @@
 		aria-labelledby="projectsCardViewModal"
 		aria-hidden="true"
 	>
-		<div class="modal-dialog modal-md">
+		<div class="modal-dialog modal-fullscreen-sm-down">
 			<div class="modal-content overflow-hidden">
 				<div
 					class="modal-header p-5 px-md-6 pb-0 position-relative border-0"
@@ -182,7 +216,7 @@
 								>
 									<div class="mb-2">
 										<img
-											:src="coin.imageUrl"
+											:src="coin.logoUrl"
 											class="w-100 crypto"
 										/>
 									</div>
@@ -210,13 +244,62 @@
 								{{ showCoin?.name }} ({{ showCoin?.symbol }})
 							</h5>
 							<hr class="mb-2" />
-							<div class="row g-3">
+							<div class="row g-3" v-if="!makePay">
 								<div
 									v-for="(plan, i) in showCoin.plans"
 									class="col-12 col-md-6 col-lg-12 col-xl-6"
 								>
-									<Plan :plan="plan" :index="i" />
+									<Plan
+										:plan="plan"
+										:index="i"
+										@click="makePay = plan"
+									/>
 								</div>
+							</div>
+							<div v-else>
+								<div>Plan: {{ makePay.title }}</div>
+								<div class="mb-3">
+									Amount: {{ makePay.amount }}
+								</div>
+								<div class="border rounded p-3 fs-xs mb-4">
+									Make payment to the address below and submit
+									the transaction id or trasaction reference
+									provided.
+									<h5 class="mt-3">
+										BTC: {{ "10kkXghst4jhdjfh" }}
+									</h5>
+								</div>
+								<form
+									action=""
+									@submit.prevent="makePayAndSave($event)"
+								>
+									<div class="mb-3">
+										<label for="transactionId"
+											>Transaction ID</label
+										>
+										<input
+											type="text"
+											class="form-control"
+											placeholder="Enter transaction"
+											v-model="transactionId"
+										/>
+									</div>
+									<div>
+										<button
+											@click="makePay = null"
+											class="btn btn-secondary me-2"
+										>
+											Back
+										</button>
+										<button class="btn btn-primary">
+											<span v-if="!loading">Submit</span>
+											<span
+												v-else
+												class="spinner-border spinner-border-sm"
+											></span>
+										</button>
+									</div>
+								</form>
 							</div>
 						</div>
 					</div>

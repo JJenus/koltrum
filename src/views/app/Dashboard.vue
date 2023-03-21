@@ -1,11 +1,47 @@
 <script setup>
 	import Symbols from "@/components/cryptoWidget/Symbols.vue";
-	import { onMounted } from "vue";
+	import { inject, onMounted, ref } from "vue";
 	import StatsPie from "@/components/app/StatsPie.vue";
+	import axios from "axios";
 
 	const AppName = import.meta.env.VITE_APP_NAME;
+	const env = import.meta.env;
 
-	onMounted(() => {});
+	const user = inject("user");
+	const projects = ref([]);
+
+	function loadProjects() {
+		let config = {
+			method: "GET",
+			url: `${env.VITE_BE_API}/users/${user.value.id}/projects`,
+		};
+
+		axios
+			.request(config)
+			.then((response) => {
+				console.log("user projects", response.data);
+				projects.value = response.data;
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+	}
+
+	function marker(status) {
+		const url = "status";
+		if (status == "completed")
+			url = "/assets/img/icons/illustrations/4l.png";
+		else if (status == "ongoing")
+			url = "/assets/img/icons/illustrations/3l.png";
+		else if (status == "cancelled")
+			url = "/assets/img/icons/illustrations/2l.png";
+
+		return url;
+	}
+
+	onMounted(() => {
+		loadProjects();
+	});
 </script>
 
 <template>
@@ -19,60 +55,35 @@
 							Here’s what’s going on in your portfolio.
 						</h5>
 					</div>
+					<h4 v-if="projects.length < 1" class="text-muted">
+						No project to display.
+						<a href="/app/projects" class="btn-link"
+							>Create a mining project</a
+						>
+					</h4>
 					<div class="row align-items-center g-4">
-						<div class="col-12 col-md-auto">
+						<div
+							v-for="project in projects"
+							class="col-12 col-md-auto"
+						>
 							<div class="d-flex align-items-center">
 								<img
-									src="/assets/img/icons/illustrations/4l.png"
-									alt=""
+									:src="marker(project.status)"
+									alt="marker"
 									height="46"
 									width="46"
 								/>
 								<div class="ms-3">
-									<h4 class="mb-0">BTC</h4>
+									<h4 class="mb-0">
+										{{ project.project.symbol }}
+									</h4>
 									<p class="text-800 fs--1 mb-0">
-										0.0000434
-										<span class="badge bg-primary badge-sm"
-											>Premium</span
+										{{ project.value }}
+										<span
+											class="badge bg-primary badge-sm ms-1"
 										>
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-12 col-md-auto">
-							<div class="d-flex align-items-center">
-								<img
-									src="/assets/img/icons/illustrations/3l.png"
-									alt=""
-									height="46"
-									width="46"
-								/>
-								<div class="ms-3">
-									<h4 class="mb-0">ETH</h4>
-									<p class="text-800 fs--1 mb-0">
-										0.0000434
-										<span class="badge bg-primary badge-sm"
-											>Standard</span
-										>
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-12 col-md-auto">
-							<div class="d-flex align-items-center">
-								<img
-									src="/assets/img/icons/illustrations/2l.png"
-									alt=""
-									height="46"
-									width="46"
-								/>
-								<div class="ms-3">
-									<h4 class="mb-0">XRP</h4>
-									<p class="text-800 fs--1 mb-0">
-										0.0000434
-										<span class="badge bg-primary badge-sm"
-											>Starter</span
-										>
+											{{ project.plan.title }}
+										</span>
 									</p>
 								</div>
 							</div>
@@ -87,14 +98,14 @@
 							</p>
 						</div>
 						<div class="col-8 col-sm-4">
-							<select
+							<!-- <select
 								class="form-select form-select-sm mt-2 d-none"
 								id="select-gross-revenue-month"
 							>
 								<option>Mar 1 - 31, 2022</option>
 								<option>April 1 - 30, 2022</option>
 								<option>May 1 - 31, 2022</option>
-							</select>
+							</select> -->
 						</div>
 					</div>
 
@@ -104,6 +115,6 @@
 			</div>
 		</div>
 
-		<StatsPie />
+		<StatsPie :projects="projects" />
 	</div>
 </template>

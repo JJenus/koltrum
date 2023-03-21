@@ -119,7 +119,7 @@
 										>
 										</span>
 										<span class="text-700 fw-semi-bold">
-											{{ benefit }}
+											{{ benefit.name }}
 										</span>
 									</li>
 								</ul>
