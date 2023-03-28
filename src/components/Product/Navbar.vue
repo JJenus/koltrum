@@ -1,20 +1,6 @@
 <script setup>
 	import { ref } from "vue";
-
-	const languages = ref([
-		{
-			country: "US",
-			language: "EN",
-			flag: "https://static.vecteezy.com/system/resources/thumbnails/010/870/761/small/american-flag-of-united-states-of-america-png.png",
-		},
-		{
-			country: "ES",
-			language: "ES",
-			flag: "https://seeklogo.com/images/S/Spain-logo-72350D8587-seeklogo.com.png",
-		},
-	]);
-
-	const seleted = ref(languages.value[0]);
+	import Selector from "../Selector.vue";
 </script>
 
 <template>
@@ -33,37 +19,7 @@
 				</div>
 			</a>
 			<div class="me-1 d-md-none">
-				<div class="dropdown">
-					<button
-						class="btn btn-outline-light dropdown-toggle p-0"
-						type="button"
-						data-bs-toggle="dropdown"
-						aria-expanded="false"
-					>
-						<img
-							width="24"
-							class="mb-1 me-1"
-							:src="seleted.flag"
-							:alt="seleted.country"
-							srcset=""
-						/>
-						{{ seleted.language }}
-					</button>
-					<ul class="dropdown-menu">
-						<li @click="seleted = lang" v-for="lang in languages">
-							<a href="#" class="dropdown-item">
-								<img
-									width="32"
-									class="me-1"
-									:src="lang.flag"
-									:alt="lang.country"
-									srcset=""
-								/>
-								{{ lang.language }}
-							</a>
-						</li>
-					</ul>
-				</div>
+				<Selector />
 			</div>
 			<div class="d-lg-none">
 				<div class="theme-control-toggle fa-icon-wait px-2">
@@ -102,28 +58,29 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<!-- Nav list -->
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item border-bottom border-bottom-lg-0">
 						<a
 							class="nav-link lh-1 py-0 fs--1 fw-bold py-3 active"
 							aria-current="page"
 							href="#"
-							>Home</a
+							>{{ $t("product.nav.home") }}</a
 						>
 					</li>
 					<li class="nav-item border-bottom border-bottom-lg-0">
 						<a
 							class="nav-link lh-1 py-0 fs--1 fw-bold py-3"
 							href="#feature"
-							>Features</a
+							>{{ $t("product.nav.features") }}</a
 						>
 					</li>
 
-					<li class="nav-item">
+					<li class="nav-item border-bottom border-bottom-lg-0">
 						<a
 							class="nav-link lh-1 py-0 fs--1 fw-bold py-3"
 							href="#about"
-							>About</a
+							>{{ $t("product.nav.about") }}</a
 						>
 					</li>
 
@@ -131,45 +88,12 @@
 						<a
 							class="nav-link lh-1 py-0 fs--1 fw-bold py-3"
 							href="#contact"
-							>Contact</a
+							>{{ $t("product.nav.contact") }}</a
 						>
 					</li>
 				</ul>
 				<div class="me-3 d-none d-md-block">
-					<div class="dropdown">
-						<button
-							class="btn btn-outline-light dropdown-toggle p-0"
-							type="button"
-							data-bs-toggle="dropdown"
-							aria-expanded="false"
-						>
-							<img
-								width="24"
-								class="mb-1 me-1"
-								:src="seleted.flag"
-								:alt="seleted.country"
-								srcset=""
-							/>
-							{{ seleted.language }}
-						</button>
-						<ul class="dropdown-menu">
-							<li
-								@click="seleted = lang"
-								v-for="lang in languages"
-							>
-								<a href="#" class="dropdown-item">
-									<img
-										width="32"
-										class="me-1"
-										:src="lang.flag"
-										:alt="lang.country"
-										srcset=""
-									/>
-									{{ lang.language }}
-								</a>
-							</li>
-						</ul>
-					</div>
+					<Selector />
 				</div>
 				<div class="d-grid d-lg-flex align-items-center">
 					<div
@@ -208,7 +132,7 @@
 						data-bs-toggle="modal"
 						data-bs-target="#auth-modal"
 					>
-						Sign in
+						{{ $t("signin") }}
 					</button>
 					<a
 						class="btn btn-phoenix-primary order-0"
@@ -216,7 +140,7 @@
 						data-bs-toggle="modal"
 						data-bs-target="#auth-modal"
 					>
-						<span class="fw-bold">Sign Up</span>
+						<span class="fw-bold">{{ $t("signup") }}</span>
 					</a>
 				</div>
 			</div>

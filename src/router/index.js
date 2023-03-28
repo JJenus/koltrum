@@ -7,6 +7,7 @@ import Wallet from "../views/app/Wallet.vue";
 import Profile from "../views/app/Profile.vue";
 
 import { user } from "@/stores/user";
+import Tr from "@/i18n/translation";
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
@@ -59,5 +60,7 @@ const router = createRouter({
 		},
 	],
 });
+
+router.beforeEach(Tr.routeMiddleware);
 
 export default router;

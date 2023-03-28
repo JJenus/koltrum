@@ -28,7 +28,7 @@
 	}
 
 	function marker(status) {
-		const url = "status";
+		let url = "status";
 		if (status == "completed")
 			url = "/assets/img/icons/illustrations/4l.png";
 		else if (status == "ongoing")

@@ -65,11 +65,11 @@
 					class="fs-5 fs-lg-6 fs-md-7 fs-lg-6 fs-xl-7 fs fw-black mb-4"
 				>
 					<span class="text-primary me-3">{{ AppName }}</span
-					>for<br />your crypto
+					>{{ $t("product.home.for") }} <br /> {{ $t("product.home.title") }}
 				</h1>
 				<p class="mb-5">
-					Grow with the crypto world hands free. Let us do the work
-					for you. Mining at its finest.
+					
+					{{ $t("product.home.intro") }}
 				</p>
 				<a
 					class="btn btn-lg btn-outline-secondary rounded-pill me-3"
@@ -77,7 +77,7 @@
 					role="button"
 					data-bs-toggle="modal"
 					data-bs-target="#auth-modal"
-					>Sign up</a
+					>{{ $t("signup") }}</a
 				>
 			</div>
 		</div>

@@ -1,0 +1,55 @@
+{
+    "nav": {
+        "home": "Главная",
+        "about": "О нас"
+    },
+    "home": {
+        "header": "Добро пожаловать в руководство Vue 3 I18n!",
+        "created_by": "Это руководство создано для вас компанией {company}.",
+        "num_visits": "Страницу не посещали :( | Страницу посетили {n} раз | Страницу посетили {n} раза | Страницу посетили {n} раз"
+    },
+    "about": {
+        "header": "О нас",
+        "donations": "Пожертвований собрано: {donations}"
+    },
+    "locale": {
+        "locale": "Español",
+        "en": "Ingles",
+        "es": "Español",
+        "flag": "https://seeklogo.com/images/S/Spain-logo-72350D8587-seeklogo.com.png"
+    },
+    "product": {
+        "nav": {
+            "home": "Hogar",
+            "about": "Acerca de",
+            "features": "Características",
+            "contact": "Contacto"
+        },
+        "home": {
+            "for": "por",
+            "title": "tu cripto",
+            "intro": "Crece con el mundo criptográfico manos libres. Déjanos hacer el trabajo por ti. Minería en su máxima expresión."
+        },
+        "features": {
+            "speedLocale": "speed",
+            "title": "Una solución totalmente integrada",
+            "intro": "Bienvenido a la plataforma cripto Koltrum, donde llevamos su viaje de inversión a nuevas alturas de velocidad y eficiencia. Nuestra plataforma está diseñada para atender tanto a inversores novatos como experimentados, brindándoles una experiencia sin fisuras y fácil de usar.",
+            "speed": {
+                "intro": "Nuestra tecnología avanzada nos permite procesar transacciones a velocidades sin precedentes, asegurando que sus inversiones se ejecuten de manera oportuna. Esta característica de velocidad garantiza que los inversores puedan aprovechar incluso las condiciones de mercado más volátiles sin demora.",
+                "title": "Lightning Speed"
+            },
+            "complete": {
+                "intro": "Nuestra plataforma ofrece una suite completa de herramientas y características, incluyendo almacenamiento seguro y protocolos de seguridad de vanguardia, para mantener sus inversiones seguras y protegidas.",
+                "title": "All-in-one solution"
+            }
+        },
+        "about": {
+            "header": "About us",
+            "donations": "Donations raised: {donations}"
+        }
+    },
+    "signin": "Iniciar sesión",
+    "signup": "Inscribirse",
+    "submit": "Entregar",
+    "save": "Ahorrar"
+}

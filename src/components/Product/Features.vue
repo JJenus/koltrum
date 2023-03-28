@@ -1,28 +1,22 @@
-<script setup>
-	
-</script>
+<script setup></script>
 
 <template>
 	<section class="pt-15 pb-0" id="feature">
-		
 		<div class="container-small">
 			<div class="position-relative z-index-2">
 				<div class="row">
 					<div class="col-lg-6 text-center text-lg-start pe-xxl-3">
-						<h4 class="text-primary fw-bolder mb-4">Features</h4>
+						<h4 class="text-primary fw-bolder mb-4">
+							{{ $t("product.nav.features") }}
+						</h4>
 						<h2 class="mb-3 text-black lh-base">
-							A fully integrated solution
+							{{ $t("product.features.title") }}
 						</h2>
 						<p class="mb-5">
-							With the power of Phoenix, you can now focus only on
-							functionaries for your digital products, while
-							leaving the UI design on us!With the power of
-							Phoenix, you can now focus only on functionaries for
-							your digital products, while leaving the UI design
-							on us!
+							{{ $t("product.features.intro") }}
 						</p>
 						<a
-							class="btn btn-lg btn-outline-primary rounded-pill me-2"
+							class="btn btn-lg btn-outline-primary d-none rounded-pill me-2"
 							href="#!"
 							role="button"
 							>Find out more<i
@@ -46,11 +40,10 @@
 								/>
 								<div>
 									<h5 class="fw-bolder mb-2">
-										Lightning Speed
+										{{ $t("product.features.speed.title") }}
 									</h5>
 									<p class="fw-semi-bold lh-sm">
-										Present everything you need in one place
-										within minutes! Grow with Phoenix!
+										{{ $t("product.features.speed.intro") }}
 									</p>
 								</div>
 							</div>
@@ -70,11 +63,18 @@
 								/>
 								<div>
 									<h5 class="fw-bolder mb-2">
-										All-in-one solution
+										{{
+											$t(
+												"product.features.complete.title"
+											)
+										}}
 									</h5>
 									<p class="fw-semi-bold lh-sm">
-										Show your production and growth graph in
-										one place with Phoenix!
+										{{
+											$t(
+												"product.features.complete.intro"
+											)
+										}}
 									</p>
 								</div>
 							</div>

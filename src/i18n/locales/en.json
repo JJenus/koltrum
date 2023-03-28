@@ -1,0 +1,45 @@
+{
+    "locale": {
+        "locale": "English",
+        "en": "English",
+        "es": "Spanish",
+        "flag": "https://static.vecteezy.com/system/resources/thumbnails/010/870/761/small/american-flag-of-united-states-of-america-png.png"
+    },
+    "form": {
+        "prompt": "Enter user name",
+        "btn": "Get Started"
+    },
+    "product": {
+        "nav": {
+            "home": "Home",
+            "about": "About",
+            "features": "Features",
+            "contact": "Contact"
+        },
+        "home": {
+            "for": "for",
+            "title": "your crypto",
+            "intro": "Grow with the crypto world hands free. Let us do the work for you. Mining at its finest."
+        },
+        "features": {
+            "title": "A fully integrated solution",
+            "intro": "Welcome to the Koltrum crypto platform, where your investment journey is taken to new heights of speed and efficiency. Our platform is designed to cater to both novice and experienced investors, providing them with a seamless and user-friendly experience.",
+            "speed": {
+                "intro": "Our advanced technology enables us to process transactions at unprecedented speeds, ensuring that your investments are executed in a timely manner. This speedy feature guarantees that investors can take advantage of even the most volatile market conditions without delay.",
+                "title": "Lightning Speed"
+            },
+            "complete": {
+                "intro": "Our platform provides a comprehensive suite of tools and features, including secure storage and cutting-edge security protocols, to keep your investments safe and protected.",
+                "title": "All-in-one solution"
+            }
+        },
+        "about": {
+            "header": "About us",
+            "donations": "Donations raised: {donations}"
+        }
+    },
+    "signin": "Sign in",
+    "signup": "Sign up",
+    "submit": "Submit",
+    "save": "Save"
+}
