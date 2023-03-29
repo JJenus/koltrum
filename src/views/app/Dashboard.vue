@@ -50,15 +50,15 @@
 			<div class="row g-4">
 				<div class="col-12 col-xxl-6">
 					<div class="mb-8">
-						<h2 class="mb-2">Dashboard</h2>
+						<h2 class="mb-2">{{ $t("app.dashboard.title") }}</h2>
 						<h5 class="text-700 fw-semi-bold">
-							Here’s what’s going on in your portfolio.
+							{{ $t("app.dashboard.intro") }}
 						</h5>
 					</div>
 					<h4 v-if="projects.length < 1" class="text-muted">
-						No project to display.
+						{{ $t("app.dashboard.npd") }}
 						<a href="/app/projects" class="btn-link"
-							>Create a mining project</a
+							>{{ $t("app.dashboard.npdlink") }}</a
 						>
 					</h4>
 					<div class="row align-items-center g-4">
@@ -92,9 +92,9 @@
 					<hr class="bg-200 mb-6 mt-4" />
 					<div class="row flex-between-center mb-4 g-3">
 						<div class="col-auto">
-							<h3>Trends</h3>
+							<h3>{{ $t("app.dashboard.trends.title") }}</h3>
 							<p class="text-700 lh-sm mb-0">
-								Current crypto trends in the globe.
+								{{ $t("app.dashboard.trends.desc") }}
 							</p>
 						</div>
 						<div class="col-8 col-sm-4">

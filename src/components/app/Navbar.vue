@@ -2,6 +2,7 @@
 	import UserNav from "./UserNav.vue";
 	import ProjectsNav from "./ProjectsNav.vue";
 	import NotificationNav from "./NotificationNav.vue";
+	import Selector from "../Selector.vue";
 
 	const AppName = import.meta.env.VITE_APP_NAME;
 </script>
@@ -40,6 +41,7 @@
 				</div>
 			</a>
 		</div>
+
 		<div
 			class="collapse navbar-collapse navbar-top-collapse order-1 order-lg-0 justify-content-center"
 			id="navbarTopCollapse"
@@ -53,7 +55,7 @@
 						class="nav-link lh-1"
 						href="/app/dashboard"
 						role="button"
-						>Dashboard</a
+						>{{ $t("app.nav.dashboard") }}</a
 					>
 				</li>
 				<li class="nav-item dropdown">
@@ -61,26 +63,18 @@
 						class="nav-link lh-1"
 						href="/app/projects"
 						role="button"
-						>Projects</a
+						>{{ $t("app.nav.project") }}</a
 					>
 				</li>
 
 				<li class="nav-item dropdown">
-					<a
-						class="nav-link lh-1"
-						href="/app/wallets"
-						role="button"
-					>
-						Wallets
+					<a class="nav-link lh-1" href="/app/wallets" role="button">
+						{{ $t("app.nav.wallet") }}
 					</a>
 				</li>
 				<li class="nav-item dropdown">
-					<a
-						class="nav-link lh-1"
-						href="/app/profile"
-						role="button"
-					>
-						Profile
+					<a class="nav-link lh-1" href="/app/profile" role="button">
+						{{ $t("app.nav.profile") }}
 					</a>
 				</li>
 				<li class="nav-item dropdown">
@@ -88,12 +82,19 @@
 						class="nav-link lh-1"
 						href="/app/settings"
 						role="button"
-						>Settings</a
+						>{{ $t("app.nav.setting") }}</a
 					>
+				</li>
+				<li class="nav-item d-md-none">
+					<Selector />
 				</li>
 			</ul>
 		</div>
+
 		<ul class="navbar-nav navbar-nav-icons flex-row">
+			<li class="nav-item d-none d-md-flex">
+				<Selector />
+			</li>
 			<li class="nav-item">
 				<div class="theme-control-toggle fa-icon-wait px-2">
 					<input

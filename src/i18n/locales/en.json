@@ -5,6 +5,32 @@
         "es": "Spanish",
         "flag": "https://static.vecteezy.com/system/resources/thumbnails/010/870/761/small/american-flag-of-united-states-of-america-png.png"
     },
+    "app": {
+        "nav": {
+            "dashboard": "Dashboard",
+            "project": "Project",
+            "setting": "Settings",
+            "wallet": "Wallets",
+            "profile": "Profile",
+            "lang": "Language"
+        },
+        "dashboard": {
+            "title": "Dashboard",
+            "intro": "Here’s what’s going on in your portfolio.",
+            "npd": "No project to display.",
+            "npdlink": "Create a mining project",
+            "trends": {
+                "title": "Trends",
+                "desc": "Current crypto trends in the globe."
+            },
+            "earning": {
+                "title": "Possible Earnings",
+                "desc": "Generated based on project plans and live data."
+            },
+            "total": "Total amount"
+        },
+        "project": {}
+    },
     "product": {
         "nav": {
             "home": "Home",
@@ -88,6 +114,7 @@
     },
     "signin": "Sign in",
     "signup": "Sign up",
+    "signout": "Sign out",
     "submit": "Submit",
     "save": "Save",
     "newacc": "Create an account",

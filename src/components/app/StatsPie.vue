@@ -79,22 +79,22 @@
 			<div class="col-12">
 				<div class="row g-3 mb-3">
 					<div class="col-12 col-md-4">
-						<h3 class="text-1100 text-nowrap">Possible Earnings</h3>
+						<h3 class="text-1100 text-nowrap">{{ $t("app.dashboard.earning.title") }}</h3>
 						<p class="text-700 mb-md-7">
-							Generated based on project plans and live data
+							{{ $t("app.dashboard.earning.desc") }}
 						</p>
 						<div
 							class="d-flex align-items-center justify-content-between"
 						>
 							<p class="mb-0 fw-bold">Crypto</p>
 							<p class="mb-0 fs--1">
-								Total amount ($)
+								{{ $t("app.dashboard.total") }} ($)
 								<span class="fw-bold">{{ total() }}</span>
 							</p>
 						</div>
 						<hr class="bg-200 mb-2 mt-2" />
 						<div v-if="crypto.length < 1" class="text-center">
-							No projects created
+							{{ $t("app.dashboard.npd") }}
 						</div>
 						<div
 							v-else
@@ -128,7 +128,7 @@
 								style="z-index: 1000;"
 								class="text-center bg-transparent w-100 position-absolute top-0 start-0 h-100 d-flex align-items-center justify-content-center"
 							>
-								Create projects to visualize
+							{{ $t("app.dashboard.npd") }}
 							</div>
 							<div
 								class="position-relative m-0"

@@ -1,22 +1,34 @@
 {
-    "nav": {
-        "home": "Главная",
-        "about": "О нас"
-    },
-    "home": {
-        "header": "Добро пожаловать в руководство Vue 3 I18n!",
-        "created_by": "Это руководство создано для вас компанией {company}.",
-        "num_visits": "Страницу не посещали :( | Страницу посетили {n} раз | Страницу посетили {n} раза | Страницу посетили {n} раз"
-    },
-    "about": {
-        "header": "О нас",
-        "donations": "Пожертвований собрано: {donations}"
-    },
     "locale": {
         "locale": "Español",
         "en": "Ingles",
         "es": "Español",
         "flag": "https://seeklogo.com/images/S/Spain-logo-72350D8587-seeklogo.com.png"
+    },
+    "app": {
+        "nav": {
+            "dashboard": "Tablero",
+            "project": "Proyecto",
+            "setting": "Configuraciones",
+            "wallet": "Carteras",
+            "profile": "Perfil",
+            "lang": "Idioma"
+        },
+        "dashboard": {
+            "title": "Tablero",
+            "intro": "Esto es lo que está sucediendo en su cartera.",
+            "npd": "No hay proyecto para mostrar.",
+            "npdlink": "Crear un proyecto de minería",
+            "trends": {
+                "title": "Tendencias",
+                "desc": "Tendencias actuales de criptomonedas en el mundo."
+            },
+            "earning": {
+                "title": "Ganancias Posibles",
+                "desc": "Generadas en base a planes de proyecto y datos en tiempo real."
+            },
+            "total": "Cantidad total"
+        }
     },
     "product": {
         "nav": {
@@ -103,6 +115,7 @@
     "signin": "Iniciar sesión",
     "signup": "Registrarse",
     "submit": "Enviar",
+    "signout": "Desconectar",
     "save": "Guardar",
     "newacc": "Crear una cuenta",
     "exacc": "Iniciar sesión en una cuenta existente",

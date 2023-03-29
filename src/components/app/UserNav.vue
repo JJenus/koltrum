@@ -17,12 +17,7 @@
 			aria-expanded="false"
 		>
 			<div v-if="user.imgUrl" class="avatar avatar-l">
-				<img
-					
-					class="rounded-circle"
-					:src="user.imgUrl"
-					alt=""
-				/>
+				<img class="rounded-circle" :src="user.imgUrl" alt="" />
 			</div>
 			<div v-else class="border rounded-circle p-3">
 				<i class="fas fa-user fs-1"></i>
@@ -60,7 +55,9 @@
 									class="me-2 text-900"
 									data-feather="user"
 								></span
-								><span>Profile</span></a
+								><span>
+									{{ $t("app.nav.profile") }}
+								</span></a
 							>
 						</li>
 						<li class="nav-item">
@@ -69,7 +66,7 @@
 									class="me-2 text-900"
 									data-feather="pie-chart"
 								></span
-								>Dashboard</a
+								>{{ $t("app.nav.dashboard") }}</a
 							>
 						</li>
 
@@ -79,7 +76,7 @@
 									class="me-2 text-900"
 									data-feather="settings"
 								></span
-								>Settings &amp; Privacy
+								>{{ $t("app.nav.setting") }}
 							</a>
 						</li>
 
@@ -89,8 +86,11 @@
 									class="me-2 text-900"
 									data-feather="globe"
 								></span
-								>Language</a
-							>
+								>{{ $t("app.nav.lang") }}:
+								<strong class="ms-2">
+									{{ $t("locale.locale") }}
+								</strong>
+							</a>
 						</li>
 					</ul>
 				</div>
@@ -101,7 +101,7 @@
 							href="#!"
 						>
 							<span class="me-2" data-feather="log-out"> </span
-							>Sign out</a
+							>{{ $t("signout") }}</a
 						>
 					</div>
 					<div class="my-2 text-center d-none fw-bold fs--2 text-600">

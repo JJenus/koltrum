@@ -24,7 +24,7 @@
 
 	<input @change="switchLanguage" type="text" id="dselect" class="d-none" />
 
-	<div class="dropdown">
+	<div class="dropdown" >
 		<button
 			class="btn btn-outline-light dropdown-toggle p-0"
 			type="button"
@@ -39,7 +39,7 @@
 			/>
 			{{ $t("locale.locale") }}
 		</button>
-		<ul class="dropdown-menu">
+		<ul class="dropdown-menu mb-3">
 			<li v-for="(sLocale, index) in supportedLocales">
 				<button
 					@click="ell(sLocale.locale)"
