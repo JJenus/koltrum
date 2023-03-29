@@ -12,7 +12,11 @@
             "setting": "Settings",
             "wallet": "Wallets",
             "profile": "Profile",
-            "lang": "Language"
+            "lang": "Language",
+            "exc": "Exchange",
+            "mkt": "Market",
+            "ico": "ICO",
+            "trade": "Trade"
         },
         "dashboard": {
             "title": "Dashboard",

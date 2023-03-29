@@ -7,6 +7,8 @@
 	const AppName = import.meta.env.VITE_APP_NAME;
 </script>
 
+
+
 <template>
 	<nav class="navbar navbar-top navbar-expand-lg" id="navbarTop">
 		<div class="navbar-logo">
@@ -58,6 +60,37 @@
 						>{{ $t("app.nav.dashboard") }}</a
 					>
 				</li>
+
+				<!-- Dashboard 
+Exchange 
+Market 
+Ico
+Trade -->
+
+				<li class="nav-item dropdown">
+					<a class="nav-link lh-1" href="/app/exchange" role="button">
+						{{ $t("app.nav.exc") }}
+					</a>
+				</li>
+
+				<li class="nav-item dropdown">
+					<a class="nav-link lh-1" href="/app/market" role="button">
+						{{ $t("app.nav.mkt") }}
+					</a>
+				</li>
+
+				<li class="nav-item dropdown">
+					<a class="nav-link lh-1" href="/app/ico" role="button">
+						{{ $t("app.nav.ico") }}
+					</a>
+				</li>
+
+				<li class="nav-item dropdown d-none">
+					<a class="nav-link lh-1" href="/app/trade" role="button">
+						{{ $t("app.nav.trade") }}
+					</a>
+				</li>
+
 				<li class="nav-item dropdown">
 					<a
 						class="nav-link lh-1"
@@ -68,16 +101,11 @@
 				</li>
 
 				<li class="nav-item dropdown">
-					<a class="nav-link lh-1" href="/app/wallets" role="button">
-						{{ $t("app.nav.wallet") }}
-					</a>
-				</li>
-				<li class="nav-item dropdown">
 					<a class="nav-link lh-1" href="/app/profile" role="button">
 						{{ $t("app.nav.profile") }}
 					</a>
 				</li>
-				<li class="nav-item dropdown">
+				<li class="nav-item dropdown d-none">
 					<a
 						class="nav-link lh-1"
 						href="/app/settings"

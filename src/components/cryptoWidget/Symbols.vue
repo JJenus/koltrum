@@ -1,5 +1,6 @@
 <script setup>
 	import { Chart } from "vue-tradingview-widgets";
+	import Tr from "../../i18n/translation";
 </script>
 
 <template>
@@ -15,7 +16,7 @@
 					timezone: 'Etc/UTC',
 					theme: 'dark',
 					style: '1',
-					locale: 'en',
+					locale: Tr.locale,
 					toolbarBg: '#f1f3f6',
 					enablePublishing: false,
 					allowSymbol_change: true,

@@ -1,5 +1,6 @@
 <script setup>
 	import { TechnicalAnalysis } from "vue-tradingview-widgets";
+	import Tr from "../../i18n/translation";
 </script>
 
 <template>
@@ -11,7 +12,7 @@
 					symbol: 'BINANCEUS:BTCUSD',
 					width: '100%',
 					height: '450',
-					locale: 'en',
+					locale: Tr.locale,
 					colorTheme: 'dark',
 					showIntervalTabs: false,
 					isTransparent: true,

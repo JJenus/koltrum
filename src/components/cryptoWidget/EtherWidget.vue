@@ -1,5 +1,6 @@
 <script setup>
 	import { SingleTicker } from "vue-tradingview-widgets";
+	import Tr from "../../i18n/translation";
 </script>
 
 <template>
@@ -10,7 +11,7 @@
 					symbol: 'BINANCEUS:ETHUSD',
 					width: '100%',
 					height: '100%',
-					locale: 'en',
+					locale: Tr.locale,
 					isTransparent: true,
 					autosize: true,
 				}"

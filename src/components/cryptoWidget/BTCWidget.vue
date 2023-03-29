@@ -1,5 +1,6 @@
 <script setup>
 	import { MiniChart } from "vue-tradingview-widgets";
+	import Tr from "../../i18n/translation";
 </script>
 
 <template>
@@ -10,7 +11,7 @@
 					symbol: 'BINANCEUS:BTCUSD',
 					width: '100%',
 					height: '100%',
-					locale: 'en',
+					locale: Tr.locale,
 					dateRange: '1D',
 					colorTheme: 'dark',
 					trendLineColor: 'rgba(41, 98, 255, 1)',

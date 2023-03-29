@@ -5,6 +5,8 @@ import Dashboard from "../views/app/Dashboard.vue";
 import Projects from "../views/app/Projects.vue";
 import Wallet from "../views/app/Wallet.vue";
 import Profile from "../views/app/Profile.vue";
+import Market from "../views/app/Market.vue";
+import Exchange from "../views/app/Exchange.vue";
 
 import { user } from "@/stores/user";
 import Tr from "@/i18n/translation";
@@ -55,6 +57,16 @@ const router = createRouter({
 					path: "profile",
 					name: "profile",
 					component: Profile,
+				},
+				{
+					path: "market",
+					name: "market",
+					component: Market,
+				},
+				{
+					path: "exchange",
+					name: "exchange",
+					component: Exchange,
 				},
 			],
 		},

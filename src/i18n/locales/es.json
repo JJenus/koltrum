@@ -12,7 +12,11 @@
             "setting": "Configuraciones",
             "wallet": "Carteras",
             "profile": "Perfil",
-            "lang": "Idioma"
+            "lang": "Idioma",
+            "exc": "Intercambio",
+            "mkt": "Mercado",
+            "ico": "ICO",
+            "trade": "Comercio"
         },
         "dashboard": {
             "title": "Tablero",
