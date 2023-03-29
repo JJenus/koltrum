@@ -96,14 +96,14 @@
 						/>
 					</div>
 					<div class="col-lg-6">
-						<h6 class="text-primary mb-2 ls-2">SIGNAL</h6>
+						<h6 class="text-primary mb-2 ls-2">
+							{{ $t("product.features.signal.txt") }}
+						</h6>
 						<h3 class="fw-bolder mb-3">
-							Recieve the signals instantly
+							{{ $t("product.features.signal.title") }}
 						</h3>
 						<p class="mb-4 px-md-7 px-lg-0">
-							Koltrum makes it possible for you to quickly and
-							effectively receive every signal. No need for
-							drawn-out waiting.
+							{{ $t("product.features.signal.desc") }}
 						</p>
 					</div>
 				</div>
@@ -124,11 +124,10 @@
 						/>
 					</div>
 					<div class="col-lg-6">
-						<h6 class="text-primary mb-2 ls-2">REVENUE</h6>
-						<h3 class="fw-bolder mb-3">See Your Crypto Grow</h3>
+						<h6 class="text-primary mb-2 ls-2">{{ $t("product.features.revenue.txt") }}</h6>
+						<h3 class="fw-bolder mb-3">{{ $t("product.features.revenue.title") }}</h3>
 						<p class="mb-4 px-md-7 px-lg-0">
-							Grow with Koltrum. We will help you with everything
-							you might need., We make it easy and keep it simple.
+							{{ $t("product.features.revenue.desc") }}
 						</p>
 					</div>
 				</div>
@@ -149,12 +148,10 @@
 						/>
 					</div>
 					<div class="col-lg-6 text-center text-lg-start">
-						<h6 class="text-primary mb-2 ls-2">REPORTS</h6>
-						<h3 class="fw-bolder mb-3">Get Reports Ready</h3>
+						<h6 class="text-primary mb-2 ls-2"> {{ $t("product.features.reports.txt") }}</h6>
+						<h3 class="fw-bolder mb-3"> {{ $t("product.features.reports.title") }} </h3>
 						<p class="mb-4 px-md-7 px-lg-0">
-							With Koltrum, you can get ready reports on your
-							growth analysis anytime. This dashboard also has all
-							filters accessible according to your needs.
+							{{ $t("product.features.reports.desc") }}
 						</p>
 					</div>
 				</div>

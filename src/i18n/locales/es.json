@@ -36,20 +36,77 @@
             "intro": "Bienvenido a la plataforma cripto Koltrum, donde llevamos su viaje de inversión a nuevas alturas de velocidad y eficiencia. Nuestra plataforma está diseñada para atender tanto a inversores novatos como experimentados, brindándoles una experiencia sin fisuras y fácil de usar.",
             "speed": {
                 "intro": "Nuestra tecnología avanzada nos permite procesar transacciones a velocidades sin precedentes, asegurando que sus inversiones se ejecuten de manera oportuna. Esta característica de velocidad garantiza que los inversores puedan aprovechar incluso las condiciones de mercado más volátiles sin demora.",
-                "title": "Lightning Speed"
+                "title": "Velocidad de la luz"
             },
             "complete": {
                 "intro": "Nuestra plataforma ofrece una suite completa de herramientas y características, incluyendo almacenamiento seguro y protocolos de seguridad de vanguardia, para mantener sus inversiones seguras y protegidas.",
-                "title": "All-in-one solution"
+                "title": "Solución todo en uno"
+            },
+            "signal": {
+                "txt": "SEÑAL",
+                "desc": "Koltrum te permite recibir cada señal rápida y efectivamente. No necesitas esperar demasiado.",
+                "title": "Recibe las señales al instante"
+            },
+            "revenue": {
+                "txt": "INGRESOS",
+                "desc": "Crece con Koltrum. Te ayudaremos con todo lo que necesites. Lo hacemos fácil y lo mantenemos sencillo.",
+                "title": "Observa tu criptomoneda crecer"
+            },
+            "reports": {
+                "txt": "INFORMES",
+                "desc": "Crece con Koltrum. Te ayudaremos con todo lo que necesites. Lo hacemos fácil y lo mantenemos sencillo.",
+                "title": "Observa tu criptomoneda crecer"
+            }
+        },
+        "testimonial": {
+            "title": "Testimonio",
+            "intro": "Más de 2 millones de clientes felices y contando",
+            "desc": "Ahora puedes concentrarte en otros aspectos de tu cartera de criptomonedas gracias a la fortaleza de Koltrum, dejando las complejidades técnicas en nuestras manos. Es fácil iniciar el proceso después de revisar y aprobar.",
+            "usage": {
+                "title": "Siendo utilizado por millones de usuarios",
+                "range": "EN TODO EL MUNDO",
+                "desc": "Con la ayuda del poder de Koltrum, puedes obtener todos los informes, análisis de datos y mapas de crecimiento que necesites, y revisarlos y modificarlos cuando quieras. Estas características hacen que este panel sea excepcional.",
+                "month": "Cada mes se realizan más de 125+ ventas.",
+                "subscr": "Tenemos 308+ suscriptores de pago activos.",
+                "awards": "Hasta ahora, hemos ganado 12 premios con gran éxito."
             }
         },
         "about": {
-            "header": "About us",
-            "donations": "Donations raised: {donations}"
-        }
+            "title": "Acerca de nosotros",
+            "intro": "Bienvenido al sitio web oficial de Koltrum",
+            "about": "Koltrum ha sido creado con la intención de proporcionar a los usuarios una experiencia de minería segura, eficiente y asequible. Nos esforzamos por ofrecer a nuestros usuarios amplias opciones de minería que están optimizadas para el mercado popular de criptomonedas. Nuestra extensa configuración de minería asegura una alta rentabilidad al reducir la complejidad asociada con la minería de criptomonedas. Desde el principio, hemos querido cambiar el proceso de minería de criptomonedas en una experiencia fácil de usar. Contamos con un equipo dedicado de expertos apasionados por crear una infraestructura de minería rápida, segura y fácil de usar. Nuestro objetivo es asegurarnos de que cada uno de nuestros mineros tenga todos los recursos necesarios para tener éxito y alcanzar sus objetivos de minería.",
+            "desc": "En Koltron, priorizamos la seguridad, la protección y la comodidad. Nuestra configuración de minería está diseñada para ofrecer las medidas de seguridad más avanzadas para proteger a los usuarios de cualquier amenaza potencial. El almacenamiento seguro de datos es nuestra máxima prioridad, y nos aseguramos de mantener segura toda la información de nuestros mineros. Nuestro calificado equipo de técnicos se dedica a optimizar nuestra plataforma de minería para que nuestros usuarios puedan obtener."
+        },
+        "contact": {
+            "title": "Sobre nosotros",
+            "intro": "Si nos necesitas",
+            "desc": "¡Gracias por tu interés en Koltrum! Nos encanta saber de nuestros clientes y nos esforzamos por ofrecer el mejor servicio posible. Si tienes alguna pregunta, sugerencia o inquietud, no dudes en contactarnos.",
+            "email": {
+                "title": "Mantente conectado",
+                "intro": "Mantente conectado con el Centro de Ayuda de Koltrum; Koltrum está disponible para tus necesidades en todo momento."
+            },
+            "chat": {
+                "title": "Déjanos un mensaje",
+                "txt": "Chat en vivo",
+                "intro": "Si tienes alguna consulta o sugerencia, estamos abiertos a aprender de ti. Hablemos, contáctanos en cualquier momento."
+            }
+        },
+        "outro": "Con Koltrum, puede confiar en que siempre estará en buenas manos con equipos de primera calidad, servicio al cliente de primer nivel y resultados confiables. Le garantizamos una excelente experiencia y el máximo retorno de su inversión. ¡Únase a nosotros hoy y comience a minar sus sueños criptográficos!"
+    },
+    "form": {
+        "name": "Nombre",
+        "email": "Correo electrónico",
+        "password": "Contraseña",
+        "cpassword": "Confirmar contraseña",
+        "address": "Dirección"
     },
     "signin": "Iniciar sesión",
-    "signup": "Inscribirse",
-    "submit": "Entregar",
-    "save": "Ahorrar"
+    "signup": "Registrarse",
+    "submit": "Enviar",
+    "save": "Guardar",
+    "newacc": "Crear una cuenta",
+    "exacc": "Iniciar sesión en una cuenta existente",
+    "getacc": "Obtener acceso a tu cuenta",
+    "ctoay": "Crea tu cuenta hoy",
+    "loading": "Cargando"
 }

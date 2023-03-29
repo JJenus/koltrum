@@ -5,10 +5,6 @@
         "es": "Spanish",
         "flag": "https://static.vecteezy.com/system/resources/thumbnails/010/870/761/small/american-flag-of-united-states-of-america-png.png"
     },
-    "form": {
-        "prompt": "Enter user name",
-        "btn": "Get Started"
-    },
     "product": {
         "nav": {
             "home": "Home",
@@ -31,15 +27,72 @@
             "complete": {
                 "intro": "Our platform provides a comprehensive suite of tools and features, including secure storage and cutting-edge security protocols, to keep your investments safe and protected.",
                 "title": "All-in-one solution"
+            },
+            "signal": {
+                "txt": "SIGNAL",
+                "desc": "Koltrum makes it possible for you to quickly and effectively receive every signal. No need fordrawn-out waiting.",
+                "title": "Recieve the signals instantly"
+            },
+            "revenue": {
+                "txt": "REVENUE",
+                "desc": "Grow with Koltrum. We will help you with everything you might need. We make it easy and keep it simple.",
+                "title": "See Your Crypto Grow"
+            },
+            "reports": {
+                "txt": "REPORTS",
+                "desc": "Grow with Koltrum. We will help you with everything you might need. We make it easy and keep it simple.",
+                "title": "See Your Crypto Grow"
+            }
+        },
+        "testimonial": {
+            "title": "Testimonial",
+            "intro": "More than 2 Millions happy Customers and counting",
+            "desc": "You may now concentrate on other aspects of your crypto portfolio, thanks to Koltrum's strength, leaving the technicalities to us. It is simple to start the process after checking and approving.",
+            "usage": {
+                "title": "Being used by millions of users",
+                "range": "WORLDWIDE",
+                "desc": "You can get all the reports, data analysis, and growth maps you need with the help of Koltrum's power, and you may review and modify them whenever you want. These features make this dashboard outstanding. ",
+                "month": "Every month, there are more than 125+ sales. ",
+                "subscr": "We have 308+ active paid. subscribers.",
+                "awards": "We have won 12 awards so far with great success."
             }
         },
         "about": {
-            "header": "About us",
-            "donations": "Donations raised: {donations}"
-        }
+            "title": "About us",
+            "intro": "Welcome to Koltrum's official website",
+            "about": "Koltron has been created with the intention to provide users with a safe, efficient, and affordable mining experience. We strive to give our users extensive mining options that are optimized for the popular cryptocurrency market. Our extensive mining setup ensures high profitability while reducing the complexity associated with cryptocurrency mining. From the beginning, we have set out to change the cryptocurrency mining process into a user-friendly experience. We have a dedicated team of experts who are passionate about creating a fast, secure, and user-friendly mining infrastructure. Our goal is to ensure that each one of our miners have all the resources necessary to completely succeed and hit their mining goals.",
+            "desc": "At Koltron, we prioritize safety, security, and convenience. Our mining setup is designed to offer the most advanced security measures to protect users from any potential threats. Secure data storage is our utmost priority, and we make sure to keep all of our miners' information safe. Our skilled team of technicians is dedicated to optimizing our mining platform so that our users can get."
+        },
+        "contact": {
+            "title": "About us",
+            "intro": "If you need us",
+            "desc": "Thank you for your interest in Koltrum! We love to hear from our customers and strive to provide the best customer service possible. If you have any questions, feedback, or concerns, please feel free to contact us.",
+            "email": {
+                "title": "Stay connected",
+                "intro": "Stay connected with Koltrum's Help Center; Koltrum is available for your necessities at all times."
+            },
+            "chat": {
+                "title": "Drop us a line",
+                "txt": "Live Chat",
+                "intro": "If you have any query or suggestion , we are open to learn from you, Lets talk, reach us anytime."
+            }
+        },
+        "outro": "With Koltrum, you can trust that you’re always in good hands with top-notch quality equipment, top-tier customer service, and reliable results. We guarantee an excellent experience and maximum return on your investment. So join us today and start mining your crypto dreams!"
+    },
+    "form": {
+        "name": "Name",
+        "email": "Email address",
+        "password": "Password",
+        "cpassword": "Confirm password",
+        "address": "Address"
     },
     "signin": "Sign in",
     "signup": "Sign up",
     "submit": "Submit",
-    "save": "Save"
+    "save": "Save",
+    "newacc": "Create an account",
+    "exacc": "Sign in to an existing account",
+    "getacc": "Get access to your account",
+    "ctoay": "Create your account today",
+    "loading": "Loading"
 }

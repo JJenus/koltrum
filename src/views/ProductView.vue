@@ -90,18 +90,13 @@
 							class="col-lg-6 mb-6 text-center text-lg-start z-index-2"
 						>
 							<h4 class="text-primary fw-bolder mb-3">
-								Testimonial
+								{{ $t("product.testimonial.title") }}
 							</h4>
 							<h2 class="mb-3 text-black">
-								More than 2 Millions happy<br />Customers and
-								counting
+								{{ $t("product.testimonial.intro") }}
 							</h2>
 							<p class="mb-5">
-								You may now concentrate on
-								other aspects of your crypto portfolio,
-								thanks to Koltrum's strength, leaving the
-								technicalities to us. It is simple to start the
-								process after checking and approving.
+								{{ $t("product.testimonial.desc") }}
 							</p>
 						</div>
 						<div class="col-lg-6 z-index-2">
@@ -167,9 +162,6 @@
 													today
 												</h3>
 												<h6>Monica Gomez</h6>
-												<h6 class="fw-normal">
-													UX designer, Google
-												</h6>
 											</div>
 										</div>
 									</div>
@@ -228,7 +220,7 @@
 													for till the date!”
 												</h3>
 												<h6>Marc Chiasson</h6>
-												<h6 class="fw-normal">
+												<h6 class="fw-normal d-none">
 													UX designer, Adobe
 												</h6>
 											</div>
@@ -283,10 +275,10 @@
 												<h3
 													class="fs-1 fs-xl-2 mb-5 lh-sm me-md-7 me-lg-0"
 												>
-													“{{ AppName }} is all you can ask
-													for. This is perfect fit for
-													everything you might want to
-													work on!”
+													“{{ AppName }} is all you
+													can ask for. This is perfect
+													fit for everything you might
+													want to work on!”
 												</h3>
 												<h6>Axel Barry</h6>
 												<h6 class="fw-normal">
@@ -344,21 +336,17 @@
 						<div class="row mb-6">
 							<div class="col-xl-6 text-center text-md-start">
 								<h2 class="text-white mb-2">
-									Being used by millions of users
+									{{ $t("product.testimonial.usage.title") }}
 								</h2>
 								<h1
 									class="fs-md-5 fs-xl-6 fw-black text-gradient-info text-uppercase mb-4 mb-md-0"
 								>
-									WORLDWIDE
+									{{ $t("product.testimonial.usage.range") }}
 								</h1>
 							</div>
 							<div class="col-xl-6 text-center text-md-start">
 								<p class="text-white">
-									You can get all the reports, data analysis,
-									and growth maps you need with the help of
-									{{ AppName }}'s power, and you may review and
-									modify them whenever you want. These
-									features make this dashboard outstanding.
+									{{ $t("product.testimonial.usage.desc") }}
 								</p>
 							</div>
 						</div>
@@ -377,9 +365,11 @@
 											0 <span>+</span>
 										</h1>
 										<p class="text-white">
-											Every month, there are more<br
-												class="d-md-none d-lg-block"
-											/>than 125+ sales.
+											{{
+												$t(
+													"product.testimonial.usage.month"
+												)
+											}}
 										</p>
 									</div>
 									<div class="mb-6 mb-md-0 me-4">
@@ -390,9 +380,11 @@
 											0
 										</h1>
 										<p class="text-white">
-											We have 308+ active paid.<br
-												class="d-md-none d-lg-block"
-											/>subscribers.
+											{{
+												$t(
+													"product.testimonial.usage.subscr"
+												)
+											}}
 										</p>
 									</div>
 									<div class="mb-6 mb-md-0 me-4">
@@ -403,9 +395,11 @@
 											0
 										</h1>
 										<p class="text-white">
-											We have won 12 awards so<br
-												class="d-md-none d-lg-block"
-											/>far with great success.
+											{{
+												$t(
+													"product.testimonial.usage.awards"
+												)
+											}}
 										</p>
 									</div>
 								</div>
@@ -482,27 +476,25 @@
 			<div class="container-small">
 				<div class="row mb-3 text-center text-sm-start">
 					<div class="col-12 mb-4">
-						<h4 class="text-primary fw-bolder mb-3">Contact Us</h4>
-						<h2>If you need us:</h2>
+						<h4 class="text-primary fw-bolder mb-3">
+							{{ $t("product.contact.title") }}
+						</h4>
+						<h2>{{ $t("product.contact.intro") }}:</h2>
 					</div>
 					<div class="col-md-6">
 						<p>
-							Thank you for your interest in Koltrum! We love to
-							hear from our customers and strive to provide the
-							best customer service possible. If you have any
-							questions, feedback, or concerns, please feel free
-							to contact us.
+							{{ $t("product.contact.desc") }}
 						</p>
 					</div>
 				</div>
 
 				<div class="row g-md-4 g-lg-5">
 					<div class="col-md-6 mb-5 mb-md-0">
-						<h3 class="mb-3">Stay connected</h3>
+						<h3 class="mb-3">
+							{{ $t("product.contact.email.title") }}
+						</h3>
 						<p class="mb-5">
-							Stay connected with {{ AppName }}'s Help Center;
-							{{ AppName }} is available for your necessities at
-							all times.
+							{{ $t("product.contact.email.intro") }}
 						</p>
 						<div class="d-flex flex-column">
 							<div
@@ -538,10 +530,11 @@
 						</div>
 					</div>
 					<div class="col-md-6">
-						<h3 class="mb-3">Drop us a line</h3>
+						<h3 class="mb-3">
+							{{ $t("product.contact.chat.title") }}
+						</h3>
 						<p class="mb-5">
-							If you have any query or suggestion , we are open to
-							learn from you, Lets talk, reach us anytime.
+							{{ $t("product.contact.chat.intro") }}
 						</p>
 						<div
 							class="d-flex align-items-center icon-wrapper shadow-info"
@@ -550,7 +543,9 @@
 								class="uil uil-chat text-primary light fs-4 z-index-1 ms-2"
 							></span>
 							<div class="flex-1 ms-3">
-								<span class="link-900"> Live Chat </span>
+								<span class="link-900">
+									{{ $t("product.contact.chat.txt") }}
+								</span>
 							</div>
 						</div>
 					</div>
@@ -690,13 +685,7 @@
 									{{ AppName }}
 								</h3>
 								<p class="text-white opacity-50 light">
-									With Koltrum, you can trust that you’re
-									always in good hands with top-notch quality
-									equipment, top-tier customer service, and
-									reliable results. We guarantee an excellent
-									experience and maximum return on your
-									investment. So join us today and start
-									mining your crypto dreams!
+									{{ $t("product.outro") }}
 								</p>
 							</div>
 							<div class="col-lg-7">

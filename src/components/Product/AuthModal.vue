@@ -65,10 +65,10 @@
 		if (loadingReg.value) {
 			return;
 		}
-		if (!form.value.accept) {
-			regError.value = "Accept terms to continue";
-			return;
-		}
+		// if (!form.value.accept) {
+		// 	regError.value = "Accept terms to continue";
+		// 	return;
+		// }
 		if (
 			!form.value.email ||
 			!form.value.name ||
@@ -207,9 +207,11 @@
 
 							<div v-if="signIn">
 								<div class="text-center mb-5">
-									<h3 class="text-1000">Sign In</h3>
+									<h3 class="text-1000">
+										{{ $t("signin") }}
+									</h3>
 									<p class="text-700">
-										Get access to your account
+										{{ $t("getacc") }}
 									</p>
 								</div>
 
@@ -219,9 +221,9 @@
 									@submit.prevent="sumitLogin()"
 								>
 									<div class="mb-3 text-start">
-										<label class="form-label" for="email"
-											>Email address</label
-										>
+										<label class="form-label" for="email">
+											{{ $t("form.email") }}
+										</label>
 										<div class="form-icon-container">
 											<input
 												required
@@ -236,8 +238,10 @@
 										</div>
 									</div>
 									<div class="mb-3 text-start">
-										<label class="form-label" for="password"
-											>Password</label
+										<label
+											class="form-label"
+											for="password"
+											>{{ $t("form.password") }}</label
 										>
 										<div class="form-icon-container">
 											<input
@@ -253,7 +257,7 @@
 										</div>
 									</div>
 									<div class="row flex-between-center mb-5">
-										<div class="col-auto">
+										<div class="col-auto d-none">
 											<div class="form-check mb-0">
 												<input
 													required
@@ -268,10 +272,10 @@
 												>
 											</div>
 										</div>
-										<div class="col-auto">
+										<div class="col-auto d-none">
 											<a
 												class="fs--1 fw-semi-bold"
-												href="forgot-password.html"
+												href=""
 												>Forgot Password?</a
 											>
 										</div>
@@ -281,7 +285,7 @@
 												class="text-danger"
 											>
 												{{ loginError }}
-										</small>
+											</small>
 										</div>
 									</div>
 
@@ -290,7 +294,7 @@
 										:class="loadingReg ? 'disabled' : ''"
 									>
 										<span v-if="!loadingReg">
-											Sign in
+											{{ $t("signin") }}
 										</span>
 										<span v-else>
 											<span
@@ -298,7 +302,7 @@
 												role="status"
 												aria-hidden="true"
 											></span>
-											Loading...
+											{{ $t("loading") }}...
 										</span>
 									</button>
 									<div class="text-center">
@@ -307,7 +311,7 @@
 											href="#"
 											@click="toggleSignIn()"
 										>
-											Create an account
+											{{ $t("newacc") }}
 										</a>
 									</div>
 								</form>
@@ -315,9 +319,11 @@
 
 							<div v-else>
 								<div class="text-center mb-7">
-									<h3 class="text-1000">Sign Up</h3>
+									<h3 class="text-1000">
+										{{ $t("signup") }}
+									</h3>
 									<p class="text-700">
-										Create your account today
+										{{ $t("ctoay") }}
 									</p>
 								</div>
 
@@ -327,9 +333,9 @@
 									@submit.prevent="register()"
 								>
 									<div class="mb-3 text-start">
-										<label class="form-label" for="name"
-											>Name</label
-										>
+										<label class="form-label" for="name">{{
+											$t("form.name")
+										}}</label>
 										<input
 											required
 											class="form-control"
@@ -340,9 +346,9 @@
 										/>
 									</div>
 									<div class="mb-3 text-start">
-										<label class="form-label" for="email"
-											>Email address</label
-										>
+										<label class="form-label" for="email">{{
+											$t("form.email")
+										}}</label>
 										<input
 											required
 											class="form-control"
@@ -357,7 +363,7 @@
 											<label
 												class="form-label"
 												for="password"
-												>Password</label
+												>{{ $t("form.password") }}</label
 											>
 											<input
 												required
@@ -372,7 +378,7 @@
 											<label
 												class="form-label"
 												for="confirmPassword"
-												>Confirm Password</label
+												>{{ $t("form.cpassword") }}</label
 											><input
 												required
 												class="form-control form-icon-input"
@@ -383,7 +389,7 @@
 											/>
 										</div>
 									</div>
-									<div class="form-check mb-3">
+									<div class="form-check mb-3 d-none">
 										<input
 											required
 											class="form-check-input"
@@ -413,7 +419,7 @@
 										:class="loadingReg ? 'disabled' : ''"
 									>
 										<span v-if="!loadingReg">
-											Sign up
+											{{ $t("signup") }}
 										</span>
 										<span v-else>
 											<span
@@ -421,7 +427,7 @@
 												role="status"
 												aria-hidden="true"
 											></span>
-											Loading...
+											{{ $t("loading") }}...
 										</span>
 									</button>
 									<div class="text-center">
@@ -429,7 +435,7 @@
 											class="fs--1 fw-bold"
 											@click="toggleSignIn()"
 											href="#"
-											>Sign in to an existing account</a
+											>{{ $t("exacc") }}</a
 										>
 									</div>
 								</form>
