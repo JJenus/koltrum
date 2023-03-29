@@ -98,7 +98,7 @@
 		<div class="row gx-6 gy-3 mb-4 align-items-center">
 			<div class="col-auto">
 				<h2 class="mb-0">
-					Projects
+					{{ $t("app.nav.project") }}
 					<span class="fw-normal text-700 ms-3"
 						>({{ projects.length }})</span
 					>
@@ -110,7 +110,7 @@
 					data-bs-toggle="modal"
 					data-bs-target="#projectsCardViewModal"
 				>
-					<i class="fa-solid fa-plus me-2"></i>Start new project
+					<i class="fa-solid fa-plus me-2"></i> {{ $t("app.project.cpj") }}
 				</button>
 			</div>
 		</div>
@@ -123,7 +123,7 @@
 							class="nav-link px-2 py-1 active"
 							aria-current="page"
 							href="#"
-							>All<span class="text-700 fw-semi-bold">
+							> {{ $t("app.project.all") }}<span class="text-700 fw-semi-bold">
 								({{ total("all") }})
 							</span></a
 						>
@@ -133,7 +133,7 @@
 							@click="filter = 'ongoing'"
 							class="nav-link px-2 py-1"
 							href="#"
-							>Ongoing<span class="text-700 fw-semi-bold"
+							> {{ $t("app.project.ongoing") }}<span class="text-700 fw-semi-bold"
 								>({{ total("ongoing") }})</span
 							></a
 						>
@@ -143,7 +143,7 @@
 							@click="filter = 'cancelled'"
 							class="nav-link px-2 py-1"
 							href="#"
-							>Cancelled<span class="text-700 fw-semi-bold"
+							> {{ $t("app.project.cancelled") }}<span class="text-700 fw-semi-bold"
 								>({{ total("cancelled") }})</span
 							></a
 						>
@@ -153,7 +153,7 @@
 							@click="filter = 'completed'"
 							class="nav-link px-2 py-1"
 							href="#"
-							>Finished<span class="text-700 fw-semi-bold"
+							> {{ $t("app.project.cpt") }}<span class="text-700 fw-semi-bold"
 								>({{ total("completed") }})</span
 							>
 						</a>
@@ -182,7 +182,7 @@
 		</div>
 
 		<div class="text-center text-muted" v-if="projects.length == 0">
-			<span>No projects found.</span>
+			<span>{{ $t("app.dashboard.npd") }}</span>
 		</div>
 		<div
 			class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xxl-4 g-3 mb-9"

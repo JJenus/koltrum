@@ -8,7 +8,7 @@
     "app": {
         "nav": {
             "dashboard": "Tablero",
-            "project": "Proyecto",
+            "project": "Proyectos",
             "setting": "Configuraciones",
             "wallet": "Carteras",
             "profile": "Perfil",
@@ -28,7 +28,21 @@
                 "desc": "Generadas en base a planes de proyecto y datos en tiempo real."
             },
             "total": "Cantidad total"
-        }
+        },
+        "project": {
+            "cpj": "Crear Nuevo Proyecto",
+            "all": "Todos",
+            "ongoing": "En Curso",
+            "cancelled": "Cancelado",
+            "cpt": "Completado",
+            "slc": "Seleccione una moneda y comience a crear riqueza.",
+            "pay": {
+                "dir": "Realice el pago a la dirección a continuación y proporcione el ID de transacción o referencia de transacción proporcionado.",
+                "amount": "Cantidad",
+                "transid": "ID de Transacción"
+            }
+        },
+        "outro": "Gracias por crear con Koltrum"
     },
     "product": {
         "nav": {
@@ -110,7 +124,9 @@
         "email": "Correo electrónico",
         "password": "Contraseña",
         "cpassword": "Confirmar contraseña",
-        "address": "Dirección"
+        "address": "Dirección",
+        "tel": "Teléfono",
+        "country": "País"
     },
     "signin": "Iniciar sesión",
     "signup": "Registrarse",
@@ -121,5 +137,6 @@
     "exacc": "Iniciar sesión en una cuenta existente",
     "getacc": "Obtener acceso a tu cuenta",
     "ctoay": "Crea tu cuenta hoy",
-    "loading": "Cargando"
+    "loading": "Cargando",
+    "back": "Atrás"
 }

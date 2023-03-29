@@ -191,7 +191,7 @@
 				<div
 					class="modal-header p-5 px-md-6 pb-0 position-relative border-0"
 				>
-					<h2>Create New Project</h2>
+					<h2>{{ $t("app.project.cpj") }}</h2>
 					<button
 						class="btn btn-circle btn-outline-secondary border-0 position-absolute end-0 top-0 mt-3 me-3"
 						style="--phoenix-bg-opacity: 0.64"
@@ -203,7 +203,7 @@
 				<div class="modal-body p-5 px-md-6 pt-0 mb-4">
 					<div v-if="!showCoin">
 						<p class="mb-4">
-							Select a coin and start creating wealth.
+							{{ $t("app.project.slc") }}
 						</p>
 						<div class="row">
 							<div
@@ -259,12 +259,10 @@
 							<div v-else>
 								<div>Plan: {{ makePay.title }}</div>
 								<div class="mb-3">
-									Amount: {{ makePay.amount }}
+									{{ $t("app.project.pay.amount") }}: {{ makePay.amount }}
 								</div>
 								<div class="border rounded p-3 fs-xs mb-4">
-									Make payment to the address below and submit
-									the transaction id or trasaction reference
-									provided.
+									{{ $t("app.project.pay.dir") }}
 									<h5 class="mt-3">
 										BTC: {{ "10kkXghst4jhdjfh" }}
 									</h5>
@@ -275,7 +273,7 @@
 								>
 									<div class="mb-3">
 										<label for="transactionId"
-											>Transaction ID</label
+											>{{ $t("app.project.pay.transid") }}</label
 										>
 										<input
 											type="text"
@@ -289,10 +287,12 @@
 											@click="makePay = null"
 											class="btn btn-secondary me-2"
 										>
-											Back
+											{{ $t("back") }}
 										</button>
 										<button class="btn btn-primary">
-											<span v-if="!loading">Submit</span>
+											<span v-if="!loading">{{
+												$t("submit")
+											}}</span>
 											<span
 												v-else
 												class="spinner-border spinner-border-sm"

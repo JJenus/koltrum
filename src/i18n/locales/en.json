@@ -8,7 +8,7 @@
     "app": {
         "nav": {
             "dashboard": "Dashboard",
-            "project": "Project",
+            "project": "Projects",
             "setting": "Settings",
             "wallet": "Wallets",
             "profile": "Profile",
@@ -29,7 +29,20 @@
             },
             "total": "Total amount"
         },
-        "project": {}
+        "project": {
+            "cpj": "Create New Project",
+            "all": "All",
+            "ongoing": "Ongoing",
+            "cancelled": "Cancelled",
+            "cpt": "Completed",
+            "slc": "Select a coin and start creating wealth.",
+            "pay": {
+                "dir": "Make payment to the address below and submit the transaction id or trasaction reference provided.",
+                "amount": "Amount",
+                "transid": "Transaction ID"
+            }
+        },
+        "outro": "Thank you for creating with Koltrum"
     },
     "product": {
         "nav": {
@@ -110,7 +123,9 @@
         "email": "Email address",
         "password": "Password",
         "cpassword": "Confirm password",
-        "address": "Address"
+        "address": "Address",
+        "tel": "Phone",
+        "country": "Country"
     },
     "signin": "Sign in",
     "signup": "Sign up",
@@ -121,5 +136,6 @@
     "exacc": "Sign in to an existing account",
     "getacc": "Get access to your account",
     "ctoay": "Create your account today",
-    "loading": "Loading"
+    "loading": "Loading",
+    "back": "Back"
 }

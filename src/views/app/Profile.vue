@@ -178,9 +178,9 @@
 				class="row align-items-center justify-content-between g-3 mb-4"
 			>
 				<div class="col-auto">
-					<h2 class="mb-0">Profile</h2>
+					<h2 class="mb-0">{{ $t("app.nav.profile") }}</h2>
 				</div>
-				<div class="col-auto">
+				<div class="col-auto d-none">
 					<div class="row g-3">
 						<div class="col-auto">
 							<button class="btn btn-phoenix-danger">
@@ -222,7 +222,11 @@
 												>
 													<button
 														@click="selectImage()"
-														:class="user.imgUrl? '':'opacity-50' "
+														:class="
+															user.imgUrl
+																? ''
+																: 'opacity-50'
+														"
 														class="btn btn-outline-secondary rounded-circle px-3 py-3"
 													>
 														<i
@@ -257,30 +261,32 @@
 							<div class="card h-100">
 								<div class="card-body pb-3">
 									<div class="d-flex align-items-center mb-3">
-										<h3 class="me-1">Default Address</h3>
+										<h3 class="me-1">
+											{{ $t("form.address") }}
+										</h3>
 										<button class="btn btn-link p-0">
 											<span
 												class="fas fa-pen fs-0 ms-3 text-500"
 											></span>
 										</button>
 									</div>
-									<h5 class="text-800">Address</h5>
+									<h5 class="text-800">{{ $t("form.address") }}</h5>
 									<p class="text-800">
 										{{ user.address }}
 										<span
 											v-if="!user.address"
-											class="muted small"
+											class="muted small d-none"
 											>(No address added)</span
 										>
 										<br />{{ user.country }}
 									</p>
 									<div class="mb-3">
-										<h5 class="text-800">Email</h5>
+										<h5 class="text-800">{{ $t("form.email") }}</h5>
 										<a :href="'mailto:' + user.email">
 											{{ user.email }}
 										</a>
 									</div>
-									<h5 class="text-800">Phone</h5>
+									<h5 class="text-800">{{ $t("form.tel") }}</h5>
 									<a
 										class="text-800"
 										:href="'tel:' + user.phone"
@@ -288,7 +294,7 @@
 										{{ user.phone }}
 										<span
 											v-if="!user.phone"
-											class="muted small"
+											class="muted small d-none"
 											>(No phone number added)</span
 										>
 									</a>
@@ -312,7 +318,7 @@
 												v-model="form.name"
 											/>
 											<label for="floatingInputValid"
-												>Name</label
+												>{{ $t("form.name") }}</label
 											>
 										</div>
 										<div class="form-floating">
@@ -323,7 +329,7 @@
 												type="email"
 												v-model="form.email"
 											/>
-											<label for="email">Email</label>
+											<label for="email">{{ $t("form.email") }}</label>
 										</div>
 										<div class="form-floating mb-3">
 											<input
@@ -333,7 +339,7 @@
 												type="text"
 												v-model="form.phone"
 											/>
-											<label for="phone">Phone</label>
+											<label for="phone">{{ $t("form.tel") }}</label>
 										</div>
 										<div class="form-floating mb-3">
 											<input
@@ -343,7 +349,7 @@
 												type="text"
 												v-model="form.country"
 											/>
-											<label for="country">Country</label>
+											<label for="country">{{ $t("form.country") }}</label>
 										</div>
 
 										<div class="form-floating mb-3">
@@ -353,7 +359,7 @@
 												style="height: 100px"
 												v-model="form.address"
 											></textarea>
-											<label for="address">Address</label>
+											<label for="address">{{ $t("form.address") }}</label>
 										</div>
 
 										<div>
@@ -365,7 +371,7 @@
 												"
 											>
 												<span v-if="!loading">
-													Save changes
+													{{ $t("save") }}
 												</span>
 												<span v-else>
 													<span
@@ -373,7 +379,7 @@
 														role="status"
 														aria-hidden="true"
 													></span>
-													Saving...
+													{{ $t("loading") }}
 												</span>
 											</button>
 										</div>
