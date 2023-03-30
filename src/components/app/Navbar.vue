@@ -7,8 +7,6 @@
 	const AppName = import.meta.env.VITE_APP_NAME;
 </script>
 
-
-
 <template>
 	<nav class="navbar navbar-top navbar-expand-lg" id="navbarTop">
 		<div class="navbar-logo">
@@ -62,10 +60,11 @@
 				</li>
 
 				<!-- Dashboard 
-Exchange 
-Market 
-Ico
-Trade -->
+					 Exchange 
+					 Market 
+					 Ico
+					 Trade	 
+				-->
 
 				<li class="nav-item dropdown">
 					<a class="nav-link lh-1" href="/app/exchange" role="button">

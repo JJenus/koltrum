@@ -4,7 +4,7 @@
 </script>
 
 <template>
-	<div class="card">
+	<div class="card" style="min-height: 200px;">
 		<div class="card-body p-1">
 			<CryptoMarket
 				:options="{

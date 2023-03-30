@@ -1,7 +1,19 @@
 <script setup>
-	import { inject } from "vue";
+	import { inject, onMounted, ref } from "vue";
+	import { user as userUtil } from "../../stores/user";
+	import { useRoute, useRouter } from "vue-router";
 
 	const user = inject("user");
+	const parentPath = ref("app");
+
+	const router = useRouter();
+	const route = useRoute();
+
+	onMounted(async () => {
+		await router.isReady();
+		parentPath.value = route.matched[0].path;
+		console.log(parentPath.value);
+	});
 </script>
 
 <template>
@@ -50,7 +62,7 @@
 				>
 					<ul class="nav d-flex flex-column mb-2 py-3">
 						<li class="nav-item">
-							<a class="nav-link px-3" href="/app/profile">
+							<a class="nav-link px-3" :href="`${parentPath}/profile`">
 								<span
 									class="me-2 text-900"
 									data-feather="user"
@@ -61,7 +73,7 @@
 							>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link px-3" href="/app/dashboard"
+							<a class="nav-link px-3" :href="`${parentPath}/dashboard`"
 								><span
 									class="me-2 text-900"
 									data-feather="pie-chart"
@@ -98,7 +110,8 @@
 					<div class="px-3 my-2">
 						<a
 							class="btn btn-phoenix-secondary d-flex flex-center w-100"
-							href="#!"
+							href="#"
+							@click="userUtil.logout()"
 						>
 							<span class="me-2" data-feather="log-out"> </span
 							>{{ $t("signout") }}</a

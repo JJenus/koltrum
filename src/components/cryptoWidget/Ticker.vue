@@ -4,7 +4,7 @@
 </script>
 
 <template>
-	<div class="card">
+	<div class="card" style="min-height: 130px;">
 		<div class="card-body p-1">
 			<Ticker
 				:options="{

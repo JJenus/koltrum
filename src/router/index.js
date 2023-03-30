@@ -1,12 +1,18 @@
 import { createRouter, createWebHistory } from "vue-router";
 import ProductView from "../views/ProductView.vue";
-import AppView from "../views/AppView.vue";
+
+// App imports
+// import AppView from "../views/AppView.vue";
 import Dashboard from "../views/app/Dashboard.vue";
 import Projects from "../views/app/Projects.vue";
 import Wallet from "../views/app/Wallet.vue";
 import Profile from "../views/app/Profile.vue";
 import Market from "../views/app/Market.vue";
 import Exchange from "../views/app/Exchange.vue";
+
+// Admin imports
+import AdminView from "../views/AdminView.vue";
+import AdminDashboard from "../views/admin/AdminDashboard.vue";
 
 import { user } from "@/stores/user";
 import Tr from "@/i18n/translation";
@@ -19,11 +25,38 @@ const router = createRouter({
 			name: "home",
 			component: ProductView,
 		},
+
+		{
+			path: "/admin",
+			name: "admin",
+			redirect: "/admin/dashboard",
+			component: AdminView,
+			beforeEnter: (to, from, next) => {
+				// if (!user.getUser()) {
+				// 	next({ name: "home" });
+				// } else {
+				// 	next();
+				// }
+				next();
+			},
+			children: [
+				{
+					path: "dashboard",
+					name: "adminDashboard",
+					component: AdminDashboard,
+				},
+				{
+					path: "projects",
+					name: "projects",
+					component: Projects,
+				},
+			],
+		},
 		{
 			path: "/app",
 			name: "app",
 			redirect: "/app/dashboard",
-			component: AppView,
+			component: () => import("../views/AppView.vue"),
 			beforeEnter: (to, from, next) => {
 				if (!user.getUser()) {
 					next({ name: "home" });
