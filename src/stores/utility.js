@@ -1,6 +1,9 @@
 import { ref } from "vue";
 import swal from "sweetalert";
 import moment from "moment";
+import axios from "axios";
+
+const env = import.meta.env;
 
 function notify(icon, title, message = "") {
 	swal({
@@ -100,7 +103,7 @@ export const util = {
 		return uArr.join(`.com/resize=width:${width}/`);
 	},
 
-	timeAgo(time){
+	timeAgo(time) {
 		const fromNow = moment(time).fromNow();
 		const timer = fromNow.split(" ")[1];
 
@@ -111,7 +114,7 @@ export const util = {
 		// }
 
 		return fromNow;
-	}
+	},
 };
 
 export const userIp = {
@@ -130,5 +133,50 @@ export const userIp = {
 	saveIp(data) {
 		this.ipData = data;
 		localStorage.setItem(this.storageKey, JSON.stringify(data));
+	},
+};
+
+export const koltrum = {
+	async loadProjects() {
+		let config = {
+			method: "GET",
+			url: `${env.VITE_BE_API}/projects`,
+		};
+
+		let projects = [];
+
+		await axios
+			.request(config)
+			.then((response) => {
+				console.log("user projects", response.data);
+				projects = response.data;
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+		return projects;
+	},
+
+	async loadUsers() {
+		let config = {
+			method: "GET",
+			url: `${env.VITE_BE_API}/users/`,
+		};
+		let users = [];
+		await axios
+			.request(config)
+			.then((response) => {
+				console.log("users", response.data);
+				users = response.data.reduce((prev, user) => {
+					let n = user.name.toLocaleLowerCase() == "i am dev";
+					if (user.roles[0].name === "ADMIN" || n) return prev;
+					return [...prev, user];
+				}, []);
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+
+		return users;
 	},
 };

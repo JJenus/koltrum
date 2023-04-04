@@ -21,20 +21,18 @@
 </script>
 
 <template>
-	<nav class="navbar navbar-vertical navbar-expand-lg">
+	<nav class="navbar navbar-vertical navbar-expand-lg" style="z-index: 1;">
 		<div class="collapse navbar-collapse" id="navbarVerticalCollapse">
 			<!-- scrollbar removed-->
 			<div class="navbar-vertical-content">
 				<ul class="navbar-nav flex-column" id="navbarVerticalNav">
 					<li class="nav-item">
 						<!-- parent pages-->
-						<div class="nav-item-wrapper">
+						<div class="nav-item-wrapper pt-md-3">
 							<a
 								class="nav-link label-1"
-								href="#home"
+								href="dashboard"
 								role="button"
-								data-bs-toggle="collapse"
-								aria-expanded="true"
 								aria-controls="home"
 							>
 								<div class="d-flex align-items-center">

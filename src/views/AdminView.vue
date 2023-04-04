@@ -65,7 +65,7 @@
 </script>
 
 <template>
-	<main class="main" id="top">
+	<main class="main overflow-hidden" id="top">
 		<div class="container-fluid px-0" data-layout="corntainer">
 			<Navbar />
 			<SideNav />

@@ -173,7 +173,7 @@
 	}
 
 	onMounted(() => {
-		loadProjects();
+		// loadProjects();
 	});
 </script>
 

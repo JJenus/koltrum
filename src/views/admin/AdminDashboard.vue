@@ -1,5 +1,14 @@
 <script setup>
-	import Footer from "../../components/app/Footer.vue";
+	import { onMounted, ref } from "vue";
+	import { koltrum } from "../../stores/utility.js";
+
+	const projects = ref([]);
+	const users = ref([]);
+
+	onMounted(async () => {
+		projects.value = await koltrum.loadProjects();
+		users.value = await koltrum.loadUsers();
+	});
 </script>
 
 <template>
@@ -18,7 +27,7 @@
 				<div class="card-body d-flex align-items-center">
 					<i class="fa-solid fa-coins"></i>
 					<div class="ms-3">
-						<h4 class="mb-0">108</h4>
+						<h4 class="mb-0">{{ 0 }}</h4>
 						<p class="text-800 fs--1 mb-0">Projects</p>
 					</div>
 				</div>
@@ -29,7 +38,7 @@
 				<div class="card-body d-flex align-items-center">
 					<i class="fa-solid fa-money-check"></i>
 					<div class="ms-3">
-						<h4 class="mb-0">108</h4>
+						<h4 class="mb-0">0</h4>
 						<p class="text-800 fs--1 mb-0">Subscription Plans</p>
 					</div>
 				</div>
@@ -40,7 +49,7 @@
 				<div class="card-body d-flex align-items-center">
 					<i class="fa-solid fa-money-bill-trend-up"></i>
 					<div class="ms-3">
-						<h4 class="mb-0">108</h4>
+						<h4 class="mb-0">0</h4>
 						<p class="text-800 fs--1 mb-0">Ongoing Projects</p>
 					</div>
 				</div>
@@ -48,14 +57,14 @@
 		</div>
 	</div>
 
-	<div class="row mt-4">
+	<div class="row mt-4 align-items-fill">
 		<div class="col-lg-4 col-md-12 col-12">
 			<div class="card mb-4">
 				<div class="p-4">
 					<span class="btn-icon btn btn-outline-primary rounded-3">
 						<i class="fa-solid fa-dollar"></i>
 					</span>
-					<h2 class="h1 fw-bold mb-0 mt-4 lh-1">€2,316,032.00</h2>
+					<h2 class="h1 fw-bold mb-0 mt-4 lh-1">${{ 0 }}</h2>
 					<p>Total Subscriptions</p>
 					<div class="progress bg-light-primary" style="height: 2px">
 						<div
@@ -76,7 +85,9 @@
 					<span class="btn-icon btn btn-outline-info rounded-3">
 						<i class="fa-solid fa-user-group text-primary"></i>
 					</span>
-					<h2 class="h1 fw-bold mb-0 mt-4 lh-1">16</h2>
+					<h2 class="h1 fw-bold mb-0 mt-4 lh-1">
+						{{ users.length }}
+					</h2>
 					<p>Total Users</p>
 					<div class="progress bg-light-danger" style="height: 2px">
 						<div
@@ -97,7 +108,7 @@
 					<span class="btn-icon btn btn-outline-warning rounded-3">
 						<i class="fa-solid fa-circle-dollar-to-slot"></i>
 					</span>
-					<h2 class="h1 fw-bold mb-0 mt-4 lh-1">€0.00</h2>
+					<h2 class="h1 fw-bold mb-0 mt-4 lh-1">$0.00</h2>
 					<p>Confirmed Subscriptions</p>
 					<div class="progress bg-light-warning" style="height: 2px">
 						<div

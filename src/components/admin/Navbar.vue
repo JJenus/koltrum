@@ -9,7 +9,7 @@
 	<nav
 		class="navbar navbar-top navbar-expand"
 		id="navbarDefault"
-		style="z-index: 10000"
+		style="z-index: 1000"
 	>
 		<div class="collapse navbar-collapse justify-content-between">
 			<div class="navbar-logo">

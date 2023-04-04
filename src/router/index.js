@@ -13,6 +13,9 @@ import Exchange from "../views/app/Exchange.vue";
 // Admin imports
 import AdminView from "../views/AdminView.vue";
 import AdminDashboard from "../views/admin/AdminDashboard.vue";
+import Users from "../views/admin/Users.vue";
+import AdminProjects from "../views/admin/Projects.vue";
+import AdminLogin from "../views/admin/AdminLogin.vue";
 
 import { user } from "@/stores/user";
 import Tr from "@/i18n/translation";
@@ -32,12 +35,20 @@ const router = createRouter({
 			redirect: "/admin/dashboard",
 			component: AdminView,
 			beforeEnter: (to, from, next) => {
-				// if (!user.getUser()) {
-				// 	next({ name: "home" });
-				// } else {
-				// 	next();
-				// }
-				next();
+				if (!user.getUser()) {
+					next({ name: "login" });
+				} else {
+					const isAdmin = user
+						.getUser()
+						.roles.find((e) => e.name === "ADMIN");
+
+					if (isAdmin) {
+						next();
+					} else {
+						next({ name: "login" });
+					}
+					// next();
+				}
 			},
 			children: [
 				{
@@ -47,8 +58,13 @@ const router = createRouter({
 				},
 				{
 					path: "projects",
-					name: "projects",
-					component: Projects,
+					name: "adminprojects",
+					component: AdminProjects,
+				},
+				{
+					path: "users",
+					name: "users",
+					component: Users,
 				},
 			],
 		},
@@ -102,6 +118,11 @@ const router = createRouter({
 					component: Exchange,
 				},
 			],
+		},
+		{
+			path: "/admin/login",
+			name: "login",
+			component: AdminLogin,
 		},
 	],
 });
