@@ -71,7 +71,7 @@
 	}
 
 	onMounted(() => {
-		// loadProjects()
+		loadProjects();
 	});
 </script>
 
@@ -112,7 +112,7 @@
 					</p>
 					<div class="d-flex flex-center mb-3">
 						<h6 class="text-white mb-0">
-							224
+							{{ projects.length }}
 							<span class="fw-normal text-300"
 								>subscriptions</span
 							>
@@ -122,7 +122,7 @@
 							data-fa-transform="shrink-10 up-2"
 						></span>
 						<h6 class="text-white mb-0">
-							23
+							{{ 0 }}
 							<span class="fw-normal text-300">total paid</span>
 						</h6>
 					</div>
