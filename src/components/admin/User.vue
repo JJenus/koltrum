@@ -1,6 +1,10 @@
 <script setup>
 	import { onMounted, ref } from "vue";
+	import axios from "axios";
+
 	import Project from "../app/projects/project.vue";
+
+	const env = import.meta.env;
 
 	const props = defineProps({
 		user: {
@@ -55,7 +59,7 @@
 	function loadProjects() {
 		let config = {
 			method: "GET",
-			url: `${env.VITE_BE_API}/users/${props.user.value.id}/projects`,
+			url: `${env.VITE_BE_API}/users/${props.user.id}/projects`,
 		};
 
 		axios
@@ -152,7 +156,7 @@
 					</div>
 					<a
 						:href="`mailto:${user.email}`"
-						class="btn btn-phoenix-primary"
+						class="btn btn-phoenix-primary px-3"
 					>
 						<span class="fa-solid fa-envelope me-2"></span>Send
 						Email

@@ -148,7 +148,7 @@ export const koltrum = {
 		await axios
 			.request(config)
 			.then((response) => {
-				console.log("user projects", response.data);
+				console.log("Projects", response.data);
 				projects = response.data;
 			})
 			.catch(function (error) {

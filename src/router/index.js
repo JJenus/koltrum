@@ -16,6 +16,7 @@ import AdminDashboard from "../views/admin/AdminDashboard.vue";
 import Users from "../views/admin/Users.vue";
 import AdminProjects from "../views/admin/Projects.vue";
 import AdminLogin from "../views/admin/AdminLogin.vue";
+import Settings from "../views/admin/Settings.vue";
 
 import { user } from "@/stores/user";
 import Tr from "@/i18n/translation";
@@ -66,6 +67,11 @@ const router = createRouter({
 					name: "users",
 					component: Users,
 				},
+				{
+					path: "settings",
+					name: "adminsettings",
+					component: Settings,
+				},
 			],
 		},
 		{
@@ -100,7 +106,7 @@ const router = createRouter({
 				{
 					path: "settings",
 					name: "settings",
-					// component: CardsVue,
+					// component: Settings,
 				},
 				{
 					path: "profile",
