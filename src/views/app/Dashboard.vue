@@ -1,6 +1,6 @@
 <script setup>
 	import Symbols from "@/components/cryptoWidget/Symbols.vue";
-	import { inject, onMounted, ref } from "vue";
+	import { inject, onBeforeMount, onMounted, ref } from "vue";
 	import StatsPie from "@/components/app/StatsPie.vue";
 	import axios from "axios";
 
@@ -10,13 +10,13 @@
 	const user = inject("user");
 	const projects = ref([]);
 
-	function loadProjects() {
+	async function loadProjects() {
 		let config = {
 			method: "GET",
 			url: `${env.VITE_BE_API}/users/${user.value.id}/projects`,
 		};
 
-		axios
+		await axios
 			.request(config)
 			.then((response) => {
 				console.log("user projects dashboard", response.data);
@@ -32,15 +32,16 @@
 		if (status == "completed")
 			url = "/assets/img/icons/illustrations/4l.png";
 		else if (status == "ongoing")
-			url = "/assets/img/icons/illustrations/3l.png";
+			// url = "/assets/img/icons/illustrations/3l.png";
+			url = "/assets/img/icons/illustrations/4l.png";
 		else if (status == "cancelled")
 			url = "/assets/img/icons/illustrations/2l.png";
 
 		return url;
 	}
 
-	onMounted(() => {
-		loadProjects();
+	onBeforeMount(async () => {
+		await loadProjects();
 	});
 </script>
 

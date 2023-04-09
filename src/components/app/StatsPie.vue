@@ -1,5 +1,5 @@
 <script setup>
-	import { onMounted } from "vue";
+	import { onMounted, ref } from "vue";
 	import * as echarts from "echarts";
 
 	const props = defineProps({
@@ -8,9 +8,7 @@
 		},
 	});
 
-	const crypto = props.projects.sort(function (a, b) {
-		return a.value - b.value;
-	});
+	const crypto = ref([]);
 
 	const options = {
 		legend: {
@@ -50,15 +48,13 @@
 					shadowColor: "rgba(0, 0, 0, 0.5)",
 					borderRadius: 8,
 				},
-				data: crypto.sort(function (a, b) {
-					return a.value - b.value;
-				}),
+				data: crypto.value,
 			},
 		],
 	};
 
 	function total() {
-		return crypto.reduce((p, c) => p + c.value, 0);
+		return crypto.value.reduce((p, c) => p + Number(c.value), 0);
 	}
 
 	function createDonought() {
@@ -69,7 +65,19 @@
 	}
 
 	onMounted(() => {
-		createDonought();
+		setTimeout(() => {
+			props.projects.forEach((element) => {
+				element.itemStyle = { color: "" };
+				element.itemStyle.color =
+					"#" + ((Math.random() * 0xffffff) << 0).toString(16);
+			});
+			crypto.value = props.projects.sort(function (a, b) {
+				return Number(a.value) - Number(b.value);
+			});
+
+			console.log(props.projects);
+			createDonought();
+		}, 3000);
 	});
 </script>
 
@@ -79,7 +87,9 @@
 			<div class="col-12">
 				<div class="row g-3 mb-3">
 					<div class="col-12 col-md-4">
-						<h3 class="text-1100 text-nowrap">{{ $t("app.dashboard.earning.title") }}</h3>
+						<h3 class="text-1100 text-nowrap">
+							{{ $t("app.dashboard.earning.title") }}
+						</h3>
 						<p class="text-700 mb-md-7">
 							{{ $t("app.dashboard.earning.desc") }}
 						</p>
@@ -108,7 +118,7 @@
 								"
 							></span>
 							<p class="mb-0 fw-semi-bold text-900 lh-sm flex-1">
-								{{ coin.name }}
+								{{ coin.project.symbol }}
 							</p>
 							<h5 class="mb-0 text-900">
 								{{ coin.value }}
@@ -125,10 +135,10 @@
 						<div class="position-relative umb-sm-4 mb-xl-0 h-100">
 							<div
 								v-if="crypto.length < 1"
-								style="z-index: 1000;"
+								style="z-index: 1000"
 								class="text-center bg-transparent w-100 position-absolute top-0 start-0 h-100 d-flex align-items-center justify-content-center"
 							>
-							{{ $t("app.dashboard.npd") }}
+								{{ $t("app.dashboard.npd") }}
 							</div>
 							<div
 								class="position-relative m-0"

@@ -1,7 +1,8 @@
 <script setup>
-	import { ref } from "vue";
+	import { onMounted, ref } from "vue";
 	import axios from "axios";
 	import moment from "moment";
+	import { alert } from "@/stores/utility";
 
 	const env = import.meta.env;
 	const loading = ref(false);
@@ -14,6 +15,8 @@
 			required: false,
 		},
 	});
+
+	const returns = ref("");
 
 	function statusBadge() {
 		const status = props.project.status;
@@ -55,6 +58,7 @@
 			.then((response) => {
 				console.log("Confirm pay", response.data);
 				// projects.value = response.data;
+				alert.success();
 			})
 			.catch(function (error) {
 				console.log(error);
@@ -64,10 +68,27 @@
 			});
 	}
 
+	function save() {
+		if (!returns.value || !returns.value.trim()) {
+			alert.error("Form error", "Enter a valid amount");
+			return;
+		}
+
+		props.project.value += Number(returns.value);
+
+		confirmPay();
+	}
+
 	function fDate(dtime) {
 		if (!dtime || !dtime.trim()) return moment().format("LLL");
 		return moment(dtime).format("LLL");
 	}
+
+	onMounted(() => {
+		if (!props.project.value) {
+			props.project.value = 0;
+		}
+	});
 </script>
 <template>
 	<div class="card h-100 hover-actions-trigger">
@@ -179,6 +200,27 @@
 			</div>
 
 			<div v-else>
+				<div class="mb-3">
+					<div class="mb-3">
+						<label for="">Enter amount</label>
+						<input
+							v-model="returns"
+							type="text"
+							class="me-2 form-control"
+						/>
+					</div>
+					<button
+						:class="loading ? 'disabled' : ''"
+						class="btn btn-outline-primary w-100"
+						@click="save()"
+					>
+						<span
+							v-if="loading"
+							class="spinner-border spinner-border-sm"
+						></span>
+						<span v-else>Save</span>
+					</button>
+				</div>
 				<button
 					:class="loading ? 'disabled' : ''"
 					class="btn btn-primary"
