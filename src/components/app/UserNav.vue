@@ -12,7 +12,7 @@
 	onMounted(async () => {
 		await router.isReady();
 		parentPath.value = route.matched[0].path;
-		console.log(parentPath.value);
+		// console.log(parentPath.value);
 	});
 </script>
 

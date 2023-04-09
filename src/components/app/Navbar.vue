@@ -78,7 +78,7 @@
 					</a>
 				</li>
 
-				<li class="nav-item dropdown">
+				<li class="nav-item dropdown d-none">
 					<a class="nav-link lh-1" href="/app/ico" role="button">
 						{{ $t("app.nav.ico") }}
 					</a>

@@ -99,7 +99,7 @@ const Trans = {
 		// if (!Trans.isLocaleSupported(paramLocale)) {
 		// 	return next(Trans.guessDefaultLocale());
 		// }
-		console.log(Trans.guessDefaultLocale());
+		// console.log(Trans.guessDefaultLocale());
 		await Trans.switchLanguage(Trans.guessDefaultLocale());
 		return next();
 	},

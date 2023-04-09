@@ -4,17 +4,13 @@
 	import Navbar from "@/components/app/Navbar.vue";
 	import { user } from "@/stores/user";
 	import axios from "axios";
-	import { util } from "@/stores/utility";
-
 	import Footer from "../components/app/Footer.vue";
 
 	const env = import.meta.env;
 	const sessions = ref([]);
-	const appUser = ref(user.getUser());
-	const settings = ref(util.settings());
 
-	provide("user", appUser);
-	provide("settings", settings);
+	const appUser = ref(user.getUser());
+	provide("user", appUser); 
 
 	function loadSessions() {
 		let config = {

@@ -71,6 +71,8 @@ export const util = {
 	avatar: "/assets/img/avatar/default-avatar.png",
 	settings: () => {
 		return {
+			cryptoName: "BTC",
+			walletAddress: "",
 			currency: "USD",
 			currencySymbol: "$",
 			language: "en",
@@ -95,8 +97,6 @@ export const util = {
 		captured: ref(false),
 		imageFile: ref(null),
 	},
-
-	loadSettings() {},
 
 	resizeImg(uri, width = 100) {
 		let uArr = uri.split(".com/");
@@ -155,6 +155,46 @@ export const koltrum = {
 				console.log(error);
 			});
 		return projects;
+	},
+
+	async loadPlans() {
+		let config = {
+			method: "GET",
+			url: `${env.VITE_BE_API}/plans`,
+		};
+
+		let plans = [];
+
+		await axios
+			.request(config)
+			.then((response) => {
+				console.log("Projects", response.data);
+				plans = response.data;
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+		return plans;
+	},
+
+	async loadUserSubs() {
+		let config = {
+			method: "GET",
+			url: `${env.VITE_BE_API}/users/subscriptions`,
+		};
+
+		let plans = [];
+
+		await axios
+			.request(config)
+			.then((response) => {
+				console.log("Projects", response.data);
+				plans = response.data;
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+		return plans;
 	},
 
 	async loadUsers() {

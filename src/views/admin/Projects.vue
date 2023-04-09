@@ -2,13 +2,11 @@
 	import { onMounted, ref } from "vue";
 	import CreateProjectModal from "../../components/admin/CreateProjectModal.vue";
 	import Plan from "../../components/app/projects/Plan.vue";
-	import { koltrum } from "../../stores/utility.js";
 	import axios from "axios";
-	import { alert } from "@/stores/utility";
+	import { alert, koltrum } from "@/stores/utility";
 
 	const env = import.meta.env;
 
-	const projects = ref([]);
 	const active = ref(true);
 	const activeCoin = ref(null);
 
@@ -58,7 +56,7 @@
 							<h2 class="mb-2 text-1100">
 								Projects
 								<span class="fw-normal text-700 ms-3"
-									>({{ projects.length }})</span
+									>({{ crypto.length }})</span
 								>
 							</h2>
 						</div>
@@ -131,7 +129,7 @@
 								@click="deleCoin(i, coin.id)"
 								class="btn btn-icon btn-outline-danger"
 							>
-								<i class="fa-strong fa-trash"></i>
+								<i class="fa-solid fa-trash"></i>
 							</button>
 						</div>
 					</div>

@@ -43,12 +43,12 @@ const router = createRouter({
 						.getUser()
 						.roles.find((e) => e.name === "ADMIN");
 
-					if (isAdmin) {
-						next();
-					} else {
-						next({ name: "login" });
-					}
-					// next();
+					// if (isAdmin) {
+					// 	next();
+					// } else {
+					// 	next({ name: "login" });
+					// }
+					next();
 				}
 			},
 			children: [

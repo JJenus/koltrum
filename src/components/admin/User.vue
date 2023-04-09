@@ -67,10 +67,12 @@
 			.then((response) => {
 				console.log("user projects", response.data);
 				projects.value = response.data;
-				loading.value = false;
 			})
 			.catch(function (error) {
 				console.log(error);
+			})
+			.finally(() => {
+				loading.value = false;
 			});
 	}
 
@@ -235,7 +237,7 @@
 	>
 		<div class="modal-dialog modal-lg modal-fullscreen-sm-down">
 			<div class="modal-content">
-				<div class="modal-body position-relative">
+				<div class="modal-body position-relative pb-5">
 					<div class="position-absolute top-0 end-0 m-2">
 						<button
 							type="button"
@@ -253,6 +255,8 @@
 							<span class="text-muted">subscriptions</span>
 						</h1>
 					</div>
+
+					<div v-if="projects.length == 0" class="text-center text-muted my-4">No subscription found</div>
 
 					<div class="row g-4 row-cols-1 row-cols-md-2">
 						<div v-for="project in projects" class="col">

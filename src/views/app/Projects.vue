@@ -89,7 +89,7 @@
 	}
 
 	onMounted(() => {
-		// loadProjects();
+		loadProjects();
 	});
 </script>
 

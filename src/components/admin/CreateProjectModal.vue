@@ -3,6 +3,10 @@
 	import AddPlan from "./AddPlan.vue";
 
 	const showAddPlan = ref(false);
+	const tempImage = ref("/assets/img/bg/bg-32.png");
+	const coinLogo = ref(tempImage.value);
+	const imgFile = ref(null);
+
 	const project = ref({
 		id: null,
 		symbol: "",
@@ -10,6 +14,28 @@
 		logoUrl: null,
 		plans: [],
 	});
+
+	function changeSetImage(val) {
+		if (val.trim()) coinLogo.value = val;
+		else coinLogo.value = tempImage.value;
+	}
+
+	function selectImage() {
+		// const input = document.querySelector("#select-profile-image");
+		const input = document.createElement("input");
+		input.setAttribute("type", "file");
+		input.addEventListener("change", newImage);
+		input.click();
+	}
+
+	function newImage(evt) {
+		const input = evt.target;
+
+		if (input.files && input.files[0]) {
+			imgFile.value = input.files[0];
+			coinLogo.value = URL.createObjectURL(input.files[0]);
+		}
+	}
 
 	function submit($evt) {}
 </script>
@@ -62,6 +88,7 @@
 							>
 							<div class="form-floating">
 								<input
+									@keyup="changeSetImage($event.target.value)"
 									class="form-control"
 									id="floatingInputGrid"
 									type="text"
@@ -71,20 +98,23 @@
 						</div>
 
 						<div class="col-sm-6 col-md-4">
-							<div class="row align-items-end">
+							<div
+								class="row align-items-end justify-content-between"
+							>
 								<div class="col-3">
 									<img
 										width="64"
 										height="64"
-										src="/assets/img/bg/bg-32.png"
+										:src="coinLogo"
 										alt=""
 										class="m-0"
 									/>
 								</div>
-								<div class="col-9 pb-2">
+								<div class="col-9 col-lg-8 pb-2">
 									<button
 										type="button"
-										class="btn btn-primary w-100"
+										class="btn btn-primary ms-md-3"
+										@click="selectImage()"
 									>
 										Upload logo
 									</button>

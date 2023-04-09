@@ -1,7 +1,7 @@
 <script setup>
 	import { onMounted } from "vue";
 	import Tr from "../../i18n/translation";
-	import "https://files.coinmarketcap.com/static/widget/coinPriceBlock.js";
+	// import "https://files.coinmarketcap.com/static/widget/coinPriceBlock.js";
 
 	onMounted(() => {
 		// const widget = document.createElement("script");

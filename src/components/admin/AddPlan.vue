@@ -11,6 +11,8 @@
 		},
 	});
 
+	const crypto = ref(props.project);
+
 	const plan = ref({
 		id: null,
 		title: null,
@@ -48,7 +50,7 @@
 			plan.value.priority = "recommended";
 		}
 
-		props.project.plans.push(plan.value);
+		crypto.value.plans.push(plan.value);
 		// console.log(settings.value);
 
 		loading.value = true;
@@ -56,13 +58,15 @@
 		let config = {
 			method: "POST",
 			url: `${env.VITE_BE_API}/projects`,
-			data: props.project,
+			data: crypto.value,
 		};
 
 		axios
 			.request(config)
 			.then((response) => {
 				console.log(response.data);
+				crypto.value = response.data;
+				console.log(crypto.value);
 				alert.success();
 			})
 			.catch((error) => {
@@ -191,7 +195,11 @@
 							type="submit"
 							class="btn btn-primary px-5 px-sm-10"
 						>
-							Save
+							<span
+								v-if="loading"
+								class="spinner-border spinner-border-sm"
+							></span>
+							<span v-else>Save</span>
 						</button>
 					</div>
 				</div>

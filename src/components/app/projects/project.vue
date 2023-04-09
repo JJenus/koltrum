@@ -1,4 +1,11 @@
 <script setup>
+	import { ref } from "vue";
+	import axios from "axios";
+	import moment from "moment";
+
+	const env = import.meta.env;
+	const loading = ref(false);
+
 	const props = defineProps({
 		project: {
 			required: true,
@@ -31,6 +38,35 @@
 			: per >= 25
 			? "bg-warning"
 			: "bg-danger";
+	}
+
+	function confirmPay() {
+		loading.value = true;
+		props.project.status = "ongoing";
+
+		let config = {
+			method: "POST",
+			url: `${env.VITE_BE_API}/users/subscribe`,
+			data: props.project,
+		};
+
+		axios
+			.request(config)
+			.then((response) => {
+				console.log("Confirm pay", response.data);
+				// projects.value = response.data;
+			})
+			.catch(function (error) {
+				console.log(error);
+			})
+			.finally(() => {
+				loading.value = false;
+			});
+	}
+
+	function fDate(dtime) {
+		if (!dtime || !dtime.trim()) return moment().format("LLL");
+		return moment(dtime).format("LLL");
 	}
 </script>
 <template>
@@ -117,7 +153,7 @@
 			<div class="d-flex align-items-center mt-4 mb-2">
 				<p class="mb-0 fw-bold fs--1">
 					Started :<span class="fw-semi-bold text-600 ms-1">
-						17th Nov. 2020</span
+						{{ fDate(project.createdAt) }}</span
 					>
 				</p>
 			</div>
@@ -126,7 +162,7 @@
 					<p class="mb-0 fw-bold fs--1">
 						End :
 						<span class="fw-semi-bold text-600 ms-1">
-							21st May 2028</span
+							{{ fDate(project.expiresAt) }}</span
 						>
 					</p>
 				</div>
@@ -143,7 +179,17 @@
 			</div>
 
 			<div v-else>
-				<button class="btn btn-primary">Confirm pay</button>
+				<button
+					:class="loading ? 'disabled' : ''"
+					class="btn btn-primary"
+					@click="confirmPay()"
+				>
+					<span
+						v-if="loading"
+						class="spinner-border spinner-border-sm"
+					></span>
+					<span v-else>Confirm pay</span>
+				</button>
 			</div>
 		</div>
 	</div>
