@@ -19,7 +19,7 @@
 		axios
 			.request(config)
 			.then((response) => {
-				console.log("user projects", response.data);
+				console.log("user projects dashboard", response.data);
 				projects.value = response.data;
 			})
 			.catch(function (error) {

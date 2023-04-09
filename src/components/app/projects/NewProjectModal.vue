@@ -36,7 +36,7 @@
 
 		subscribe.value.transactionId = transactionId.value;
 		subscribe.value.plan = makePay.value;
-		subscribe.value.project = selectCoin.value;
+		subscribe.value.project = showCoin.value;
 		loading.value = true;
 
 		let config = {
