@@ -138,6 +138,41 @@
 						Enter crypto name
 					</div>
 				</div>
+
+				<div class="col-md-6 mb-4">
+					<label for="walletAddress" class="form-label fs-base"
+						>Paypal address</label
+					>
+					<input
+						v-model="settings.paypal"
+						id="walletAddress"
+						type="text"
+						class="form-control"
+					/>
+					<div
+						class="invalid-tooltip position-absolute top-100 start-0"
+					>
+						Enter Paypal address
+					</div>
+				</div>
+
+				<div class="col-md-6 mb-4">
+					<label for="walletAddress" class="form-label fs-base"
+						>Skrill address</label
+					>
+					<input
+						v-model="settings.skrill"
+						id="walletAddress"
+						type="text"
+						class="form-control"
+					/>
+					<div
+						class="invalid-tooltip position-absolute top-100 start-0"
+					>
+						Enter Skrill address
+					</div>
+				</div>
+
 				<div class="col-sm-6 mb-4">
 					<label for="np" class="form-label fs-base">Currency</label>
 					<select
@@ -156,7 +191,8 @@
 						Please select currency!
 					</div>
 				</div>
-				<div class="col-sm-6 mb-4">
+
+				<div class="col-sm-6 mb-4">	
 					<label for="np" class="form-label fs-base"
 						>Default Language</label
 					>

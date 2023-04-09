@@ -41,7 +41,7 @@
             "cpt": "Completado",
             "slc": "Seleccione una moneda y comience a crear riqueza.",
             "pay": {
-                "dir": "Realice el pago a la dirección a continuación y proporcione el ID de transacción o referencia de transacción proporcionado.",
+                "dir": "Realice el pago a cualquiera de las direcciones a continuación y envíe la identificación de la transacción o la referencia proporcionada.",
                 "amount": "Cantidad",
                 "transid": "ID de Transacción"
             }

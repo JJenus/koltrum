@@ -41,7 +41,7 @@
             "cpt": "Completed",
             "slc": "Select a coin and start creating wealth.",
             "pay": {
-                "dir": "Make payment to the address below and submit the transaction id or trasaction reference provided.",
+                "dir": "Make payment to any of the addresses below and submit the transaction id or reference provided.",
                 "amount": "Amount",
                 "transid": "Transaction ID"
             }

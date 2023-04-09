@@ -165,6 +165,14 @@
 										{{ settings.cryptoName }}:
 										{{ settings.walletAddress }}
 									</h5>
+									<h5 class="mt-2">
+										Paypal:
+										{{ settings.paypal }}
+									</h5>
+									<h5 class="mt-2">
+										Skrill:
+										{{ settings.skrill }}
+									</h5>
 								</div>
 								<form
 									action=""

@@ -50,7 +50,7 @@
 				class="navbar-nav"
 				data-top-nav-dropdowns="data-top-nav-dropdowns"
 			>
-				<li class="nav-item dropdown">
+				<li class="nav-item">
 					<a
 						class="nav-link lh-1"
 						href="/app/dashboard"
@@ -66,31 +66,31 @@
 					 Trade	 
 				-->
 
-				<li class="nav-item dropdown">
+				<li class="nav-item ">
 					<a class="nav-link lh-1" href="/app/exchange" role="button">
 						{{ $t("app.nav.exc") }}
 					</a>
 				</li>
 
-				<li class="nav-item dropdown">
+				<li class="nav-item ">
 					<a class="nav-link lh-1" href="/app/market" role="button">
 						{{ $t("app.nav.mkt") }}
 					</a>
 				</li>
 
-				<li class="nav-item dropdown d-none">
+				<li class="nav-item  d-none">
 					<a class="nav-link lh-1" href="/app/ico" role="button">
 						{{ $t("app.nav.ico") }}
 					</a>
 				</li>
 
-				<li class="nav-item dropdown d-none">
+				<li class="nav-item  d-none">
 					<a class="nav-link lh-1" href="/app/trade" role="button">
 						{{ $t("app.nav.trade") }}
 					</a>
 				</li>
 
-				<li class="nav-item dropdown">
+				<li class="nav-item ">
 					<a
 						class="nav-link lh-1"
 						href="/app/projects"
@@ -99,12 +99,12 @@
 					>
 				</li>
 
-				<li class="nav-item dropdown">
+				<li class="nav-item ">
 					<a class="nav-link lh-1" href="/app/profile" role="button">
 						{{ $t("app.nav.profile") }}
 					</a>
 				</li>
-				<li class="nav-item dropdown d-none">
+				<li class="nav-item d-none">
 					<a
 						class="nav-link lh-1"
 						href="/app/settings"
