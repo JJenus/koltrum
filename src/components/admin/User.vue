@@ -65,11 +65,11 @@
 		axios
 			.request(config)
 			.then((response) => {
-				console.log("user projects", response.data);
+				// console.log("user projects", response.data);
 				projects.value = response.data;
 			})
 			.catch(function (error) {
-				console.log(error);
+				// console.log(error);
 			})
 			.finally(() => {
 				loading.value = false;

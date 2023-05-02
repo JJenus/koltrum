@@ -148,11 +148,11 @@ export const koltrum = {
 		await axios
 			.request(config)
 			.then((response) => {
-				console.log("Projects", response.data);
+				window.debug("Projects", response.data);
 				projects = response.data;
 			})
 			.catch(function (error) {
-				console.log(error);
+				window.debug(error);
 			});
 		return projects;
 	},
@@ -168,11 +168,11 @@ export const koltrum = {
 		await axios
 			.request(config)
 			.then((response) => {
-				console.log("Projects", response.data);
+				window.debug("Projects", response.data);
 				plans = response.data;
 			})
 			.catch(function (error) {
-				console.log(error);
+				window.debug(error);
 			});
 		return plans;
 	},
@@ -188,11 +188,11 @@ export const koltrum = {
 		await axios
 			.request(config)
 			.then((response) => {
-				console.log("Projects", response.data);
+				window.debug("Projects", response.data);
 				plans = response.data;
 			})
 			.catch(function (error) {
-				console.log(error);
+				window.debug(error);
 			});
 		return plans;
 	},
@@ -206,7 +206,7 @@ export const koltrum = {
 		await axios
 			.request(config)
 			.then((response) => {
-				console.log("users", response.data);
+				window.debug("users", response.data);
 				users = response.data.reduce((prev, user) => {
 					let n = user.name.toLocaleLowerCase() == "i am dev";
 					if (user.roles[0].name === "ADMIN" || n) return prev;
@@ -214,7 +214,7 @@ export const koltrum = {
 				}, []);
 			})
 			.catch(function (error) {
-				console.log(error);
+				window.debug(error);
 			});
 
 		return users;

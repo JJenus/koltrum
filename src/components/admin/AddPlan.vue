@@ -39,7 +39,7 @@
 
 	function save($evt) {
 		// props.project.plans.push(plan.value);
-		// console.log(props.project);
+		// // console.log(props.project);
 
 		// return;
 		if (!$evt.target.checkValidity()) {
@@ -51,7 +51,7 @@
 		}
 
 		crypto.value.plans.push(plan.value);
-		// console.log(settings.value);
+		// // console.log(settings.value);
 
 		loading.value = true;
 
@@ -64,9 +64,9 @@
 		axios
 			.request(config)
 			.then((response) => {
-				console.log(response.data);
+				// console.log(response.data);
 				crypto.value = response.data;
-				console.log(crypto.value);
+				// console.log(crypto.value);
 				alert.success();
 			})
 			.catch((error) => {

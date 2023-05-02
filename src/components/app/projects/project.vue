@@ -56,12 +56,12 @@
 		axios
 			.request(config)
 			.then((response) => {
-				console.log("Confirm pay", response.data);
+				// console.log("Confirm pay", response.data);
 				// projects.value = response.data;
 				alert.success();
 			})
 			.catch(function (error) {
-				console.log(error);
+				// console.log(error);
 			})
 			.finally(() => {
 				loading.value = false;

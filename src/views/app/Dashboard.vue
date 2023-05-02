@@ -19,11 +19,11 @@
 		await axios
 			.request(config)
 			.then((response) => {
-				console.log("user projects dashboard", response.data);
+				debug.log("user projects dashboard", response.data);
 				projects.value = response.data;
 			})
 			.catch(function (error) {
-				console.log(error);
+				debug.log(error);
 			});
 	}
 

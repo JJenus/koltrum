@@ -9,47 +9,7 @@
 
 	const filter = ref("all");
 
-	const projects = ref([
-		{
-			value: 60,
-			name: "BTC",
-			status: "completed",
-			plan: {
-				name: "Premium",
-				amount: 3000,
-				returns: 10000,
-			},
-			itemStyle: {
-				color: "#f2a900",
-			},
-		},
-		{
-			value: 2538,
-			name: "ETH",
-			status: "cancelled",
-			plan: {
-				name: "Starter",
-				amount: 500,
-				returns: 3000,
-			},
-			itemStyle: {
-				color: "#c99d66",
-			},
-		},
-		{
-			value: 1562,
-			name: "XRP",
-			status: "ongoing",
-			plan: {
-				name: "Standard",
-				amount: 1000,
-				returns: 6000,
-			},
-			itemStyle: {
-				color: "#006097",
-			},
-		},
-	]);
+	const projects = ref([]);
 
 	const user = inject("user");
 
@@ -80,11 +40,11 @@
 		axios
 			.request(config)
 			.then((response) => {
-				console.log("user projects", response.data);
+				// console.log.log("user projects", response.data);
 				projects.value = response.data;
 			})
 			.catch(function (error) {
-				console.log(error);
+				// console.log.log(error);
 			});
 	}
 

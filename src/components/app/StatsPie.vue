@@ -75,7 +75,7 @@
 				return Number(a.value) - Number(b.value);
 			});
 
-			console.log(props.projects);
+			// console.log.log(props.projects);
 			createDonought();
 		}, 3000);
 	});
