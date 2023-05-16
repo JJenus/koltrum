@@ -9,6 +9,10 @@ const aLocales = [
 		locale: "es",
 		flag: "https://seeklogo.com/images/S/Spain-logo-72350D8587-seeklogo.com.png",
 	},
+	{
+		locale: "fr",
+		flag: "https://cdn.britannica.com/82/682-004-F0B47FCB/Flag-France.jpg",
+	},
 ];
 
 const Trans = {

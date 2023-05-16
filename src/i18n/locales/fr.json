@@ -1,0 +1,146 @@
+{
+    "locale": {
+        "locale": "Français",
+        "en": "Anglais",
+        "es": "Espagnol",
+        "fr": "Français",
+        "flag": "https://cdn.britannica.com/82/682-004-F0B47FCB/Flag-France.jpg"
+    },
+    "app": {
+        "nav": {
+            "dashboard": "Tableau de bord",
+            "project": "Projets",
+            "setting": "Paramètres",
+            "wallet": "Portefeuilles",
+            "profile": "Profil",
+            "lang": "Langue",
+            "exc": "Échange",
+            "mkt": "Marché",
+            "ico": "ICO",
+            "trade": "Commerce"
+        },
+        "dashboard": {
+            "title": "Tableau de bord",
+            "intro": "Voici ce qui se passe dans votre portefeuille.",
+            "npd": "Aucun projet à afficher.",
+            "npdlink": "Créer un projet de minage",
+            "trends": {
+                "title": "Tendances",
+                "desc": "Tendances actuelles des cryptomonnaies dans le monde."
+            },
+            "earning": {
+                "title": "Gains potentiels",
+                "desc": "Générés en fonction des plans de projet et des données en direct."
+            },
+            "total": "Montant total"
+        },
+        "project": {
+            "cpj": "Créer un nouveau projet",
+            "all": "Tous",
+            "ongoing": "En cours",
+            "cancelled": "Annulé",
+            "cpt": "Terminé",
+            "slc": "Sélectionnez une cryptomonnaie et commencez à créer de la richesse.",
+            "pay": {
+                "dir": "Effectuez un paiement à l'une des adresses ci-dessous et soumettez l'identifiant de transaction ou la référence fournie.",
+                "amount": "Montant",
+                "transid": "Identifiant de transaction"
+            }
+        },
+        "outro": "Merci d'avoir créé avec Koltrum"
+    },
+    "product": {
+        "nav": {
+            "home": "Accueil",
+            "about": "À propos",
+            "features": "Fonctionnalités",
+            "contact": "Contact"
+        },
+        "home": {
+            "for": "pour",
+            "title": "votre crypto",
+            "intro": "Grandissez avec le monde des cryptomonnaies sans effort. Laissez-nous faire le travail à votre place. Le minage à son meilleur."
+        },
+        "features": {
+            "title": "Une solution entièrement intégrée",
+            "intro": "Bienvenue sur la plateforme crypto Koltrum, où votre parcours d'investissement atteint de nouveaux sommets de rapidité et d'efficacité. Notre plateforme est conçue pour répondre aux besoins des investisseurs novices et expérimentés, en leur offrant une expérience fluide et conviviale.",
+            "speed": {
+                "intro": "Notre technologie avancée nous permet de traiter les transactions à une vitesse sans précédent, garantissant ainsi que vos investissements sont exécutés en temps voulu. Cette fonctionnalité rapide vous permet de profiter même des conditions de marché les plus volatiles sans délai.",
+                "title": "Vitesse fulgurante"
+            },
+            "complete": {
+                "intro": "Notre plateforme offre une gamme complète d'outils et de fonctionnalités, notamment un stockage sécurisé et des protocoles de sécurité de pointe, pour protéger vos investissements.",
+                "title": "Solution tout-en-un"
+            },
+            "signal": {
+                "txt": "SIGNAL",
+                "desc": "Koltrum vous permet de recevoir rapidement et efficacement chaque signal. Plus besoin d'attendre longtemps.",
+                "title": "Recevez instantanément les signaux"
+            },
+            "revenue": {
+                "txt": "REVENUS",
+                "desc": "Grandissez avec Koltrum. Nous vous aiderons avec tout ce dont vous pourriez avoir besoin. Nous simplifions les choses.",
+                "title": "Voyez votre crypto grandir"
+            },
+            "reports": {
+                "txt": "RAPPORTS",
+                "desc": "Grandissez avec Koltrum. Nous vous aiderons avec tout ce dont vous pourriez avoir besoin. Nous simplifions les choses.",
+                "title": "Voyez votre crypto grandir"
+            }
+        },
+        "testimonial": {
+            "title": "Témoignage",
+            "intro": "Plus de 2 millions de clients satisfaits et en augmentation",
+            "desc": "Vous pouvez désormais vous concentrer sur d'autres aspects de votre portefeuille de cryptomonnaies, grâce à la puissance de Koltrum, en laissant les aspects techniques entre nos mains. Il est facile de commencer le processus après vérification et approbation.",
+            "usage": {
+                "title": "Utilisé par des millions d'utilisateurs",
+                "range": "DANS LE MONDE ENTIER",
+                "desc": "Vous pouvez obtenir tous les rapports, analyses de données et cartes de croissance dont vous avez besoin avec l'aide de la puissance de Koltrum, et vous pouvez les consulter et les modifier à tout moment. Ces fonctionnalités font de ce tableau de bord un outil exceptionnel.",
+                "month": "Chaque mois, il y a plus de 125+ ventes.",
+                "subscr": "Nous avons 308+ abonnés payants actifs.",
+                "awards": "Nous avons remporté 12 prix jusqu'à présent avec un grand succès."
+            }
+        },
+        "about": {
+            "title": "À propos de nous",
+            "intro": "Bienvenue sur le site officiel de Koltrum",
+            "about": "Koltron a été créé dans le but de fournir aux utilisateurs une expérience de minage sécurisée, efficace et abordable. Nous nous efforçons de proposer à nos utilisateurs une large gamme d'options de minage optimisées pour le marché des cryptomonnaies populaires. Notre infrastructure de minage étendue garantit une rentabilité élevée tout en réduisant la complexité associée au minage des cryptomonnaies. Dès le départ, nous avons entrepris de transformer le processus de minage des cryptomonnaies en une expérience conviviale. Nous avons une équipe dévouée d'experts passionnés par la création d'une infrastructure de minage rapide, sécurisée et conviviale. Notre objectif est de garantir à chacun de nos mineurs toutes les res sources nécessaires pour réussir pleinement et atteindre leurs objectifs de minage.",
+            "desc": "Chez Koltron, nous accordons la priorité à la sécurité, à la fiabilité et à la commodité. Notre configuration de minage est conçue pour offrir les mesures de sécurité les plus avancées afin de protéger les utilisateurs contre toute menace potentielle. La sécurité du stockage des données est notre priorité absolue, et nous veillons à maintenir la sécurité de toutes les informations de nos mineurs. Notre équipe qualifiée de techniciens est dédiée à l'optimisation de notre plateforme de minage afin que nos utilisateurs puissent obtenir."
+        },
+        "contact": {
+            "title": "Nous contacter",
+            "intro": "Si vous avez besoin de nous",
+            "desc": "Merci de vous intéresser à Koltrum ! Nous aimons recevoir des nouvelles de nos clients et nous nous efforçons de fournir le meilleur service client possible. Si vous avez des questions, des commentaires ou des préoccupations, n'hésitez pas à nous contacter.",
+            "email": {
+                "title": "Restez connecté",
+                "intro": "Restez connecté avec le centre d'aide de Koltrum ; Koltrum est disponible pour répondre à vos besoins à tout moment."
+            },
+            "chat": {
+                "title": "Laissez-nous un message",
+                "txt": "Chat en direct",
+                "intro": "Si vous avez des questions ou des suggestions, nous sommes ouverts à vos idées. Parlons, contactez-nous à tout moment."
+            }
+        },
+        "outro": "Avec Koltrum, vous pouvez avoir confiance en notre matériel de qualité, notre service client de premier ordre et des résultats fiables. Nous garantissons une excellente expérience et un rendement maximal sur votre investissement. Rejoignez-nous dès aujourd'hui et commencez à exploiter vos rêves de cryptomonnaie !"
+    },
+    "form": {
+        "name": "Nom",
+        "email": "Adresse e-mail",
+        "password": "Mot de passe",
+        "cpassword": "Confirmez le mot de passe",
+        "address": "Adresse",
+        "tel": "Téléphone",
+        "country": "Pays"
+    },
+    "signin": "Se connecter",
+    "signup": "S'inscrire",
+    "signout": "Se déconnecter",
+    "submit": "Soumettre",
+    "save": "Enregistrer",
+    "newacc": "Créer un compte",
+    "exacc": "Se connecter à un compte existant",
+    "getacc": "Accéder à votre compte",
+    "ctoay": "Créez votre compte dès aujourd'hui",
+    "loading": "Chargement",
+    "back": "Retour"
+}

@@ -1,0 +1,146 @@
+{
+    "locale": {
+        "locale": "Engels",
+        "en": "Engels",
+        "es": "Spaans",
+        "fr": "Frans",
+        "flag": "https://static.vecteezy.com/system/resources/thumbnails/010/870/761/small/american-flag-of-united-states-of-america-png.png"
+    },
+    "app": {
+        "nav": {
+            "dashboard": "Dashboard",
+            "project": "Projecten",
+            "setting": "Instellingen",
+            "wallet": "Portefeuilles",
+            "profile": "Profiel",
+            "lang": "Taal",
+            "exc": "Uitwisseling",
+            "mkt": "Markt",
+            "ico": "ICO",
+            "trade": "Handel"
+        },
+        "dashboard": {
+            "title": "Dashboard",
+            "intro": "Dit is wat er speelt in uw portefeuille.",
+            "npd": "Geen project om weer te geven.",
+            "npdlink": "Maak een miningproject",
+            "trends": {
+                "title": "Trends",
+                "desc": "Huidige cryptotrends in de wereld."
+            },
+            "earning": {
+                "title": "Mogelijke opbrengsten",
+                "desc": "Gegenereerd op basis van projectplannen en live gegevens."
+            },
+            "total": "Totaalbedrag"
+        },
+        "project": {
+            "cpj": "Nieuw project aanmaken",
+            "all": "Alles",
+            "ongoing": "Lopend",
+            "cancelled": "Geannuleerd",
+            "cpt": "Voltooid",
+            "slc": "Selecteer een munt en begin met het creëren van welvaart.",
+            "pay": {
+                "dir": "Doe een betaling naar een van de onderstaande adressen en stuur het transactie-ID of de verstrekte referentie op.",
+                "amount": "Bedrag",
+                "transid": "Transactie-ID"
+            }
+        },
+        "outro": "Bedankt voor het creëren met Koltrum"
+    },
+    "product": {
+        "nav": {
+            "home": "Home",
+            "about": "Over",
+            "features": "Functies",
+            "contact": "Contact"
+        },
+        "home": {
+            "for": "voor",
+            "title": "uw crypto",
+            "intro": "Groei mee met de crypto-wereld zonder handen. Laat ons het werk voor u doen. Mining op zijn best."
+        },
+        "features": {
+            "title": "Een volledig geïntegreerde oplossing",
+            "intro": "Welkom bij het Koltrum crypto-platform, waar uw investeringsreis naar nieuwe hoogten van snelheid en efficiëntie wordt gebracht. Ons platform is ontworpen om zowel beginnende als ervaren investeerders te bedienen, en biedt hen een naadloze en gebruiksvriendelijke ervaring.",
+            "speed": {
+                "intro": "Onze geavanceerde technologie stelt ons in staat om transacties met ongekende snelheid te verwerken, waardoor uw investeringen tijdig worden uitgevoerd. Deze snelle functie garandeert dat investeerders kunnen profiteren van zelfs de meest volatiele marktomstandigheden zonder vertraging.",
+                "title": "Bliksemsnelle snelheid"
+            },
+            "complete": {
+                "intro": "Ons platform biedt een uitgebreid scala aan tools en functies, waaronder veilige opslag en geavanceerde beveiligingsprotocollen, om uw investeringen veilig en beschermd te houden.",
+                "title": "All-in-one oplossing"
+            },
+            "signal": {
+                "txt": "SIGNAL",
+                "desc": "Koltrum maakt het mogelijk om elke signaal snel en effectief te ontvangen. Geen behoefte aan langdurig wachten.",
+                "title": "Ontvang de signalen direct"
+            },
+            "revenue": {
+                "txt": "INKOMSTEN",
+                "desc": "Groei mee met Koltrum. We zullen u helpen met alles wat u nodig heeft. We maken het gemakkelijk en houden het eenvoudig.",
+                "title": "Zie uw crypto groeien"
+            },
+            "reports": {
+                "txt": "RAPPORTEN",
+                "desc": "Groei mee met Koltrum. We zullen u helpen met alles wat u nodig heeft. We maken het gemakkelijk en houden het eenvoudig.",
+                "title": "Zie uw crypto groeien"
+            }
+        },
+        "testimonial": {
+            "title": "Getuigenis",
+            "intro": "Meer dan 2 miljoen tevreden klanten en nog steeds groeiende",
+            "desc": "Dankzij de kracht van Koltrum kunt u zich nu concentreren op andere aspecten van uw cryptoportefeuille en de technische details aan ons overlaten. Het is eenvoudig om het proces te starten na controle en goedkeuring.",
+            "usage": {
+                "title": "Wordt gebruikt door miljoenen gebruikers",
+                "range": "WERELDWIJD",
+                "desc": "Met behulp van de kracht van Koltrum kunt u alle rapporten, gegevensanalyse en groeikaarten krijgen die u nodig heeft, en u kunt ze op elk gewenst moment bekijken en aanpassen. Deze functies maken dit dashboard uitstekend.",
+                "month": "Elke maand zijn er meer dan 125+ verkopen.",
+                "subscr": "We hebben 308+ actieve betaalde abonnees.",
+                "awards": "We hebben tot nu toe 12 prijzen gewonnen met groot succes."
+            }
+        },
+        "about": {
+            "title": "Over ons",
+            "intro": "Welkom op de officiële website van Koltrum",
+            "about": "Koltron is opgericht met als doel gebruikers een veilige, efficiënte en betaalbare mining-ervaring te bieden. We streven ernaar onze gebruikers uitgebreide mining-opties te bieden die zijn geoptimaliseerd voor de populaire cryptocurrency-markt. Onze uitgebreide mining-opstelling zorgt voor hoge winstgevendheid en vermindert de complexiteit die gepaard gaat met cryptocurrency-mining. Vanaf het begin hebben we ons ingezet om het cryptocurrency-miningproces te veranderen in een gebruiksvriendelijke ervaring. We hebben een toegewijd team van experts die gepassioneerd zijn om een snelle, veilige en gebruiksvriendelijke mining-infrastructuur te creëren. Ons doel is om ervoor te zorgen dat al onze mijnwerkers over alle middelen beschikken die nodig zijn om volledig succesvol te zijn en hun miningdoelen te bereiken.",
+            "desc": "Bij Koltron hebben we veiligheid, beveiliging en gemak als prioriteit. Onze mining-opstelling is ontworpen om de meest geavanceerde beveiligingsmaatregelen te bieden om gebruikers te beschermen tegen mogelijke bedreigingen. Veilige gegevensopslag heeft onze hoogste prioriteit en we zorgen ervoor dat alle informatie van onze mijnwerkers veilig wordt bewaard. Ons team van deskundige technici is toegewijd aan het optimaliseren van ons mining-platform, zodat onze gebruikers het maximale rendement kunnen behalen."
+        },
+        "contact": {
+            "title": "Neem contact met ons op",
+            "intro": "Als u ons nodig heeft",
+            "desc": "Bedankt voor uw interesse in Koltrum! We horen graag van onze klanten en streven ernaar de beste klantenservice te bieden. Als u vragen, feedback of zorgen heeft, neem dan gerust contact met ons op.",
+            "email": {
+                "title": "Blijf verbonden",
+                "intro": "Blijf verbonden met het Helpcentrum van Koltrum; Koltrum staat altijd voor uw behoeften klaar."
+            },
+            "chat": {
+                "title": "Stuur ons een bericht",
+                "txt": "Live Chat",
+                "intro": "Als u een vraag of suggestie heeft, staan we open om van u te leren. Laten we praten, neem op elk moment contact met ons op."
+            }
+        },
+        "outro": "Bij Koltrum kunt u erop vertrouwen dat u altijd in goede handen bent met hoogwaardige apparatuur, eersteklas klantenservice en betrouwbare resultaten. We garanderen een uitstekende ervaring en een maximaal rendement op uw investering. Dus sluit u vandaag nog bij ons aan en begin met het delven van uw crypto-dromen!"
+    },
+    "form": {
+        "name": "Naam",
+        "email": "E-mailadres",
+        "password": "Wachtwoord",
+        "cpassword": "Bevestig wachtwoord",
+        "address": "Adres",
+        "tel": "Telefoon",
+        "country": "Land"
+    },
+    "signin": "Aanmelden",
+    "signup": "Registreren",
+    "signout": "Uitloggen",
+    "submit": "Verzenden",
+    "save": "Opslaan",
+    "newacc": "Maak een account aan",
+    "exacc": "Meld u aan bij een bestaand account",
+    "getacc": "Krijg toegang tot uw account",
+    "ctoay": "Maak vandaag uw account aan",
+    "loading": "Laden",
+    "back": "Terug"
+}
