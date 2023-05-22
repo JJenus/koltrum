@@ -1,84 +1,72 @@
 <script setup>
-	import { onMounted, ref } from "vue";
-	import axios from "axios";
+import { inject, onMounted, ref } from "vue";
+import axios from "axios";
+import Project from "../app/projects/project.vue";
+import { alert } from "../../stores/utility";
 
-	import Project from "../app/projects/project.vue";
+const env = import.meta.env;
 
-	const env = import.meta.env;
+const deleteClient = inject("deleteClient");
 
-	const props = defineProps({
-		user: {
-			required: true,
-		},
-	});
+const props = defineProps({
+	user: {
+		required: true,
+	},
+});
 
-	const loading = ref(true);
+const loading = ref(true);
+const deleting = ref(false);
 
-	const projects = ref([
-		{
-			value: 60,
-			name: "BTC",
-			status: "completed",
-			plan: {
-				name: "Premium",
-				amount: 3000,
-				returns: 10000,
-			},
-			itemStyle: {
-				color: "#f2a900",
-			},
-		},
-		{
-			value: 2538,
-			name: "ETH",
-			status: "cancelled",
-			plan: {
-				name: "Starter",
-				amount: 500,
-				returns: 3000,
-			},
-			itemStyle: {
-				color: "#c99d66",
-			},
-		},
-		{
-			value: 1562,
-			name: "XRP",
-			status: "ongoing",
-			plan: {
-				name: "Standard",
-				amount: 1000,
-				returns: 6000,
-			},
-			itemStyle: {
-				color: "#006097",
-			},
-		},
-	]);
+const projects = ref([]);
 
-	function loadProjects() {
-		let config = {
-			method: "GET",
-			url: `${env.VITE_BE_API}/users/${props.user.id}/projects`,
-		};
+function loadProjects() {
+	let config = {
+		method: "GET",
+		url: `${env.VITE_BE_API}/users/${props.user.id}/projects`,
+	};
 
-		axios
-			.request(config)
-			.then((response) => {
-				// console.log("user projects", response.data);
-				projects.value = response.data;
-			})
-			.catch(function (error) {
-				// console.log(error);
-			})
-			.finally(() => {
-				loading.value = false;
-			});
-	}
+	axios
+		.request(config)
+		.then((response) => {
+			// console.log("user projects", response.data);
+			projects.value = response.data;
+		})
+		.catch(function (error) {
+			// console.log(error);
+		})
+		.finally(() => {
+			loading.value = false;
+		});
+}
 
-	onMounted(() => {
-		loadProjects();
-	});
+function deleteUser() {
+	deleting.value = true;
+	let config = {
+		method: "DELETE",
+		url: `${env.VITE_BE_API}/users/${props.user.id}`,
+	};
+
+	axios
+		.request(config)
+		.then((response) => {
+			window.debug.log(response.data);
+			alert.success("deleted!");
+			deleting.value = false;
+			setTimeout(() => {
+				deleteClient(props.user.id);
+			}, 2000);
+		})
+		.catch(function (error) {
+			window.debug.log(error);
+		})
+		.finally(() => {
+			deleting.value = false;
+		});
+}
+
+onMounted(() => {
+	loadProjects();
+});
 </script>
 
 <template>
@@ -217,13 +205,20 @@
 				</li>
 			</ul>
 			<div class="p-3 d-flex justify-content-between">
-				<a class="btn btn-link p-0 text-decoration-none" href="#!"
-					>Details </a
-				><a
-					class="btn btn-link p-0 text-decoration-none text-danger"
-					href="#!"
-					>Unassign
+				<a class="btn btn-link p-0 text-decoration-none" href="#!">
+					Details
 				</a>
+				<button
+					:class="deleting ? 'disabled' : ''"
+					@click="deleteUser()"
+					class="btn btn-link p-0 text-decoration-none text-danger"
+				>
+					<span
+						v-if="deleting"
+						class="spinner-border spinner-border-sm"
+					></span>
+					<span v-else>Delete</span>
+				</button>
 			</div>
 		</div>
 	</div>
@@ -256,7 +251,12 @@
 						</h1>
 					</div>
 
-					<div v-if="projects.length == 0" class="text-center text-muted my-4">No subscription found</div>
+					<div
+						v-if="projects.length == 0"
+						class="text-center text-muted my-4"
+					>
+						No subscription found
+					</div>
 
 					<div class="row g-4 row-cols-1 row-cols-md-2">
 						<div v-for="project in projects" class="col">
@@ -268,3 +268,17 @@
 		</div>
 	</div>
 </template>
+
+<!-- // {
+	// 	value: 60,
+	// 	name: "BTC",
+	// 	status: "completed",
+	// 	plan: {
+	// 		name: "Premium",
+	// 		amount: 3000,
+	// 		returns: 10000,
+	// 	},
+	// 	itemStyle: {
+	// 		color: "#f2a900", 
+	// 	},
+	// }, -->

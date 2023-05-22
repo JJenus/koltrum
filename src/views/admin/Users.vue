@@ -1,21 +1,26 @@
 <script setup>
-	import { onMounted, ref } from "vue";
-	import User from "../../components/admin/User.vue";
-	import axios from "axios";
-	import { koltrum, util } from "../../stores/utility.js";
+import { onMounted, provide, ref } from "vue";
+import User from "../../components/admin/User.vue";
+import axios from "axios";
+import { koltrum, util } from "../../stores/utility.js";
 
-	const env = import.meta.env;
+const env = import.meta.env;
 
-	const users = ref([]);
+const users = ref([]);
 
-	function search($evt) {
-		util.search(".user", $evt.target.value);
-		// console.log($evt.target.value);
-	}
+function deleteUser(id) {
+	users.value = users.value.filter((e) => e.id !== id);
+}
+provide("deleteClient", deleteUser);
 
-	onMounted(async () => {
-		users.value = await koltrum.loadUsers();
-	});
+function search($evt) {
+	util.search(".user", $evt.target.value);
+	// console.log($evt.target.value);
+}
+
+onMounted(async () => {
+	users.value = await koltrum.loadUsers();
+});
 </script>
 
 <template>
