@@ -16,7 +16,7 @@ const props = defineProps({
 
 const loading = ref(true);
 const deleting = ref(false);
-
+const confirmDel = ref(false);
 const projects = ref([]);
 
 function loadProjects() {
@@ -40,6 +40,7 @@ function loadProjects() {
 }
 
 function deleteUser() {
+	confirmDel.value = false;
 	deleting.value = true;
 	let config = {
 		method: "DELETE",
@@ -204,21 +205,39 @@ onMounted(() => {
 					></a>
 				</li>
 			</ul>
-			<div class="p-3 d-flex justify-content-between">
-				<a class="btn btn-link p-0 text-decoration-none" href="#!">
-					Details
-				</a>
-				<button
-					:class="deleting ? 'disabled' : ''"
-					@click="deleteUser()"
-					class="btn btn-link p-0 text-decoration-none text-danger"
-				>
-					<span
-						v-if="deleting"
-						class="spinner-border spinner-border-sm"
-					></span>
-					<span v-else>Delete</span>
-				</button>
+			<div class="p-3">
+				<div v-if="!confirmDel" class="d-flex justify-content-between">
+					<a class="btn btn-link p-0 text-decoration-none" href="#!">
+						Details
+					</a>
+
+					<button
+						@click="confirmDel = true"
+						:class="deleting ? 'disabled' : ''"
+						class="btn btn-link p-0 text-decoration-none text-danger"
+					>
+						<span
+							v-if="deleting"
+							class="spinner-border spinner-border-sm"
+						></span>
+						<span v-else>Delete</span>
+					</button>
+				</div>
+				<div v-else class="d-flex justify-content-around align-items-center">
+					<span class="me-2">Are you sure</span>
+					<button
+						@click="confirmDel = false"
+						class="btn btn-primary btn-icon me-2"
+					>
+						NO
+					</button>
+					<button
+						@click="deleteUser()"
+						class="btn btn-danger btn-icon"
+					>
+						Yes
+					</button>
+				</div>
 			</div>
 		</div>
 	</div>
