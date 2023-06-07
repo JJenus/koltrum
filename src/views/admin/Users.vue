@@ -1,7 +1,6 @@
 <script setup>
 import { onMounted, provide, ref } from "vue";
 import User from "../../components/admin/User.vue";
-import axios from "axios";
 import { koltrum, util } from "../../stores/utility.js";
 
 const env = import.meta.env;

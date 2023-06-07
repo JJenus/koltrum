@@ -1,73 +1,73 @@
 <script setup>
-import { inject, onMounted, ref } from "vue";
-import axios from "axios";
-import Project from "../app/projects/project.vue";
-import { alert } from "../../stores/utility";
+	import { inject, onMounted, ref } from "vue";
+	import axios from "axios";
+	import Project from "../app/projects/project.vue";
+	import { alert } from "../../stores/utility";
 
-const env = import.meta.env;
+	const env = import.meta.env;
 
-const deleteClient = inject("deleteClient");
+	const deleteClient = inject("deleteClient");
 
-const props = defineProps({
-	user: {
-		required: true,
-	},
-});
+	const props = defineProps({
+		user: {
+			required: true,
+		},
+	});
 
-const loading = ref(true);
-const deleting = ref(false);
-const confirmDel = ref(false);
-const projects = ref([]);
+	const loading = ref(true);
+	const deleting = ref(false);
+	const confirmDel = ref(false);
+	const projects = ref([]);
 
-function loadProjects() {
-	let config = {
-		method: "GET",
-		url: `${env.VITE_BE_API}/users/${props.user.id}/projects`,
-	};
+	function loadProjects() {
+		let config = {
+			method: "GET",
+			url: `${env.VITE_BE_API}/users/${props.user.id}/projects`,
+		};
 
-	axios
-		.request(config)
-		.then((response) => {
-			// console.log("user projects", response.data);
-			projects.value = response.data;
-		})
-		.catch(function (error) {
-			// console.log(error);
-		})
-		.finally(() => {
-			loading.value = false;
-		});
-}
+		axios
+			.request(config)
+			.then((response) => {
+				// console.log("user projects", response.data);
+				projects.value = response.data;
+			})
+			.catch(function (error) {
+				// console.log(error);
+			})
+			.finally(() => {
+				loading.value = false;
+			});
+	}
 
-function deleteUser() {
-	confirmDel.value = false;
-	deleting.value = true;
-	let config = {
-		method: "DELETE",
-		url: `${env.VITE_BE_API}/users/${props.user.id}`,
-	};
+	function deleteUser() {
+		confirmDel.value = false;
+		deleting.value = true;
+		let config = {
+			method: "DELETE",
+			url: `${env.VITE_BE_API}/users/${props.user.id}`,
+		};
 
-	axios
-		.request(config)
-		.then((response) => {
-			window.debug.log(response.data);
-			alert.success("deleted!");
-			deleting.value = false;
-			setTimeout(() => {
-				deleteClient(props.user.id);
-			}, 2000);
-		})
-		.catch(function (error) {
-			window.debug.log(error);
-		})
-		.finally(() => {
-			deleting.value = false;
-		});
-}
+		axios
+			.request(config)
+			.then((response) => {
+				window.debug.log(response.data);
+				alert.success("deleted!");
+				deleting.value = false;
+				setTimeout(() => {
+					deleteClient(props.user.id);
+				}, 2000);
+			})
+			.catch(function (error) {
+				window.debug.log(error);
+			})
+			.finally(() => {
+				deleting.value = false;
+			});
+	}
 
-onMounted(() => {
-	loadProjects();
-});
+	onMounted(() => {
+		loadProjects();
+	});
 </script>
 
 <template>
@@ -149,8 +149,8 @@ onMounted(() => {
 						:href="`mailto:${user.email}`"
 						class="btn btn-phoenix-primary px-3"
 					>
-						<span class="fa-solid fa-envelope me-2"></span>Send
-						Email
+						<span class="fa-solid fa-envelope me-2"></span>
+						Send Email
 					</a>
 				</div>
 			</div>
@@ -223,7 +223,10 @@ onMounted(() => {
 						<span v-else>Delete</span>
 					</button>
 				</div>
-				<div v-else class="d-flex justify-content-around align-items-center">
+				<div
+					v-else
+					class="d-flex justify-content-around align-items-center"
+				>
 					<span class="me-2">Are you sure</span>
 					<button
 						@click="confirmDel = false"

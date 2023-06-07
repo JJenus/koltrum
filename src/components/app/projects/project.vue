@@ -74,7 +74,7 @@
 			return;
 		}
 
-		props.project.value += Number(returns.value);
+		props.project.value = Number(props.project.value) + Number(returns.value);
 
 		confirmPay();
 	}
@@ -205,7 +205,7 @@
 						<label for="">Enter amount</label>
 						<input
 							v-model="returns"
-							type="text"
+							type="number"
 							class="me-2 form-control"
 						/>
 					</div>
