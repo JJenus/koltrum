@@ -61,7 +61,7 @@
 				alert.success();
 			})
 			.catch(function (error) {
-				// console.log(error);
+				window.debug.log(error);
 			})
 			.finally(() => {
 				loading.value = false;
@@ -69,14 +69,19 @@
 	}
 
 	function save() {
-		if (!returns.value || !returns.value.trim()) {
-			alert.error("Form error", "Enter a valid amount");
-			return;
+		try {
+			if (!returns.value) {
+				alert.error("Form error", "Enter a valid amount");
+				return;
+			}
+
+			props.project.value =
+				Number(props.project.value) + Number(returns.value);
+
+			confirmPay();
+		} catch (error) {
+			alert.error();
 		}
-
-		props.project.value = Number(props.project.value) + Number(returns.value);
-
-		confirmPay();
 	}
 
 	function fDate(dtime) {
