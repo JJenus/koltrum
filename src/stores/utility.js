@@ -2,6 +2,7 @@ import { ref } from "vue";
 import swal from "sweetalert";
 import moment from "moment";
 import axios from "axios";
+import currency from "currency.js";
 
 const env = import.meta.env;
 
@@ -114,6 +115,19 @@ export const util = {
 		// }
 
 		return fromNow;
+	},
+
+	money(money) {
+		const config = inject("settings", {
+			currency: "USD",
+			currencySymbol: "$",
+			language: "en",
+			verificationFee: 5,
+		})
+		const amount = currency(money, {
+			symbol: config.value.currencySymbol,
+		}).format();
+		return amount;
 	},
 };
 

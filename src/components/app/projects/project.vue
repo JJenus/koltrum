@@ -3,6 +3,7 @@
 	import axios from "axios";
 	import moment from "moment";
 	import { alert } from "@/stores/utility";
+	import WithdrawModalContent from "./WithdrawModalContent.vue";
 
 	const env = import.meta.env;
 	const loading = ref(false);
@@ -96,6 +97,19 @@
 	});
 </script>
 <template>
+	<div
+		class="modal fade"
+		:id="'withdrawal_modal_' + project.id"
+		tabindex="-1"
+		bis_skin_checked="1"
+		style="display: none"
+		aria-hidden="true"
+	>
+		<div class="modal-dialog modal-dialog-centered" bis_skin_checked="1">
+			<WithdrawModalContent />
+		</div>
+	</div>
+
 	<div class="card h-100 hover-actions-trigger">
 		<div class="card-body">
 			<div class="d-flex align-items-center">
@@ -112,6 +126,9 @@
 					</button>
 					<button
 						v-else
+						type="button"
+						data-bs-toggle="modal"
+						:data-bs-target="'#withdrawal_modal_' + project.id"
 						class="btn btn-primary btn-icon flex-shrink-0"
 					>
 						<span class="fa-solid fa-wallet"></span>
