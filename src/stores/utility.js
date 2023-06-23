@@ -1,4 +1,4 @@
-import { ref } from "vue";
+import { inject, ref } from "vue";
 import swal from "sweetalert";
 import moment from "moment";
 import axios from "axios";
@@ -123,8 +123,9 @@ export const util = {
 			currencySymbol: "$",
 			language: "en",
 			verificationFee: 5,
-		})
-		const amount = currency(money, {
+		});
+		
+		const amount =  currency(money, {
 			symbol: config.value.currencySymbol,
 		}).format();
 		return amount;

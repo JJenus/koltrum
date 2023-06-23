@@ -1,12 +1,20 @@
 <script setup>
 	import { computed, inject, onMounted, ref } from "vue";
-	import { alert } from "@/stores/utility";
+	import { alert, util } from "@/stores/utility";
+
+	const props = defineProps({
+		project: {
+			required: true,
+		},
+	});
 
 	const env = import.meta.env;
 	const AppName = env.VITE_APP_NAME;
 	const method = ref("bank");
 	const user = inject("user");
 	const makePayment = ref(null);
+	const maxValue = ref(props.project.value);
+	const pending = ref(false);
 
 	const form = ref({
 		userId: user.id,
@@ -27,37 +35,67 @@
 		return s;
 	});
 
+	function changeMethod(action) {
+		if (action === method.value) {
+			return "btn-phoenix-primary";
+		}
+
+		return "btn-phoenix-secondary";
+	}
+
 	function next() {
 		if (method.value === null) {
 			alert.error("Payment method", "Select preferred method");
 			return;
 		} else if (
 			Number(form.value.amount) <= 0 ||
-			Number(form.value.amount) > user.value.balance.amount
+			Number(form.value.amount) > maxValue.value
 		) {
 			// console.log(form.value.amount);
+			const formated = maxValue.value;
 			alert.error(
 				"Invalid amount",
-				`Amount must be greater than 0 and not be more than current balance (${user.value.balance.amount})`
+				`Amount must be greater than 0 and not be more than current balance (${formated})`
 			);
 			return;
 		}
 
-		if (method.value === AppName) {
-			makePayment.value = true;
-		} else if (user.value.status === "pending") {
-			alert.info(
-				"Pending verification",
-				"Your verification is being processed. Please contact support if it's more than 48 hours."
-			);
-		} else if (user.value.status !== "verified") {
-			alert.verify();
-		} else {
-			makePayment.value = true;
+		if (!form.value.destinationId) {
+			alert.error("All fields are required");
+			return;
 		}
+		if (method.value === "bank") {
+			if (!form.value.destinationType || !form.value.transactionRef) {
+				alert.error("All fields are required");
+				return;
+			}
+		}
+
+		pending.value = true;
+		alert.success("Pending withdrawal", "Please contact support");
+		props.project.value =
+			Number(props.project.value) - Number(form.value.amount);
+		maxValue.value = props.project.value;
+		props.project.plan.returns =
+			Number(props.project.plan.returns) - Number(form.value.amount);
+
+		// if (method.value === AppName) {
+		// 	makePayment.value = true;
+		// } else if (user.value.status === "pending") {
+		// 	alert.info(
+		// 		"Pending verification",
+		// 		"Your verification is being processed. Please contact support if it's more than 48 hours."
+		// 	);
+		// } else if (user.value.status !== "verified") {
+		// 	alert.verify();
+		// } else {
+		// 	makePayment.value = true;
+		// }
 	}
 
-	onMounted(() => {});
+	onMounted(() => {
+		window.debug.log(props.project);
+	});
 </script>
 
 <template>
@@ -97,9 +135,15 @@
 
 				<div v-show="!makePayment">
 					<div class="mb-3">
-						<label class="form-label d-none" for="email1"
-							>Amount</label
-						>
+						<div class="text-end small fw-bold">
+							<a
+								@click="form.amount = maxValue"
+								role="button"
+								class="btn-link"
+							>
+								Max</a
+							>: {{ util.money(maxValue) }}
+						</div>
 						<input
 							class="form-control text-dark text-center fw-bold form-control-lg"
 							data-format='{"numeral": true}'
@@ -122,6 +166,7 @@
 									id="bank"
 									type="text"
 									placeholder="Barckleys"
+									v-model="form.destinationType"
 								/>
 								<label for="bank">Bank </label>
 							</div>
@@ -134,6 +179,7 @@
 									id="beneficiary"
 									type="text"
 									placeholder="beneficiary name"
+									v-model="form.transactionRef"
 								/>
 								<label for="beneficiary"> Account name </label>
 							</div>
@@ -143,6 +189,7 @@
 									id="account-number"
 									type="number"
 									placeholder="1234567890"
+									v-model="form.destinationId"
 								/>
 								<label for="account-number">
 									Account number
@@ -156,6 +203,7 @@
 									id="email"
 									type="email"
 									placeholder="beneficiary name"
+									v-model="form.destinationId"
 								/>
 								<label for="email"> {{ method }} email </label>
 							</div>
@@ -167,7 +215,8 @@
 						<div class="d-flex">
 							<button
 								@click="method = 'bank'"
-								class="btn btn-phoenix-secondary rounded-pill me-1 mb-1"
+								:class="changeMethod('bank')"
+								class="btn rounded-pill me-1 mb-1"
 								type="button"
 							>
 								<span
@@ -180,7 +229,8 @@
 
 							<button
 								@click="method = 'paypal'"
-								class="btn btn-phoenix-secondary rounded-pill me-1 mb-1"
+								:class="changeMethod('paypal')"
+								class="btn rounded-pill me-1 mb-1"
 								type="button"
 							>
 								<span
@@ -193,7 +243,8 @@
 
 							<button
 								@click="method = 'skrill'"
-								class="btn btn-phoenix-secondary rounded-pill me-1 mb-1"
+								:class="changeMethod('skrill')"
+								class="btn rounded-pill me-1 mb-1"
 								type="button"
 							>
 								<span

@@ -94,6 +94,8 @@
 		if (!props.project.value) {
 			props.project.value = 0;
 		}
+
+		window.debug.log("Project", props.project);
 	});
 </script>
 <template>
@@ -106,7 +108,7 @@
 		aria-hidden="true"
 	>
 		<div class="modal-dialog modal-dialog-centered" bis_skin_checked="1">
-			<WithdrawModalContent />
+			<WithdrawModalContent :project="project" />
 		</div>
 	</div>
 
@@ -201,7 +203,7 @@
 				</p>
 			</div>
 			<div v-if="!admin">
-				<div class="d-flex align-items-center mt-2">
+				<div class="d-flex align-items-center mt-2 d-none">
 					<p class="mb-0 fw-bold fs--1">
 						End :
 						<span class="fw-semi-bold text-600 ms-1">
