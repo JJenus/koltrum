@@ -1,6 +1,7 @@
 <script setup>
-	import { computed, inject, onMounted, ref } from "vue";
+	import { inject, onMounted, ref } from "vue";
 	import { alert, util } from "@/stores/utility";
+	import axios from "axios";
 
 	const props = defineProps({
 		project: {
@@ -9,39 +10,42 @@
 	});
 
 	const env = import.meta.env;
-	const AppName = env.VITE_APP_NAME;
-	const method = ref("bank");
+	const settings = inject("settings");
 	const user = inject("user");
+	const loading = ref(false);
+
+	const method = ref("bank");
 	const makePayment = ref(null);
 	const maxValue = ref(props.project.value);
 	const pending = ref(false);
 
+	function cancelled() {
+		return Number(maxValue.value) <= Number(form.value.amount);
+	}
+
 	const form = ref({
-		userId: user.id,
+		userId: user.value.id,
+		userProjectId: props.project.id,
 		amount: 0,
-		currency: "",
+		currency: settings.value.currencySymbol,
 		transactionRef: "",
+		source: "",
 		status: "pending",
 		destinationType: "",
 		destinationId: "",
 	});
 
-	const icon = computed(() => {
-		let s = "fas fa-bank";
-		if (method == "skrill") return "fab fa-skrill-s";
-		else if (method == "bank") return "fas fa-bank";
-		else "fab fa-" + method;
-
-		return s;
-	});
-
 	function changeMethod(action) {
 		if (action === method.value) {
+			form.value.destinationType = action;
 			return "btn-phoenix-primary";
 		}
 
 		return "btn-phoenix-secondary";
 	}
+	/**
+	 * ALTER TABLE `withdrawal_transaction` CHANGE `destination_id` `destination_id` VARCHAR(255) NULL DEFAULT NULL;
+	 */
 
 	function next() {
 		if (method.value === null) {
@@ -71,30 +75,52 @@
 			}
 		}
 
-		pending.value = true;
-		alert.success("Pending withdrawal", "Please contact support");
-		props.project.value =
-			Number(props.project.value) - Number(form.value.amount);
-		maxValue.value = props.project.value;
-		props.project.plan.returns =
-			Number(props.project.plan.returns) - Number(form.value.amount);
+		makeWithdraw();
 
-		// if (method.value === AppName) {
-		// 	makePayment.value = true;
-		// } else if (user.value.status === "pending") {
-		// 	alert.info(
-		// 		"Pending verification",
-		// 		"Your verification is being processed. Please contact support if it's more than 48 hours."
-		// 	);
-		// } else if (user.value.status !== "verified") {
-		// 	alert.verify();
-		// } else {
-		// 	makePayment.value = true;
-		// }
+		window.debug.log(form.value);
+	}
+
+	function makeWithdraw() {
+		const config = {
+			method: "POST",
+			url: `${env.VITE_BE_API}/users/withdraw`,
+			data: form.value,
+		};
+
+		axios
+			.request(config)
+			.then((response) => {
+				pending.value = true;
+				alert.success("Pending withdrawal", "Please contact support");
+				let balance =
+					Number(props.project.value) - Number(form.value.amount);
+
+				maxValue.value = props.project.value;
+
+				props.project.plan.returns =
+					Number(props.project.plan.returns) -
+					Number(form.value.amount);
+
+				props.project.value = balance;
+
+				if (balance < 1) {
+					props.project.status = "cancelled";
+				}
+			})
+			.catch(function (error) {
+				window.debug.log(error);
+				alert.error(
+					"Unable to complete transaction",
+					"Kindly contact support."
+				);
+			})
+			.finally(() => {
+				loading.value = false;
+			});
 	}
 
 	onMounted(() => {
-		window.debug.log(props.project);
+		// window.debug.log(props.project);
 	});
 </script>
 
@@ -105,7 +131,8 @@
 				class="d-flex justify-content-center align-items-end w-100 fs-2"
 				id="staticBackdropLabel"
 			>
-				<i :class="icon" class="me-2 fs-1 mb-2 pb-1"></i>
+				<i class="fab fa-paypal d-none me-2 fs-1 mb-2 pb-1"></i>
+
 				<span class="">Withdraw</span>
 			</div>
 			<div class="position-absolute p-0 m-3 top-0 end-0">
@@ -150,6 +177,14 @@
 							type="text"
 							v-model="form.amount"
 						/>
+						<div
+							class="text-danger small mt-2 text-mutedi"
+							v-if="cancelled()"
+						>
+							<span class="fw-bold">Please note</span>:
+							Withdrawing all the profits will auto cancel the
+							project.
+						</div>
 					</div>
 					<div class="mb-3">
 						<div class="mb-2 fw-bold">
@@ -166,7 +201,7 @@
 									id="bank"
 									type="text"
 									placeholder="Barckleys"
-									v-model="form.destinationType"
+									v-model="form.source"
 								/>
 								<label for="bank">Bank </label>
 							</div>
@@ -197,6 +232,7 @@
 							</div>
 						</div>
 						<div v-else>
+							<input type="text" class="d-none" />
 							<div class="form-floating" bis_skin_checked="1">
 								<input
 									class="form-control is-inivalid"
@@ -261,7 +297,7 @@
 						type="submit"
 						@click="next()"
 					>
-						<span>
+						<span v-if="!loading">
 							Send
 							<span v-if="method">
 								to
@@ -270,6 +306,10 @@
 								</span>
 							</span>
 						</span>
+						<span
+							v-else
+							class="spinner-border spinner-border-sm"
+						></span>
 					</button>
 				</div>
 			</div>
