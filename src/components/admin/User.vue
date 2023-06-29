@@ -3,6 +3,7 @@
 	import axios from "axios";
 	import Project from "../app/projects/project.vue";
 	import { alert } from "../../stores/utility";
+	import Transactions from "./Transactions.vue";
 
 	const env = import.meta.env;
 
@@ -207,8 +208,13 @@
 			</ul>
 			<div class="p-3">
 				<div v-if="!confirmDel" class="d-flex justify-content-between">
-					<a class="btn btn-link p-0 text-decoration-none" href="#!">
-						Details
+					<a
+						class="btn btn-link p-0 text-decoration-none"
+						data-bs-toggle="modal"
+						:href="`#withdrawals-modal-${user.id}`"
+						role="button"
+					>
+						Withdrawals
 					</a>
 
 					<button
@@ -285,6 +291,41 @@
 							<Project :admin="true" :project="project" />
 						</div>
 					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div
+		class="modal fade"
+		:id="`withdrawals-modal-${user.id}`"
+		tabindex="-1"
+		:aria-labelledby="`withdrawals-modal-${user.id}`"
+		aria-hidden="true"
+	>
+		<div class="modal-dialog modal-lg modal-fullscreen-sm-down">
+			<div class="modal-content">
+				<div class="modal-body position-relative pb-5">
+					<div class="position-absolute top-0 end-0 m-2">
+						<button
+							type="button"
+							class="btn btn-outline-danger btn-icon fs-1 border-0"
+							data-bs-dismiss="modal"
+							aria-label="Close"
+						>
+							<i class="fa-solid fa-times"></i>
+						</button>
+					</div>
+
+					<div class="mb-5 text-center">
+						<h1 class="h3">
+							{{ user.name }}
+							<span class="text-muted">Withdrawals</span>
+						</h1>
+					</div>
+
+					<Transactions :user-id="user.id"/>
+					
 				</div>
 			</div>
 		</div>

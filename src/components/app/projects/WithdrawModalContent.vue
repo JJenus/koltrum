@@ -2,6 +2,7 @@
 	import { inject, onMounted, ref } from "vue";
 	import { alert, util } from "@/stores/utility";
 	import axios from "axios";
+	import History from "./History.vue";
 
 	const props = defineProps({
 		project: {
@@ -13,6 +14,7 @@
 	const settings = inject("settings");
 	const user = inject("user");
 	const loading = ref(false);
+	const showHistory = ref(false);
 
 	const method = ref("bank");
 	const makePayment = ref(null);
@@ -34,6 +36,11 @@
 		destinationType: "",
 		destinationId: "",
 	});
+
+	function toggleMode() {
+		showHistory.value = !showHistory.value;
+		window.debug.log(showHistory.value);
+	}
 
 	function changeMethod(action) {
 		if (action === method.value) {
@@ -127,13 +134,24 @@
 <template>
 	<div class="modal-content border rounded-4">
 		<div class="modal-header position-relative border-0">
+			<div class="d-nonei">
+				<button
+					@click="toggleMode()"
+					class="btn btn-secondary btn-icon"
+				>
+					<span v-if="showHistory">
+						<i class="fa-solid fa-exchange-alt m-0 p-0"></i>
+					</span>
+					<span v-else>
+						<i class="fa-solid fa-history m-0 p-0"></i>
+					</span>
+				</button>
+			</div>
 			<div
-				class="d-flex justify-content-center align-items-end w-100 fs-2"
-				id="staticBackdropLabel"
+				class="d-flex justify-content-center align-items-end w-100 fs-1"
 			>
-				<i class="fab fa-paypal d-none me-2 fs-1 mb-2 pb-1"></i>
-
-				<span class="">Withdraw</span>
+				<span v-if="!showHistory" class="ms-n6">Withdraw</span>
+				<span v-else class="ms-n6">History</span>
 			</div>
 			<div class="position-absolute p-0 m-3 top-0 end-0">
 				<button
@@ -146,7 +164,8 @@
 			</div>
 		</div>
 		<div class="modal-body">
-			<div class="d-flex justify-content-center">
+			<History v-if="showHistory" :project-id="project.id" />
+			<div v-else class="d-flex justify-content-center">
 				<div v-show="makePayment">
 					<h5 class="text-capitalize ms-n3">
 						<a
