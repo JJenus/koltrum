@@ -55,10 +55,6 @@
 
 <template>
 	<div class="table-responsive">
-		<div v-if="withdrawals.length == 0" class="text-center">
-			<span v-if="loading" class="spinner-border"></span>
-			<span v-else class="text-muted">No withdrawal history</span>
-		</div>
 		<table class="table table-sm table-borderlessi text-700">
 			<thead class="fs--2 text-900">
 				<tr class="bg-grey-200">
@@ -107,6 +103,10 @@
 				</tr>
 			</tbody>
 		</table>
+		<div v-if="withdrawals.length == 0" class="text-center">
+			<span v-if="loading" class="spinner-border"></span>
+			<span v-else class="text-muted">No withdrawal history</span>
+		</div>
 	</div>
 </template>
 
