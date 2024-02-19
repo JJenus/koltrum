@@ -24,6 +24,8 @@
 		return status == "completed"
 			? "badge-phoenix-success"
 			: status === "ongoing"
+			? "badge-phoenix-info"
+			: status === "pending"
 			? "badge-phoenix-warning"
 			: "badge-phoenix-danger";
 	}

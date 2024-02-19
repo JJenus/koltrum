@@ -98,6 +98,8 @@
 			data: form.value,
 		};
 
+		loading.value = true;
+
 		axios
 			.request(config)
 			.then((response) => {
