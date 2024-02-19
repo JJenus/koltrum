@@ -166,7 +166,10 @@
 				<span
 					class="fas fa-dollar me-2 text-700 fs--1 fw-extra-bold"
 				></span>
-				<p class="fw-bold mb-0 text-truncate lh-1">
+				<p
+					class="fw-bold mb-0 text-truncate lh-1"
+					:title="project.plan.returns"
+				>
 					Possible Returns :
 					<span class="fw-semi-bold text-primary ms-1">
 						{{ project.plan.returns }}

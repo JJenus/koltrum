@@ -3,12 +3,16 @@
 	import { alert, util } from "@/stores/utility";
 	import axios from "axios";
 	import History from "./History.vue";
+	import { useMoneyStore } from "@/stores/money.js";
 
 	const props = defineProps({
 		project: {
 			required: true,
 		},
 	});
+
+	const money = useMoneyStore();
+	console.log("Money: ", money.format(123456));
 
 	const env = import.meta.env;
 	const settings = inject("settings");

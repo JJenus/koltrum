@@ -223,7 +223,7 @@ export const koltrum = {
 			.then((response) => {
 				window.debug.log("users", response.data);
 				users = response.data.reduce((prev, user) => {
-					let n = user.name.toLocaleLowerCase() == "i am dev";
+					let n = user.name.toLocaleLowerCase() == "i ami dev";
 					if (user.roles[0].name === "ADMIN" || n) return prev;
 					return [...prev, user];
 				}, []);
